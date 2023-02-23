@@ -1,6 +1,10 @@
 const express = require('express')
+// const { Db } = require('mongodb')
 const app = express()
 const connectDB = require('./config/database')
+// const MongoClient = require('mongodb').MongoClient
+// const mongoose = require('./')
+
 // const mainRoutes = require('./routes/main')
 // const inventoryRoutes = require('./routes/inventory')
 // const spellsRoutes = require('./routes/spells')
@@ -9,18 +13,21 @@ require('dotenv').config({path: './config/.env'})
 
 connectDB()
 
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use('/', mainRoutes)
-app.use('/inventory', inventoryRoutes)
-app.use('/spells', spellsRoutes)
+// app.use('/', mainRoutes)
+// app.use('/inventory', inventoryRoutes)
+// app.use('/spells', spellsRoutes)
 
+app.get('/api/getItems', async (req, res) => {
+   const inventoryItems = await db.collection('inventory').find().toArray()
+   res.json({ items: inventoryItems })
+})
 
 app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running`)
+    console.log(`Server is running on port ${process.env.PORT}`)
 })
 
 
