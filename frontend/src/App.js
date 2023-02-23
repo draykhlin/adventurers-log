@@ -5,11 +5,11 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header
+      {/* <Header
         onAdd={() => setShowAddItem(!showAddItem)}
         showAdd={showAddItem} />
 
-      {showAddItem && <AddItem onAdd={addItem} />}
+      {showAddItem && <AddItem onAdd={addItem} />} */}
       {items.length > 0 ? (
         <Items items={items} onDelete={deleteItem} />) : (
           'Your inventory is empty'
