@@ -5,6 +5,9 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.DB_STRING, {
             
         })
+        const db = client.db('dnd')
+        // const collection = db.collection('inventory')
+
 
         console.log(`MongoDB Connected: ${conn.connection.host}`)
     } catch (err) {
@@ -12,5 +15,7 @@ const connectDB = async () => {
         process.exit(1)
     }
 }
+
+
 
 module.exports = connectDB

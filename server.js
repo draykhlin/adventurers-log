@@ -2,8 +2,7 @@ const express = require('express')
 // const { Db } = require('mongodb')
 const app = express()
 const connectDB = require('./config/database')
-// const MongoClient = require('mongodb').MongoClient
-// const mongoose = require('./')
+const MongoClient = require('mongodb').MongoClient
 
 // const mainRoutes = require('./routes/main')
 // const inventoryRoutes = require('./routes/inventory')
@@ -23,7 +22,7 @@ app.use(express.json())
 
 app.get('/api/getItems', async (req, res) => {
    const inventoryItems = await db.collection('inventory').find().toArray()
-   res.json({ items: inventoryItems })
+   res.json(inventoryItems)
 })
 
 app.listen(process.env.PORT, ()=>{
