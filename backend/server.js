@@ -18,8 +18,8 @@ app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use('/', mainRoutes)
-app.use('/inventory', inventoryRoutes)
+app.use('/api/inventory', inventoryRoutes)
+// app.use('/inventory', inventoryRoutes)
 
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
