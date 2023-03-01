@@ -1,37 +1,23 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-const App = () => {
-  const [items, setItems] = useState([])
+// pages & components
+import Inventory from './pages/Inventory'
 
-  useEffect(() => {
-    fetch('/api/getItems')
-      .then(res => res.json())
-      .then(({ items }) => {
-        setItems(items)
-      })
-  })
-
+function App() {
   return (
-    <div className="container">
-      {/* <Header
-        onAdd={() => setShowAddItem(!showAddItem)}
-        showAdd={showAddItem} />
-
-      {showAddItem && <AddItem onAdd={addItem} />} */}
-      {/* {items.length > 0 ? (
-        <Items items={items} onDelete={deleteItem} />) : (
-          'Your inventory is empty'
-        )} */}
-      <ul className="inventoryList">
-        {items.map((item, index) => 
-          <li key={index} className="inventoryItem">
-            <span>{item.name}</span>
-          </li>
-        )}
-      </ul>
+    <div className="App">
+      <BrowserRouter>
+        {/* <Navbar /> */}
+        <div className="pages">
+          <Routes>
+            <Route
+              path="/inventory"
+              element={<Inventory />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   )
 }
-
 export default App
