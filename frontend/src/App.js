@@ -11,7 +11,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-              path="/inventory"
+              path="/"
               element={<Inventory />}
             />
           </Routes>

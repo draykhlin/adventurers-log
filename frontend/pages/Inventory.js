@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from 'react'
 
 const Inventory = () => {
    const [items, setItems] = useState([])
@@ -32,3 +32,5 @@ const Inventory = () => {
      </div>
    )
  }
+
+ export default Inventory
