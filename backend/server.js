@@ -1,4 +1,4 @@
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
@@ -17,11 +17,11 @@ app.use(express.json())
 app.use('/api/inventory', inventoryRoutes)
 
 // connect to DB
-mongoose.connect(process.env.DB_STRING)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // listen for requests
         app.listen(process.env.PORT, () => {
-            console.log(`connected & listening on port ${process.env.PORT}`)
+            console.log(`connected to DB & listening on port ${process.env.PORT}`)
         })
     })
     .catch((err) => {
