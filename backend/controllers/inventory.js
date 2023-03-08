@@ -3,12 +3,10 @@ const mongoose = require('mongoose')
 
 
 const getInventory = async (req,res) => {
-   try {
-      const inventoryItems = await Inventory.find()
-      // res.render('inventory.ejs', {inventoryItems: inventoryItems})
-   } catch(err) {
-      console.log(err)
-   }
+   const inventoryItems = await Inventory.find()
+   // res.render('inventory.ejs', {inventoryItems: inventoryItems})
+
+   res.status(200).json(inventoryItems)
 }
 
 const addItem = async (req,res) => {
