@@ -2,28 +2,33 @@ require('dotenv').config({path: './config/.env'})
 
 const express = require('express')
 const mongoose = require('mongoose')
-
-// routes
 // const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
 
+// express
 const app = express()
 
-const connectDB = require('./config/database')
-const MongoClient = require('mongodb').MongoClient
-
-connectDB()
-
+// middleware
 app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// routes
 app.use('/api/inventory', inventoryRoutes)
-// app.use('/inventory', inventoryRoutes)
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running on port ${process.env.PORT}`)
-})
+// connect to DB
+mongoose.connect(process.env.DB_STRING)
+    .then(() => {
+        // listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log(`connected & listening on port ${process.env.PORT}`)
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+
 
 
 
