@@ -4,7 +4,7 @@ const Items = ({ items, onDelete }) => {
    return (
       <ul className="inventoryList">
         {items && items.map((item) => 
-          <Item key={item.id} item={item} onDelete={onDelete} />
+          <Item key={item._id} item={item} onDelete={onDelete} />
           
           // <li key={index} className="inventoryItem">
           //   <span>{item.name}</span>
@@ -24,5 +24,3 @@ const Items = ({ items, onDelete }) => {
 }
 
 export default Items
-
-

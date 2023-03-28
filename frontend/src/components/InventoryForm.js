@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const InventoryForm = () => {
+const InventoryForm = ({ onAdd }) => {
    const [name, setName] = useState('')
    const [qty, setQty] = useState('')
    const [error, setError] = useState(null)
@@ -23,6 +23,8 @@ const InventoryForm = () => {
          setError(json.error)
       }
       if (res.ok) {
+         onAdd({ name, qty})
+         
          setName('')
          setQty('')
          setError(null)

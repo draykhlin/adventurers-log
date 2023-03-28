@@ -20,15 +20,22 @@ const Inventory = () => {
     fetchInventory()
   }, [])
   
+  // Add item
+  const addItem = (item) => {
+    setItems([...items, item])
+  }
+
+
+  // Delete item
   const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id))
+    setItems(items.filter((item) => item._id !== id))
   }
 
   return (
     <div className="container">
 
 
-      <InventoryForm />
+      <InventoryForm onAdd={addItem} />
       
       <Items items={items} onDelete={deleteItem} />
       
