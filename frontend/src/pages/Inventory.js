@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 
+// components
+import InventoryForm from '../components/InventoryForm'
+
 const Inventory = () => {
   const [items, setItems] = useState([])
  
@@ -17,44 +20,29 @@ const Inventory = () => {
   }, [])
  
 
-        // useEffect(() => {
-        //   const getTasks = async () => {
-        //     const tasksFromServer = await fetchTasks()
-        //     setTasks(tasksFromServer)
-        //   }
+  return (
+    <div className="container">
+      {/* <Header
+        onAdd={() => setShowAddItem(!showAddItem)}
+        showAdd={showAddItem} />
 
-        //   getTasks()
-        // }, [])
+      {showAddItem && <AddItem onAdd={addItem} />} */}
+      {/* {items.length > 0 ? (
+        <Items items={items} onDelete={deleteItem} />) : (
+          'Your inventory is empty'
+        )} */}
 
-        // // Fetch Tasks
-        // const fetchTasks = async () => {
-        //   const res = await fetch('http://localhost:5000/tasks')
-        //   const data = await res.json()
+      <InventoryForm />
 
-        //   return data
-        // }
+      <ul className="inventoryList">
+        {items && items.map((item, index) => 
+          <li key={index} className="inventoryItem">
+            <span>{item.name}</span>
+          </li>
+        )}
+      </ul>
 
-
-
-   return (
-     <div className="container">
-       {/* <Header
-         onAdd={() => setShowAddItem(!showAddItem)}
-         showAdd={showAddItem} />
- 
-       {showAddItem && <AddItem onAdd={addItem} />} */}
-       {/* {items.length > 0 ? (
-         <Items items={items} onDelete={deleteItem} />) : (
-           'Your inventory is empty'
-         )} */}
-       <ul className="inventoryList">
-         {items.map((item, index) => 
-           <li key={index} className="inventoryItem">
-             <span>{item.name}</span>
-           </li>
-         )}
-       </ul>
-     </div>
+    </div>
    )
  }
 

@@ -10,13 +10,22 @@ const getInventory = async (req,res) => {
 }
 
 const addItem = async (req,res) => {
+   const {name, qty} = req.body
+
    try {
-      await Inventory.create({item: req.body.itemName, qty: !req.body.itemQty ? 1 : req.body.itemQty})
-      console.log('Item added')
-      res.redirect('/inventory')
-   } catch(err) {
-      console.log(err)
+      const item = await Inventory.create({name, qty})
+      res.status(200).json(item)
+   } catch (error) {
+      res.status(400).json({error: error.message})
    }
+   
+   // try {
+   //    await Inventory.create({item: req.body.itemName, qty: !req.body.itemQty ? 1 : req.body.itemQty})
+   //    console.log('Item added')
+   //    res.redirect('/inventory')
+   // } catch(err) {
+   //    console.log(err)
+   // }
 }   
 
 const updateQty = async (req,res) => {

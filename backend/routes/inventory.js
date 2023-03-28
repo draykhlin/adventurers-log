@@ -11,7 +11,7 @@ const router = express.Router()
 
 router.get('/', getInventory)
 
-router.post('/addItem', addItem)
+router.post('/', addItem)
 
 router.put('/updateQty', updateQty)
 
