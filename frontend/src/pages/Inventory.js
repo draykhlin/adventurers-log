@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 // components
 import InventoryForm from '../components/InventoryForm'
+import Items from '../components/Items'
 
 const Inventory = () => {
   const [items, setItems] = useState([])
@@ -18,10 +19,19 @@ const Inventory = () => {
 
     fetchInventory()
   }, [])
- 
+  
+  const deleteItem = (id) => {
+    setItems(items.filter((item) => item.id !== id))
+  }
 
   return (
     <div className="container">
+
+
+      <InventoryForm />
+      
+      <Items items={items} onDelete={deleteItem} />
+      
       {/* <Header
         onAdd={() => setShowAddItem(!showAddItem)}
         showAdd={showAddItem} />
@@ -31,17 +41,6 @@ const Inventory = () => {
         <Items items={items} onDelete={deleteItem} />) : (
           'Your inventory is empty'
         )} */}
-
-      <InventoryForm />
-
-      <ul className="inventoryList">
-        {items && items.map((item, index) => 
-          <li key={index} className="inventoryItem">
-            <span>{item.name}</span>
-          </li>
-        )}
-      </ul>
-
     </div>
    )
  }
