@@ -6,29 +6,39 @@ import Items from '../components/Items'
 
 const Inventory = () => {
   const [items, setItems] = useState([])
- 
-  useEffect(() => {
-    const fetchInventory = async () => {
-      const res = await fetch('/api/inventory')
-      const json = await res.json()
 
-      if (res.ok) {
-        setItems(json)
-      }
+  useEffect(() => {
+    const getInventory = async () => {
+      const inventoryFromServer = await fetchInventory()
+
+      setItems(inventoryFromServer)
     }
 
-    fetchInventory()
+    getInventory()
   }, [])
+
+  // Fetch inventory items
+  const fetchInventory = async () => {
+    const res = await fetch('/api/inventory')
+    const data = await res.json()
+
+    return data
+    //setItems(data)
+  }
   
   // Add item
   const addItem = (item) => {
     setItems([...items, item])
   }
 
-
   // Delete item
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item._id !== id))
+  const deleteItem = async (id) => {
+    await fetch(`/api/inventory/${id}`, {
+      method: 'DELETE'
+    })
+
+
+    // setItems(items.filter((item) => item._id !== id))
   }
 
   return (

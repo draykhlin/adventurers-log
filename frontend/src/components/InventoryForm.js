@@ -23,7 +23,7 @@ const InventoryForm = ({ onAdd }) => {
          setError(json.error)
       }
       if (res.ok) {
-         onAdd({ name, qty})
+         onAdd({ name, qty })
          
          setName('')
          setQty('')

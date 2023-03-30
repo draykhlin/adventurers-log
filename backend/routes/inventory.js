@@ -13,8 +13,9 @@ router.get('/', getInventory)
 
 router.post('/', addItem)
 
-router.put('/updateQty', updateQty)
+//may need to be patch instead of put
+router.put('/:id', updateQty)
 
-router.delete('/deleteItem', deleteItem)
+router.delete('/:id', deleteItem)
 
 module.exports = router
