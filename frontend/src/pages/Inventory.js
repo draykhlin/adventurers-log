@@ -38,7 +38,7 @@ const Inventory = () => {
     })
 
 
-    // setItems(items.filter((item) => item._id !== id))
+    setItems(items.filter((item) => item._id !== id))
   }
 
   return (

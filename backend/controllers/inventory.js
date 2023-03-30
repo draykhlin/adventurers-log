@@ -31,6 +31,10 @@ const updateQty = async (req,res) => {
       await Inventory.findOneAndUpdate({_id: req.body.itemIdFromJSFile}, {
             qty: req.body.itemQtyFromJSFile
       })
+
+      // const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, )
+
+
       console.log('Updated quantity')
       //res.json('Updated qty')
    } catch(err) {
@@ -40,12 +44,23 @@ const updateQty = async (req,res) => {
 
 const deleteItem = async (req,res) => {
    try {
-      await Inventory.findOneAndDelete({_id:req.body.itemIdFromJSFile})
+      // await Inventory.findOneAndDelete({_id:req.body.itemIdFromJSFile})
 
-      // delete
-      console.log('Deleted item')
+      await Inventory.findByIdAndDelete(req.params.id)
+      // const item = await Inventory.findById(req.params.id)
+
+      // if (!item) {
+      //    res.status(400)
+      //    throw new Error('Not found')
+      // }
+      
+      // await item.remove()
+
+      res.status(200).json({ id: req.params.id })
+      console.log(`success: ${req.params.id}`)
    } catch(err) {
       console.log(err)
+      console.log(`error: ${req.params.id}`)
    }
 }
 
