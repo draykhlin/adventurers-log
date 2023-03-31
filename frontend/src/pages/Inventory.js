@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // components
-import InventoryForm from '../components/InventoryForm'
+import AddItem from '../components/AddItem'
 import Items from '../components/Items'
 
 const Inventory = () => {
@@ -10,10 +10,8 @@ const Inventory = () => {
   useEffect(() => {
     const getInventory = async () => {
       const inventoryFromServer = await fetchInventory()
-
       setItems(inventoryFromServer)
     }
-
     getInventory()
   }, [])
 
@@ -23,7 +21,6 @@ const Inventory = () => {
     const data = await res.json()
 
     return data
-    //setItems(data)
   }
   
   // Add item
@@ -44,9 +41,7 @@ const Inventory = () => {
 
   return (
     <div className="container">
-
-
-      <InventoryForm onAdd={addItem} />
+      <AddItem onAdd={addItem} />
       
       <Items items={items} onDelete={deleteItem} />
       

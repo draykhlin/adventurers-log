@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const InventoryForm = ({ onAdd }) => {
+const AddItem = ({ onAdd }) => {
    const [name, setName] = useState('')
    const [qty, setQty] = useState('')
    const [error, setError] = useState(null)
@@ -56,4 +56,4 @@ const InventoryForm = ({ onAdd }) => {
    )
 }
 
-export default InventoryForm
+export default AddItem
