@@ -32,13 +32,14 @@ const Inventory = () => {
   }
 
   // Delete item
-  const deleteItem = async (id) => {
+  const deleteItem = async (item) => {
+    const id = item._id
+    
     await fetch(`/api/inventory/${id}`, {
       method: 'DELETE'
     })
 
-
-    setItems(items.filter((item) => item._id !== id))
+    await setItems(items.filter((item) => item._id !== id))
   }
 
   return (
