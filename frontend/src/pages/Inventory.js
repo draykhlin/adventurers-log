@@ -42,18 +42,7 @@ const Inventory = () => {
   return (
     <div className="container">
       <AddItem onAdd={addItem} />
-      
       <Items items={items} onDelete={deleteItem} />
-      
-      {/* <Header
-        onAdd={() => setShowAddItem(!showAddItem)}
-        showAdd={showAddItem} />
-
-      {showAddItem && <AddItem onAdd={addItem} />} */}
-      {/* {items.length > 0 ? (
-        <Items items={items} onDelete={deleteItem} />) : (
-          'Your inventory is empty'
-        )} */}
     </div>
    )
  }
