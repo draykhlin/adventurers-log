@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 // components
 import AddItem from '../components/AddItem'
-import Items from '../components/Items'
+import Item from '../components/Item'
 
 const Inventory = () => {
   const [items, setItems] = useState([])
@@ -42,7 +42,14 @@ const Inventory = () => {
   return (
     <div className="container">
       <AddItem onAdd={addItem} />
-      <Items items={items} onDelete={deleteItem} />
+
+      <ul className="inventoryList">
+        {items && items.map((item) => 
+          <Item key={item._id} item={item} onDelete={deleteItem} />
+        )}
+      </ul>
+
+      {/* <Items items={items} onDelete={deleteItem} /> */}
     </div>
    )
  }

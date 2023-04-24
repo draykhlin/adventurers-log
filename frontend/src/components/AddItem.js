@@ -3,7 +3,7 @@ import { useState } from 'react'
 const AddItem = ({ onAdd }) => {
    const [name, setName] = useState('')
    const [qty, setQty] = useState('')
-   const [error, setError] = useState(null)
+   // const [error, setError] = useState(null)
 
    const handleSubmit = async (e) => {
       e.preventDefault()
