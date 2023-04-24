@@ -19,15 +19,15 @@ const AddItem = ({ onAdd }) => {
       })
       const json = await res.json()
 
-      if (!res.ok) {
-         setError(json.error)
-      }
+      // if (!res.ok) {
+      //    setError(json.error)
+      // }
       if (res.ok) {
          onAdd({ name, qty })
          
          setName('')
          setQty('')
-         setError(null)
+         // setError(null)
          console.log('New item added', json)
       }
    }
@@ -51,7 +51,7 @@ const AddItem = ({ onAdd }) => {
          />
 
          <button>Add Item</button>
-         {error && <div className="error">{error}</div>}
+         {/* {error && <div className="error">{error}</div>} */}
       </form>
    )
 }

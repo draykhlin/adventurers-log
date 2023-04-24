@@ -48,17 +48,15 @@ const deleteItem = async (req,res) => {
 
       // await Inventory.findOneAndDelete({_id: req.params.id})
 
-      // await Inventory.findByIdAndDelete(req.params.id)
+      await Inventory.findByIdAndDelete(req.params.id)
 
 
-      const item = await Inventory.findById(req.params.id)
-
-      if (!item) {
-         res.status(400)
-         throw new Error('Not found')
-      }
-      
-      await item.remove()
+      // const item = await Inventory.findById(req.params.id)
+      // if (!item) {
+      //    res.status(400)
+      //    throw new Error('Not found')
+      // }
+      // await item.remove()
 
       res.status(200).json({ id: req.params.id })
    } catch(err) {

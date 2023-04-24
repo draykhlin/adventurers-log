@@ -13,7 +13,7 @@ const Inventory = () => {
       setItems(inventoryFromServer)
     }
     getInventory()
-  }, [])
+  }, [items])
 
   // Fetch inventory items
   const fetchInventory = async () => {
@@ -29,9 +29,8 @@ const Inventory = () => {
   }
 
   // Delete item
-  const deleteItem = async (item) => {
-    const id = item._id
-    
+  const deleteItem = async (id) => {
+    console.log(id)
     await fetch(`/api/inventory/${id}`, {
       method: 'DELETE'
     })
