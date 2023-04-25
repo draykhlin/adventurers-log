@@ -1,11 +1,37 @@
 import { FaTimes } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
-const Item = ({ item, onDelete }) => {
+const Item = ({ keyId, item, onDelete }) => {
    const [newQty, setNewQty] = useState(item.qty)
-   
-   useEffect(() => {
+
+   const updateQty = async (e) => {
+      await setNewQty(e.target.value)
+
+      const id = e.target._id
+      const item = {keyId, newQty}
+
+      console.log(item)
+
+      await fetch(`/api/inventory/${keyId}`, {
+         method: 'PATCH',
+         body: JSON.stringify(item),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      })
+
+      /// TEST/////
+
       
+
+
+      ////////////
+
+
+   }
+
+   useEffect(() => {
+
    })
 
    return (
@@ -13,7 +39,12 @@ const Item = ({ item, onDelete }) => {
          <span>{item.name}</span><br></br>
          {/* <span>Quantity: {item.qty}</span> */}
 
-         <input type="number" value={newQty} onChange={updateQty} />
+         <input
+            type="number" 
+            name="currentQty"
+            value={newQty} 
+            onChange={updateQty} 
+         />
 
          <FaTimes onClick={() => onDelete(item._id)} />
       </li>

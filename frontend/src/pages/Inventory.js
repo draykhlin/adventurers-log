@@ -30,7 +30,6 @@ const Inventory = () => {
 
   // Delete item
   const deleteItem = async (id) => {
-    console.log(id)
     await fetch(`/api/inventory/${id}`, {
       method: 'DELETE'
     })
@@ -44,7 +43,7 @@ const Inventory = () => {
 
       <ul className="inventoryList">
         {items && items.map((item) => 
-          <Item key={item._id} item={item} onDelete={deleteItem} />
+          <Item key={item._id} keyId={item._id} item={item} onDelete={deleteItem} />
         )}
       </ul>
 

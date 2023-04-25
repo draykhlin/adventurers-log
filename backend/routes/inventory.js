@@ -13,8 +13,7 @@ router.get('/', getInventory)
 
 router.post('/', addItem)
 
-//may need to be patch instead of put
-router.put('/:id', updateQty)
+router.patch('/:id', updateQty)
 
 router.delete('/:id', deleteItem)
 

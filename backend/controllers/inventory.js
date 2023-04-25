@@ -28,9 +28,30 @@ const addItem = async (req,res) => {
 
 const updateQty = async (req,res) => {
    try {
-      await Inventory.findOneAndUpdate({_id: req.body.itemIdFromJSFile}, {
-            qty: req.body.itemQtyFromJSFile
-      })
+      await Inventory.findByIdAndUpdate(
+         {_id: req.body.keyId},
+         {qty: req.body.newQty}
+      )
+
+      
+      ////////Example///////
+      // const updateDocument = async (id) => {
+      //    try {
+      //      const updatedResult = await User.findByIdAndUpdate(
+      //        { _id: id },
+      //        {
+      //          profession: "Backend Developer",
+      //        },
+      //      );
+      //      console.log(updatedResult);
+      //    } catch (error) {
+      //      console.log(error);
+      //    }
+      //  };
+      ////////////////////////
+
+
+
 
       // const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, )
 
