@@ -8,20 +8,34 @@ const Inventory = () => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    const getInventory = async () => {
-      const inventoryFromServer = await fetchInventory()
-      setItems(inventoryFromServer)
+    const fetchInventory = async () => {
+      const res = await fetch('/api/inventory')
+      const json = await res.json()
+
+      if (res.ok) {
+        setItems(json)
+        console.log(json)
+      }
     }
-    getInventory()
-  }, [items])
 
-  // Fetch inventory items
-  const fetchInventory = async () => {
-    const res = await fetch('/api/inventory')
-    const data = await res.json()
+    fetchInventory()
+  }, [items.length])
 
-    return data
-  }
+  // useEffect(() => {
+  //   const getInventory = async () => {
+  //     const inventoryFromServer = await fetchInventory()
+  //     setItems(inventoryFromServer)
+  //   }
+  //   getInventory()
+  // }, [])
+
+  // // Fetch inventory items
+  // const fetchInventory = async () => {
+  //   const res = await fetch('/api/inventory')
+  //   const data = await res.json()
+
+  //   return data
+  // }
   
   // Add item
   const addItem = (item) => {

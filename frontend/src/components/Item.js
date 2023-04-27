@@ -7,32 +7,38 @@ const Item = ({ keyId, item, onDelete }) => {
    const updateQty = async (e) => {
       await setNewQty(e.target.value)
 
-      const id = e.target._id
-      const item = {keyId, newQty}
+      const updatedItem = {keyId, newQty}
 
-      console.log(item)
+      // console.log(item)
 
       await fetch(`/api/inventory/${keyId}`, {
          method: 'PATCH',
-         body: JSON.stringify(item),
+         body: JSON.stringify(updatedItem),
          headers: {
             'Content-Type': 'application/json'
          }
       })
 
-      /// TEST/////
-
-      
-
-
-      ////////////
-
 
    }
 
-   useEffect(() => {
+   // const updateQty = (e) => {
+   //    setNewQty(e.target.value)
+   //    // console.log(`new qty is ${newQty}`)
+   // }
 
-   })
+   // useEffect(() => {
+   //    fetch(`/api/inventory/${keyId}`, {
+   //       method: 'PATCH',
+   //       body: JSON.stringify(newQty),
+   //       headers: {
+   //          'Content-Type': 'application/json'
+   //       }
+   //    })
+
+   //    console.log('sent to db')
+   //    console.log(item)
+   // }, [newQty])
 
    return (
       <li key={item._id} className="inventoryItem">
