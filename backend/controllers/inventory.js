@@ -29,6 +29,7 @@ const addItem = async (req,res) => {
 const updateQty = async (req,res) => {
    const id = req.params.id
    try {
+      console.log(req.body.newQty)
       await Inventory.findByIdAndUpdate(
          id,
          {qty: req.body.newQty}

@@ -21,6 +21,7 @@ const Inventory = () => {
     fetchInventory()
   }, [items.length])
 
+  ////////
   // useEffect(() => {
   //   const getInventory = async () => {
   //     const inventoryFromServer = await fetchInventory()
@@ -36,6 +37,7 @@ const Inventory = () => {
 
   //   return data
   // }
+  ////////////
   
   // Add item
   const addItem = (item) => {

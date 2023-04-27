@@ -9,8 +9,6 @@ const Item = ({ keyId, item, onDelete }) => {
 
       const updatedItem = {keyId, newQty}
 
-      // console.log(item)
-
       await fetch(`/api/inventory/${keyId}`, {
          method: 'PATCH',
          body: JSON.stringify(updatedItem),
@@ -18,8 +16,7 @@ const Item = ({ keyId, item, onDelete }) => {
             'Content-Type': 'application/json'
          }
       })
-
-
+      console.log(updatedItem)
    }
 
    // const updateQty = (e) => {
