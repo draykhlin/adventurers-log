@@ -53,13 +53,33 @@ const Inventory = () => {
     await setItems(items.filter((item) => item._id !== id))
   }
 
+  const handleQtyChange = async (updatedInventory) => {
+    await setItems(updatedInventory)
+
+    await fetch('/api/inventory', {
+      method: 'PATCH',
+      body: JSON.stringify(items),
+      headers: {
+         'Content-Type': 'application/json'
+      }
+   })
+  }
+
+
   return (
     <div className="container">
       <AddItem onAdd={addItem} />
 
       <ul className="inventoryList">
-        {items && items.map((item) => 
-          <Item key={item._id} keyId={item._id} item={item} onDelete={deleteItem} />
+        {items && items.map((item, index) => 
+          <Item 
+            key={index}
+            keyId={item._id}
+            items={items}
+            item={item}
+            onDelete={deleteItem}
+            onQtyChange={handleQtyChange}
+            />
         )}
       </ul>
 
