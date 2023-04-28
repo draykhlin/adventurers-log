@@ -53,17 +53,26 @@ const Inventory = () => {
     await setItems(items.filter((item) => item._id !== id))
   }
 
-  const handleQtyChange = async (updatedInventory) => {
-    await setItems(updatedInventory)
-
-    await fetch('/api/inventory', {
-      method: 'PATCH',
-      body: JSON.stringify(items),
-      headers: {
-         'Content-Type': 'application/json'
+  const updateItem = async (updatedItem) => {
+    const updatedItems = items.map(item => {
+      if (item._id === updatedItem._id) {
+        return updatedItem
+      } else {
+        return item
       }
-   })
+    })
+
+    setItems(updatedItems)
   }
+
+    // await fetch('/api/inventory', {
+    //   method: 'PATCH',
+    //   body: JSON.stringify(items),
+    //   headers: {
+    //      'Content-Type': 'application/json'
+    //   }
+    // })
+  
 
 
   return (
@@ -75,10 +84,9 @@ const Inventory = () => {
           <Item 
             key={index}
             keyId={item._id}
-            items={items}
             item={item}
             onDelete={deleteItem}
-            onQtyChange={handleQtyChange}
+            updateItem={updateItem}
             />
         )}
       </ul>

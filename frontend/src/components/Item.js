@@ -1,18 +1,50 @@
 import { FaTimes } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
-const Item = ({ keyId, items, item, onDelete, onQtyChange }) => {
-   // const [newQty, setNewQty] = useState(item.qty)
+const Item = ({ keyId, item, onDelete, updateItem }) => {
+   const [qty, setQty] = useState(item.qty)
 
-   const handleInputChange = async (itemId, newQty) => {
-      const updatedInventory = items.map(item => {
-         if (item._id === itemId) {
-            return {...item, qty: Number(newQty)}
+   const handleInputChange = async (e) => {
+     const newQty = parseInt(e.target.value)
+
+     setQty(newQty)
+
+     const updatedItem = {...item, qty: newQty}
+
+     await fetch(`/api/inventory/${item._id}`, {
+         method: 'PATCH',
+         body: JSON.stringify({
+            qty: parseInt(newQty)
+         }),
+         headers: {
+            'Content-Type': 'application/json'
          }
-         return item
       })
-      onQtyChange(updatedInventory)
+
+      updateItem(updatedItem)
    }
+
+   return (
+      <li className="inventoryItem">
+         <span>{item.name}</span><br></br>
+
+         <input
+            type="number" 
+            name="currentQty"
+            value={qty} 
+            onChange={handleInputChange}   
+         />
+
+         <FaTimes onClick={() => onDelete(item._id)} />
+      </li>
+   )
+}
+
+export default Item  
+
+
+
+
 ///////////
    // const handleChange = async (e) => {
    //    await setNewQty(e.target.value)
@@ -29,20 +61,3 @@ const Item = ({ keyId, items, item, onDelete, onQtyChange }) => {
    //    console.log(updatedItem)
    // }
 //////////
-   return (
-      <li className="inventoryItem">
-         <span>{item.name}</span><br></br>
-
-         <input
-            type="number" 
-            name="currentQty"
-            value={item.qty} 
-            onChange={(e) => handleInputChange(item._id, e.target.value)}   
-         />
-
-         <FaTimes onClick={() => onDelete(item._id)} />
-      </li>
-   )
-}
-
-export default Item
