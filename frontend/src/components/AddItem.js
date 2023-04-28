@@ -24,7 +24,7 @@ const AddItem = ({ onAdd }) => {
       //    setError(json.error)
       // }
       if (res.ok) {
-         onAdd({ name, qty })
+         onAdd({ name, qty, notes })
          
          setName('')
          setQty(1)

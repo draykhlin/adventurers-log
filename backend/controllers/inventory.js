@@ -8,10 +8,10 @@ const getInventory = async (req,res) => {
 }
 
 const addItem = async (req,res) => {
-   const {name, qty} = req.body
+   const {name, qty, notes} = req.body
 
    try {
-      const item = await Inventory.create({name, qty})
+      const item = await Inventory.create({name, qty, notes})
       res.status(200).json(item)
    } catch (error) {
       res.status(400).json({error: error.message})
@@ -31,7 +31,10 @@ const updateQty = async (req,res) => {
    try {
       await Inventory.findByIdAndUpdate(
          id,
-         {qty: req.body.qty}
+         {
+            qty: req.body.qty,
+            notes: req.body.notes
+         }
       )
 
       
