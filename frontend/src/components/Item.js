@@ -1,5 +1,8 @@
-import { FaTimes } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa'
+// import { AiFillEdit } from 'react-icons/ai'
+
 
 const Item = ({ keyId, item, onDelete, updateItem }) => {
    const [qty, setQty] = useState(item.qty)
@@ -51,37 +54,56 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
       setEditing(false)
    }
    return (
-      <li className="inventory-item">
-         {editing ? 
-            <div>
-               <span>{item.name}</span><br></br>
-
-               <input
-                  type="number"        
-                  value={qty} 
-                  onChange={handleQtyChange}   
-               />
-
-               <textarea
-                  value={notes} 
-                  onChange={handleNotesChange}   
-               /> 
-
-               <button onClick={handleSaveClick}>Save</button>
-               <button onClick={handleCancelClick}>Cancel</button>
-            </div>
-            :
-            <div>
-               <p>{item.name}</p>
-               <p>{qty}</p>
-               <p>{notes}</p>
-
-               <button onClick={handleEditClick}>Edit</button>
-            </div>
-         }
-                 
-         <FaTimes onClick={() => onDelete(item._id)} />
-      </li>
+      <tr className="inventory-item">
+         <>
+            {editing ? 
+               <>
+                  <td>
+                     <span>{item.name}</span><br></br>
+                  </td>
+                  <td>
+                     <input
+                        type="number"        
+                        value={qty} 
+                        onChange={handleQtyChange}   
+                     />
+                  </td>
+                  <td className="inventory-note">
+                     <textarea
+                        value={notes} 
+                        onChange={handleNotesChange}   
+                     /> 
+                  </td>
+                  <td>
+                     <FontAwesomeIcon icon="check" className="icon" onClick={handleSaveClick} />
+                     <FontAwesomeIcon icon="times" className="icon" onClick={handleCancelClick} />
+                  </td>
+                  <td>
+                     <FontAwesomeIcon icon="trash" className="icon" onClick={() => onDelete(item._id)} />
+                  </td>
+               </>
+               :
+               <>
+                  <td>
+                     <p>{item.name}</p>
+                  </td>
+                  <td>
+                     <p>{qty}</p>
+                  </td>
+                  <td className="inventory-note">
+                     <p>{notes}</p>
+                  </td>
+                  <td>
+                     {/* <button onClick={handleEditClick}>Edit</button> */}
+                     <FontAwesomeIcon icon="pen" className="icon" onClick={handleEditClick} />
+                  </td>
+                  <td>
+                     <FontAwesomeIcon icon="trash" className="icon" onClick={() => onDelete(item._id)} />
+                  </td>
+               </>
+            }
+            </>
+      </tr>
    )
 }
 

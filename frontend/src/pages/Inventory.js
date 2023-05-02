@@ -79,17 +79,29 @@ const Inventory = () => {
     <div className="inventory-container">
       <AddItem onAdd={addItem} />
 
-      <ul className="inventory-list">
-        {items && items.map((item, index) => 
-          <Item 
-            key={index}
-            keyId={item._id}
-            item={item}
-            onDelete={deleteItem}
-            updateItem={updateItem}
-            />
-        )}
-      </ul>
+      <table className="inventory-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {items && items.map((item, index) => 
+            <Item 
+              key={index}
+              keyId={item._id}
+              item={item}
+              onDelete={deleteItem}
+              updateItem={updateItem}
+              />
+          )}
+
+        </tbody>
+      </table>
 
       {/* <Items items={items} onDelete={deleteItem} /> */}
     </div>
