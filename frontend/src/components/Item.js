@@ -51,7 +51,7 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
       setEditing(false)
    }
    return (
-      <li className="inventoryItem">
+      <li className="inventory-item">
          {editing ? 
             <div>
                <span>{item.name}</span><br></br>

@@ -76,10 +76,10 @@ const Inventory = () => {
 
 
   return (
-    <div className="container">
+    <div className="inventory-container">
       <AddItem onAdd={addItem} />
 
-      <ul className="inventoryList">
+      <ul className="inventory-list">
         {items && items.map((item, index) => 
           <Item 
             key={index}
