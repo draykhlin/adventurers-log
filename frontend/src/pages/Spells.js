@@ -3,7 +3,10 @@ import Spell from '../components/Spell'
 
 const Spells = () => {
    const [spells, setSpells] = useState([])
+   
 
+
+   // fetch user's spells
    useEffect(() => {
       const fetchSpells = async () => {
         const res = await fetch('/api/spells')
@@ -18,7 +21,10 @@ const Spells = () => {
       fetchSpells()
     }, [])
 
+   
+   
 
+   
    const handleClick = () => {
       
    } 
@@ -28,7 +34,7 @@ const Spells = () => {
          <button onClick={handleClick}>Add</button>
 
          {spells && spells.map(spell => 
-            <Spell spell={spell} />
+            <Spell key={spell._id} spell={spell} />
          )}
 
       </div>
