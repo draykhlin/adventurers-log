@@ -5,6 +5,8 @@ import { faCheck, faTimes, faPen, faTrash } from '@fortawesome/free-solid-svg-ic
 
 // pages & components
 import Inventory from './pages/Inventory'
+import Spells from './pages/Spells'
+
 
 function App() {
   library.add(faCheck, faTimes, faPen, faTrash)
@@ -16,8 +18,12 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-              path="*"
+              path="/inventory"
               element={<Inventory />}
+            />
+            <Route
+              path="/spells"
+              element={<Spells />}
             />
           </Routes>
         </div>

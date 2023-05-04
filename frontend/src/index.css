@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -11,6 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fffcf4;
+  padding: 50px 0;
 }
 .icon {
   color: #6c6c6c;
@@ -19,6 +23,11 @@ body {
   color: #333;
   cursor: pointer;
 }
+
+
+/* ------INVENTORY------ */
+
+
 .inventory-container {
   width: 60%;
   margin: 0 auto;
@@ -76,3 +85,14 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
 } */
+
+
+
+
+/* ------SPELLS------ */
+
+
+.spells-container {
+  width: 60%;
+  margin: 0 auto;
+}
