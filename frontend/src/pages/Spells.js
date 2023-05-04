@@ -25,8 +25,15 @@ const Spells = () => {
    
 
    
-   const handleClick = () => {
+   const handleClick = async (e) => {
+      e.preventDefault()
+
+      const newSpellSlot = {
+         name: "",
+         index: ""
+      }
       
+
    } 
 
    return (

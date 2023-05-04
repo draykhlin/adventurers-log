@@ -32,19 +32,22 @@ const Spell = ({ spell }) => {
       }
 
       fetchCurrentSpellData()
-   }, [])
+   }, [currentSpellName])
 
+   const handleChange = (e) => {
+      setCurrentSpellName(e.target.value)
+   }
 
    return (
       <div className="spell-slot-container">
          <label>
-            <select>
+            <select onChange={handleChange}>
                {allSpells && allSpells.map(spell => 
                   <option value={spell.index}>{spell.name}</option>
                )}
             </select>
          </label>
-         <p>{currentSpellData.desc}</p>
+         <p>{currentSpellData.desc} </p>
       </div>
    )
 }
