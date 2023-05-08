@@ -1,8 +1,8 @@
 const express = require('express')
 const {
    getSpells,
-   // addItem,
-   // updateQty,
+   addSpell,
+   updateSpell
    // deleteItem
 } = require('../controllers/spells')
 
@@ -11,9 +11,9 @@ const router = express.Router()
 
 router.get('/', getSpells)
 
-// router.post('/', addItem)
+router.post('/', addSpell)
 
-// router.patch('/:id', updateQty)
+router.patch('/:id', updateSpell)
 
 // router.delete('/:id', deleteItem)
 

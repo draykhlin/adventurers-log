@@ -1,27 +1,10 @@
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Spell = ({ spell }) => {
-   const [allSpells, setAllSpells] = useState([])
+const Spell = ({ allSpells, spell, updateSpell }) => {
    const [currentSpellName, setCurrentSpellName] = useState(spell.index)
    const [currentSpellData, setCurrentSpellData] = useState([])
 
-
-   // fetch full spell list
-   useEffect(() => {
-      const fetchAllSpellData = async () => {
-         const res = await fetch('https://www.dnd5eapi.co/api/spells')
-         const json = await res.json()
-         const spellsObj = json.results
-         // console.log(spellsObj)
-         setAllSpells(spellsObj)
-
-         // parse spell names
-         // setAllSpellNames(spellsObj.map(spell => spell.name))
-      }
-
-      fetchAllSpellData()
-   }, [])
 
    // fetch current spell data
    useEffect(() => {
@@ -34,8 +17,23 @@ const Spell = ({ spell }) => {
       fetchCurrentSpellData()
    }, [currentSpellName])
 
-   const handleChange = (e) => {
-      setCurrentSpellName(e.target.value)
+   const handleChange = async (e) => {
+      const newSpell = e.target.value
+      await setCurrentSpellName(newSpell)
+
+      const updatedSpell = {...spell, index: currentSpellName}
+     
+      await fetch(`/api/spells/${spell._id}`, {
+         method: 'PATCH',
+         body: JSON.stringify(updatedSpell),
+         headers: {
+         'Content-Type': 'application/json'
+         }
+      })
+      
+      await updateSpell(updatedSpell)
+
+
    }
 
    return (
@@ -47,6 +45,7 @@ const Spell = ({ spell }) => {
                )}
             </select>
          </label>
+         <h3>{currentSpellName}</h3>
          <p>{currentSpellData.desc} </p>
       </div>
    )

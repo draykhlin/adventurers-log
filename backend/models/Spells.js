@@ -2,12 +2,10 @@ const mongoose = require('mongoose')
 
 const SpellsSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: true,
+        type: String
     },
     index: {
-        type: String,
-        required: true,
+        type: String
     }
 })
 

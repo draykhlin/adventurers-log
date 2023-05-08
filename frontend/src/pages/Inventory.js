@@ -19,7 +19,7 @@ const Inventory = () => {
     }
 
     fetchInventory()
-  }, [items.length])
+  }, [])
 
   ////////
   // useEffect(() => {
