@@ -34,35 +34,65 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
       await updateSpell(updatedSpell)
    }
 
-   const handleToggle = () => {
-      setIsAvailable(!isAvailable)
+   const handleToggle = async () => {
+      await setIsAvailable(!isAvailable)
+      
+      const updatedSpell = {...spell, isAvailable: !isAvailable}
+
+      await fetch(`/api/spells/${spell._id}`, {
+         method: 'PATCH',
+         body: JSON.stringify(updatedSpell),
+         headers: {
+         'Content-Type': 'application/json'
+         }
+      })
+
    }
 
    return (
       <div className="spell-slot-container">
-         <label>
-            <select onChange={handleChange}>
-               {allSpells && allSpells.map(spell => 
-                  <option value={spell.index}>{spell.name}</option>
-               )}
-            </select>
-         </label>
-         <h3>{currentSpellName}</h3>
-         <p>{currentSpellData.desc}</p>
+         <section className="spell-slot-controls">
+            <label>
+               <select onChange={handleChange}>
+                  {allSpells && allSpells.map(spell => 
+                     <option value={spell.index}>{spell.name}</option>
+                  )}
+               </select>
+            </label>
 
-         {isAvailable ? 
-            <>
-            <h4>Available</h4>
-            <FontAwesomeIcon icon="toggle-on" size="lg" style={{color: "#ff4f88"}} onClick={handleToggle} />
-            </>
-            :
-            <>
-            <h4>Expended</h4>
-            <FontAwesomeIcon icon="toggle-off" size="lg" onClick={handleToggle} />
-            </>
-         }
-         <br></br>
-         <FontAwesomeIcon icon="times" onClick={() => onDelete(spell._id)} />
+            <div style={{ display: "flex" }}>
+               {isAvailable ? 
+                  <>
+                  <h4>Available</h4>
+                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{color: "#ff4f88"}} onClick={handleToggle} />
+                  </>
+                  :
+                  <>
+                  <h4>Expended</h4>
+                  <FontAwesomeIcon icon="toggle-off" size="lg" onClick={handleToggle} />
+                  </>
+               }
+
+               <FontAwesomeIcon icon="times" onClick={() => onDelete(spell._id)} />
+            </div>
+         </section>
+         
+         
+         <h3>{currentSpellName}</h3>
+         
+         <h4>Level</h4>
+         <p>{currentSpellData.level}</p>
+         
+         <h4>Casting Time</h4>
+         <p>{currentSpellData.casting_time}</p>
+
+         <h4>Description</h4>
+         <p>{currentSpellData.desc}</p>
+         
+
+
+
+
       </div>
    )
 }

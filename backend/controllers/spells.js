@@ -26,7 +26,8 @@ const updateSpell = async (req, res) => {
          id,
          {
             name: req.body.name,
-            index: req.body.index
+            index: req.body.index,
+            isAvailable: req.body.isAvailable
          }
       )
    } catch(err) {
