@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    const [currentSpellName, setCurrentSpellName] = useState(spell.index)
    const [currentSpellData, setCurrentSpellData] = useState([])
+   const [isAvailable, setIsAvailable] = useState(spell.isAvailable)
 
-
+   
    // fetch current spell data
    useEffect(() => {
       const fetchCurrentSpellData = async () => {
@@ -33,6 +34,10 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
       await updateSpell(updatedSpell)
    }
 
+   const handleToggle = () => {
+      setIsAvailable(!isAvailable)
+   }
+
    return (
       <div className="spell-slot-container">
          <label>
@@ -45,6 +50,18 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          <h3>{currentSpellName}</h3>
          <p>{currentSpellData.desc}</p>
 
+         {isAvailable ? 
+            <>
+            <h4>Available</h4>
+            <FontAwesomeIcon icon="toggle-on" size="lg" style={{color: "#ff4f88"}} onClick={handleToggle} />
+            </>
+            :
+            <>
+            <h4>Expended</h4>
+            <FontAwesomeIcon icon="toggle-off" size="lg" onClick={handleToggle} />
+            </>
+         }
+         <br></br>
          <FontAwesomeIcon icon="times" onClick={() => onDelete(spell._id)} />
       </div>
    )

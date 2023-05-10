@@ -6,6 +6,10 @@ const SpellsSchema = new mongoose.Schema({
     },
     index: {
         type: String
+    },
+    isAvailable: {
+        type: Boolean,
+        default: true
     }
 })
 

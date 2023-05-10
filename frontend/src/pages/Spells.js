@@ -21,15 +21,25 @@ const Spells = () => {
    }, [])
 
    // fetch user's spells
-   useEffect(() => {
-      const fetchUserSpells = async () => {
-        const res = await fetch('/api/spells')
-        const json = await res.json()
-  
-        if (res.ok) {
-          setUserSpells(json)
-        }
+   const fetchUserSpells = async () => {
+      try {
+         const res = await fetch('/api/spells')
+         const json = await res.json()
+         setUserSpells(json)
+      } catch (err) {
+         console.log(err)
       }
+   }
+   
+   useEffect(() => {
+      // const fetchUserSpells = async () => {
+      //   const res = await fetch('/api/spells')
+      //   const json = await res.json()
+  
+      //   if (res.ok) {
+      //     setUserSpells(json)
+      //   }
+      // }
   
       fetchUserSpells()
     }, [])
@@ -40,9 +50,9 @@ const Spells = () => {
 
       const newSpell = {
          name: "",
-         index: ""
+         index: "",
       }
-      setUserSpells([...userSpells, newSpell])
+      // setUserSpells([...userSpells, newSpell])
 
       const res = await fetch('api/spells', {
          method: 'POST',
@@ -52,6 +62,10 @@ const Spells = () => {
          }
       })
       const json = await res.json()
+
+      if (res.ok) {
+         fetchUserSpells()
+      }
 
       if (!res.ok) {
          console.log(json.error)
