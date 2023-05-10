@@ -20,9 +20,8 @@ const Spell = ({ allSpells, spell, updateSpell }) => {
    const handleChange = async (e) => {
       const newSpell = e.target.value
       await setCurrentSpellName(newSpell)
+      const updatedSpell = {...spell, index: newSpell}
 
-      const updatedSpell = {...spell, index: currentSpellName}
-     
       await fetch(`/api/spells/${spell._id}`, {
          method: 'PATCH',
          body: JSON.stringify(updatedSpell),
