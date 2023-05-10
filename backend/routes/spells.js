@@ -2,8 +2,8 @@ const express = require('express')
 const {
    getSpells,
    addSpell,
-   updateSpell
-   // deleteItem
+   updateSpell,
+   deleteSpell
 } = require('../controllers/spells')
 
 const router = express.Router()
@@ -15,6 +15,6 @@ router.post('/', addSpell)
 
 router.patch('/:id', updateSpell)
 
-// router.delete('/:id', deleteItem)
+router.delete('/:id', deleteSpell)
 
 module.exports = router

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Spell = ({ allSpells, spell, updateSpell }) => {
+const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    const [currentSpellName, setCurrentSpellName] = useState(spell.index)
    const [currentSpellData, setCurrentSpellData] = useState([])
 
@@ -31,8 +31,6 @@ const Spell = ({ allSpells, spell, updateSpell }) => {
       })
       
       await updateSpell(updatedSpell)
-
-
    }
 
    return (
@@ -45,7 +43,9 @@ const Spell = ({ allSpells, spell, updateSpell }) => {
             </select>
          </label>
          <h3>{currentSpellName}</h3>
-         <p>{currentSpellData.desc} </p>
+         <p>{currentSpellData.desc}</p>
+
+         <FontAwesomeIcon icon="times" onClick={() => onDelete(spell._id)} />
       </div>
    )
 }

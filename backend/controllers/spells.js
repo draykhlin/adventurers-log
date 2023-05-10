@@ -34,9 +34,20 @@ const updateSpell = async (req, res) => {
    }
 }
 
+const deleteSpell = async (req, res) => {
+   console.log(`deleted spell ${req.params.id}`)
+
+   try {
+      await Spells.findByIdAndDelete(req.params.id)
+      res.status(200).json({ id: req.params.id })
+   } catch(err) {
+      console.log(err)
+   }
+}
+
 module.exports = {
    getSpells,
    addSpell,
    updateSpell,
-   // deleteItem
+   deleteSpell
 }

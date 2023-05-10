@@ -70,12 +70,20 @@ const Spells = () => {
       setUserSpells(updatedSpells)
    }
 
+   const handleDelete = async (id) => {
+      await fetch(`/api/spells/${id}`, {
+         method: 'DELETE'
+      })
+
+      await setUserSpells(userSpells.filter((spell) => spell._id !== id))
+   }
+
    return (
       <div className="spells-container">
          <button onClick={handleClick}>Add</button>
 
          {userSpells && userSpells.map(spell => 
-            <Spell key={spell._id} allSpells={allSpells} spell={spell} updateSpell={updateSpell} />
+            <Spell key={spell._id} allSpells={allSpells} spell={spell} updateSpell={updateSpell} onDelete={handleDelete} />
          )}
 
       </div>
