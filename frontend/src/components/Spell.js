@@ -64,16 +64,16 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
                {isAvailable ? 
                   <>
                   <h4>Available</h4>
-                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{color: "#ff4f88"}} onClick={handleToggle} />
+                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{ cursor: "pointer", color: "#ff4f88" }} onClick={handleToggle} />
                   </>
                   :
                   <>
                   <h4>Expended</h4>
-                  <FontAwesomeIcon icon="toggle-off" size="lg" onClick={handleToggle} />
+                  <FontAwesomeIcon icon="toggle-off" size="lg" style={{ cursor: "pointer"}} onClick={handleToggle} />
                   </>
                }
 
-               <FontAwesomeIcon icon="times" onClick={() => onDelete(spell._id)} />
+               <FontAwesomeIcon icon="times" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
             </div>
          </section>
          

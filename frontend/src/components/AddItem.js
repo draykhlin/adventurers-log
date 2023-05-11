@@ -4,7 +4,6 @@ const AddItem = ({ onAdd }) => {
    const [name, setName] = useState('')
    const [qty, setQty] = useState(1)
    const [notes, setNotes] = useState('')
-   // const [error, setError] = useState(null)
 
    const handleSubmit = async (e) => {
       e.preventDefault()
@@ -38,7 +37,7 @@ const AddItem = ({ onAdd }) => {
       <form className="inventory-form" onSubmit={handleSubmit}>
          <h3>Add a new item</h3>
 
-         <label>Item:
+         <label>Item
             <input
                type="text"
                onChange={(e) => setName(e.target.value)}
@@ -46,7 +45,7 @@ const AddItem = ({ onAdd }) => {
             />
          </label>
 
-         <label>Quantity:
+         <label>Quantity
             <input
                type="number"
                onChange={(e) => setQty(e.target.value)}
@@ -54,7 +53,7 @@ const AddItem = ({ onAdd }) => {
             />
          </label>
 
-         <label>Notes:
+         <label>Notes
             <textarea
                name="notes"
                onChange={(e) => setNotes(e.target.value)}
@@ -62,8 +61,7 @@ const AddItem = ({ onAdd }) => {
             />
          </label>
 
-         <button>Add Item</button>
-         {/* {error && <div className="error">{error}</div>} */}
+         <button className="add-button">Add</button>
       </form>
    )
 }
