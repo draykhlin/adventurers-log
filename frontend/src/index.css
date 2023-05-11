@@ -13,7 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fffcf4;
+  background-color: #fff9e9;
+  color: #333;
   padding: 50px 0;
 }
 .icon {

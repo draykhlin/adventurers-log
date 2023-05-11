@@ -78,7 +78,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          </section>
          
          
-         <h3>{currentSpellName}</h3>
+         <h3>{currentSpellData.name}</h3>
          
          <h4>Level</h4>
          <p>{currentSpellData.level}</p>
