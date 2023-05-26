@@ -87,6 +87,8 @@ main {
   cursor: pointer;
   padding: 15px 25px;
   min-width: 100px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 .add-button:hover {
   background-color: var(--primary);

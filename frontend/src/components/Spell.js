@@ -90,6 +90,26 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          </div>
 
          <div className="stat">
+            <h4>Range</h4>
+            <p>{currentSpellData.range}</p>
+         </div>
+
+         <div className="stat">
+            <h4>Components</h4>
+            <p>{currentSpellData.components && currentSpellData.components.map(spellComponent => `${spellComponent}, `)}</p>
+         </div>
+
+         <div className="stat">
+            <h4>Duration</h4>
+            <p>{currentSpellData.duration}</p>
+         </div>
+
+         <div className="stat">
+            <h4>Classes</h4>
+            <p>{currentSpellData.classes && currentSpellData.classes.map(spellClass => `${spellClass.name}, `)}</p>
+         </div>
+
+         <div className="stat">
             <h4>Description</h4>
             <p>{currentSpellData.desc}</p>
          </div>
