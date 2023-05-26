@@ -52,47 +52,47 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    return (
       <div className="spell-card">
          <section className="spell-slot-controls">
-            <label>
-               <select onChange={handleChange}>
+            <div className="slot-toggle">
+            {isAvailable ? 
+                  <>
+                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{ cursor: "pointer", color: "#ff4f88" }} onClick={handleToggle} />
+                  <h4>Available</h4>
+                  </>
+                  :
+                  <>
+                  <FontAwesomeIcon icon="toggle-off" size="lg" style={{ cursor: "pointer"}} onClick={handleToggle} />
+                  <h4>Expended</h4>
+                  </>
+               }
+            </div>
+
+            <FontAwesomeIcon icon="times" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
+         </section>
+         
+         <label>
+               <select className="spell-select" onChange={handleChange}>
                   {allSpells && allSpells.map(spell => 
                      <option value={spell.index}>{spell.name}</option>
                   )}
                </select>
-            </label>
+         </label>
 
-            <div style={{ display: "flex" }}>
-               {isAvailable ? 
-                  <>
-                  <h4>Available</h4>
-                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{ cursor: "pointer", color: "#ff4f88" }} onClick={handleToggle} />
-                  </>
-                  :
-                  <>
-                  <h4>Expended</h4>
-                  <FontAwesomeIcon icon="toggle-off" size="lg" style={{ cursor: "pointer"}} onClick={handleToggle} />
-                  </>
-               }
-
-               <FontAwesomeIcon icon="times" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
-            </div>
-         </section>
-         
-         
          <h3>{currentSpellData.name}</h3>
          
-         <h4>Level</h4>
-         <p>{currentSpellData.level}</p>
-         
-         <h4>Casting Time</h4>
-         <p>{currentSpellData.casting_time}</p>
+         <div className="stat">
+            <h4>Level</h4>
+            <p>{currentSpellData.level}</p>
+         </div>
 
-         <h4>Description</h4>
-         <p>{currentSpellData.desc}</p>
-         
+         <div className="stat">
+            <h4>Casting Time</h4>
+            <p>{currentSpellData.casting_time}</p>
+         </div>
 
-
-
-
+         <div className="stat">
+            <h4>Description</h4>
+            <p>{currentSpellData.desc}</p>
+         </div>
       </div>
    )
 }
