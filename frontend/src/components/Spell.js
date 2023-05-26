@@ -50,7 +50,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    }
 
    return (
-      <div className="spell-slot-container">
+      <div className="spell-card">
          <section className="spell-slot-controls">
             <label>
                <select onChange={handleChange}>

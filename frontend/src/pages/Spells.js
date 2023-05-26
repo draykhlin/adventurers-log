@@ -93,14 +93,16 @@ const Spells = () => {
    }
 
    return (
-      <div className="spells-container">
+      <section className="spells-container">
          <button className="add-button" onClick={handleClick}>Add spell slot</button>
 
-         {userSpells && userSpells.map(spell => 
-            <Spell key={spell._id} allSpells={allSpells} spell={spell} updateSpell={updateSpell} onDelete={handleDelete} />
-         )}
+         <div className="spell-slots-container">
+            {userSpells && userSpells.map(spell => 
+               <Spell key={spell._id} allSpells={allSpells} spell={spell} updateSpell={updateSpell} onDelete={handleDelete} />
+            )}
+         </div>
 
-      </div>
+      </section>
    )
 }
 

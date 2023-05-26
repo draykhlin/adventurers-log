@@ -41,20 +41,34 @@ input, button {
   font-family: 'Instrument Sans', sans-serif;
 }
 /* ------NAV------- */
-header nav {
+header {
   display: flex;
-  gap: 16px;
-  justify-content: end;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem 0;
 }
-header nav a {
-  text-decoration: none;
-  padding: 6px;
-  border-radius: 4px;
-}
-header nav a.active {
-  color: var(--primary)
+  .logo .logo-text {
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+  header nav {
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+    max-width: 1200px;
+  }
+    header nav a {
+      text-decoration: none;
+      padding: 6px;
+      border-radius: 4px;
+    }
+    header nav a.active {
+      color: var(--primary)
+    }
+
+main {
+  margin: 3rem 0;
 }
 
 /* ------INVENTORY------ */
@@ -149,27 +163,32 @@ textarea:focus {
 
 /* ------SPELLS------ */
 
-
 .spells-container {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 }
-
-.spell-slot-container {
-  /* border: 1px solid #dbdbdb; */
-  border: 2px solid #d3d3d3;
-  box-shadow: 0px 1px 3px 0px #c4c4c4;
-  border-radius: 7px;
-  margin: 40px 0;
-  padding: 45px;
-}
-
-.spell-slot-controls {
+.spell-slots-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
-.spell-slot-controls h4 {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-}
+  .spell-card {
+    align-self: flex-start;
+    width: 45%;
+    
+    /* border: 1px solid #dbdbdb; */
+    border: 2px solid #d3d3d3;
+    box-shadow: 0px 1px 3px 0px #c4c4c4;
+    border-radius: 7px;
+    margin: 40px 0;
+    padding: 45px;
+  }
+    .spell-slot-controls {
+      display: flex;
+      justify-content: space-between;
+    }
+    .spell-slot-controls h4 {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
