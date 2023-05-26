@@ -96,7 +96,12 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
 
          <div className="stat">
             <h4>Components</h4>
-            <p>{currentSpellData.components && currentSpellData.components.map(spellComponent => `${spellComponent}, `)}</p>
+            <p>{currentSpellData.components && currentSpellData.components.map((spellComponent, i) => {
+               // {i > 0 && ", "},  spellComponent
+               if (i > 0) {return `, ${spellComponent}`}
+               else {return spellComponent}
+               }
+            )}</p>
          </div>
 
          <div className="stat">
@@ -106,7 +111,11 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
 
          <div className="stat">
             <h4>Classes</h4>
-            <p>{currentSpellData.classes && currentSpellData.classes.map(spellClass => `${spellClass.name}, `)}</p>
+            <p>{currentSpellData.classes && currentSpellData.classes.map((spellClass, i) => {
+               if (i > 0) {return `, ${spellClass.name}`}
+               else {return spellClass.name}
+               }
+            )}</p>
          </div>
 
          <div className="stat">
