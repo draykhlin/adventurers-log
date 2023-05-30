@@ -6,9 +6,25 @@ code {
     monospace;
 }
 :root {
-  --primary: #ff4f88;
-  /* --primary-opacity: rgba(var(--primary), 1); */
-  /* --primary: #a773e5; */
+
+      /* theme1 */
+      /* --bg-color: #eddcba;
+      --card-color: #f2ead3;
+      --text-color: #495058;
+      --primary: #d95a89; */
+
+      /* theme2 */
+      /* --bg-color: #fbf1e3;
+      --card-color: #f1ddc7;
+      --text-color: #5a5451;
+      --primary: #ca6a6b; */
+
+      /* theme3 */
+      --bg-color: #f5e9d6;
+      --card-color: #f3ede2;
+      --text-color: #4b4f58;
+      --primary: #a6695e;
+
 }
 body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,8 +38,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #fff9e9; */
-  background-color: #fffcf4;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 50px 0;
 }
 .icon {
@@ -59,13 +75,19 @@ header {
     max-width: 1200px;
   }
     header nav a {
+      font-weight: 600;
       text-decoration: none;
       padding: 6px;
       border-radius: 4px;
     }
-    header nav a.active {
-      color: var(--primary)
-    }
+      header nav a:visited {
+        color: inherit;
+      }
+      header nav a.active {
+        color: var(--primary);
+        font-weight: 700;
+      }
+      
 
 main {
   margin: 3rem 0;
@@ -80,7 +102,7 @@ main {
   margin: 25px 0;
 }
 .add-button {
-  background-color: #ff4f88bd;
+  background-color: var(--primary);
   color: #fff;
   border-radius: 7px;
   border: none;
@@ -106,7 +128,7 @@ textarea, input {
 }
 textarea:focus, input:focus {
   outline: none;
-  border: 2px solid #ff4f88bd;
+  border: 2px solid var(--primary);
 }
 textarea {
   /* background-color: #ddd; */
@@ -175,6 +197,7 @@ textarea:focus {
   justify-content: space-between; */
 }
   .spell-card {
+    background-color: var(--card-color);
     align-self: flex-start;
     /* width: 45%; */
     /* border: 2px solid #d3d3d3; */
@@ -192,6 +215,9 @@ textarea:focus {
       display: flex;
       justify-content: flex-start;
     }
+      .slot-toggle .toggle-on {
+        color: var(--primary);
+      }
       .slot-toggle svg {
         margin-right: 0.7rem;
       }

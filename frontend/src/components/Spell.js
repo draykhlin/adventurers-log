@@ -55,7 +55,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
             <div className="slot-toggle">
             {isAvailable ? 
                   <>
-                  <FontAwesomeIcon icon="toggle-on" size="lg" style={{ cursor: "pointer", color: "#ff4f88" }} onClick={handleToggle} />
+                  <FontAwesomeIcon icon="toggle-on" size="lg" className="toggle-on" style={{ cursor: "pointer" }} onClick={handleToggle} />
                   <h4>Available</h4>
                   </>
                   :
