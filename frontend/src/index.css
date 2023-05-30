@@ -24,6 +24,14 @@ code {
       --card-color: #f3ede2;
       --text-color: #4b4f58;
       --primary: #a6695e;
+  
+  --card-shadow:
+    0px 0.8px 1.7px rgba(0, 0, 0, 0.038),
+    0px 2.1px 4.6px rgba(0, 0, 0, 0.055),
+    0px 5.1px 11.2px rgba(0, 0, 0, 0.072),
+    0px 17px 37px rgba(0, 0, 0, 0.11)
+  ;
+  --border-radius: 7px;
 
 }
 body {
@@ -78,7 +86,7 @@ header {
       font-weight: 600;
       text-decoration: none;
       padding: 6px;
-      border-radius: 4px;
+      border-radius: var(--border-radius);
     }
       header nav a:visited {
         color: inherit;
@@ -94,8 +102,18 @@ main {
 }
 
 /* ------INVENTORY------ */
+.inventory-container {
+  width: 75%;
+  margin: 0 auto;
+}
 .inventory-form * {
-  display: block;
+  /* display: block; */
+}
+.inventory-form {
+  background-color: var(--card-color);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--border-radius);
+  padding: 3rem;
 }
 .inventory-form label {
   font-weight: 600;
@@ -104,7 +122,7 @@ main {
 .add-button {
   background-color: var(--primary);
   color: #fff;
-  border-radius: 7px;
+  border-radius: var(--border-radius);
   border: none;
   cursor: pointer;
   padding: 15px 25px;
@@ -120,7 +138,7 @@ main {
 }
 textarea, input {
   border: 2px solid #d3d3d3;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   background-color: #fffcf4;
   margin: 5px 0;
   padding: 1em;
@@ -147,10 +165,7 @@ textarea:focus {
   color: #333;
   /* background-color: #eee; */
 }
-.inventory-container {
-  width: 60%;
-  margin: 0 auto;
-}
+
 .inventory-table {
   width: 100%;
   margin: 100px 0;
@@ -170,7 +185,7 @@ textarea:focus {
 }
 .inventory-table tr {
   /* border-bottom: 1px solid #e0e0e0; */
-  border-radius: 7px;
+  border-radius: var(--border-radius);
   box-shadow: 0px 1px 3px 0px #c4c4c4;
 }
 /* .inventory-item {
@@ -201,13 +216,8 @@ textarea:focus {
     align-self: flex-start;
     /* width: 45%; */
     /* border: 2px solid #d3d3d3; */
-    box-shadow:
-      0px 0.8px 1.7px rgba(0, 0, 0, 0.038),
-      0px 2.1px 4.6px rgba(0, 0, 0, 0.055),
-      0px 5.1px 11.2px rgba(0, 0, 0, 0.072),
-      0px 17px 37px rgba(0, 0, 0, 0.11)
-    ;
-    border-radius: 7px;
+    box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius);
     margin: 40px 0;
     padding: 3rem;
   }
