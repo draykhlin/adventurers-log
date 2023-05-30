@@ -66,7 +66,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
                }
             </div>
 
-            <FontAwesomeIcon icon="times" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
+            <FontAwesomeIcon icon="times" size="xl" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
          </section>
          
          <label>
@@ -79,49 +79,52 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
 
          <h3>{currentSpellData.name}</h3>
          
-         <div className="stat">
-            <h4>Level</h4>
-            <p>{currentSpellData.level}</p>
+         <div class="stats">
+            <div className="stat">
+               <h4>Level</h4>
+               <p>{currentSpellData.level}</p>
+            </div>
+
+            <div className="stat">
+               <h4>Casting Time</h4>
+               <p>{currentSpellData.casting_time}</p>
+            </div>
+
+            <div className="stat">
+               <h4>Range</h4>
+               <p>{currentSpellData.range}</p>
+            </div>
+
+            <div className="stat">
+               <h4>Components</h4>
+               <p>{currentSpellData.components && currentSpellData.components.map((spellComponent, i) => {
+                  // {i > 0 && ", "},  spellComponent
+                  if (i > 0) {return `, ${spellComponent}`}
+                  else {return spellComponent}
+                  }
+               )}</p>
+            </div>
+
+            <div className="stat">
+               <h4>Duration</h4>
+               <p>{currentSpellData.duration}</p>
+            </div>
+
+            <div className="stat">
+               <h4>Classes</h4>
+               <p>{currentSpellData.classes && currentSpellData.classes.map((spellClass, i) => {
+                  if (i > 0) {return `, ${spellClass.name}`}
+                  else {return spellClass.name}
+                  }
+               )}</p>
+            </div>
          </div>
 
-         <div className="stat">
-            <h4>Casting Time</h4>
-            <p>{currentSpellData.casting_time}</p>
-         </div>
-
-         <div className="stat">
-            <h4>Range</h4>
-            <p>{currentSpellData.range}</p>
-         </div>
-
-         <div className="stat">
-            <h4>Components</h4>
-            <p>{currentSpellData.components && currentSpellData.components.map((spellComponent, i) => {
-               // {i > 0 && ", "},  spellComponent
-               if (i > 0) {return `, ${spellComponent}`}
-               else {return spellComponent}
-               }
-            )}</p>
-         </div>
-
-         <div className="stat">
-            <h4>Duration</h4>
-            <p>{currentSpellData.duration}</p>
-         </div>
-
-         <div className="stat">
-            <h4>Classes</h4>
-            <p>{currentSpellData.classes && currentSpellData.classes.map((spellClass, i) => {
-               if (i > 0) {return `, ${spellClass.name}`}
-               else {return spellClass.name}
-               }
-            )}</p>
-         </div>
-
-         <div className="stat">
+         <div className="spell-desc">
             <h4>Description</h4>
             <p>{currentSpellData.desc}</p>
          </div>
+         
       </div>
    )
 }
