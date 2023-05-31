@@ -79,7 +79,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
 
          <h3>{currentSpellData.name}</h3>
          
-         <div class="stats">
+         <div className="stats">
             <div className="stat">
                <h4>Level</h4>
                <p>{currentSpellData.level}</p>
