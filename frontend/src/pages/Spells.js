@@ -93,6 +93,14 @@ const Spells = () => {
    }
 
    return (
+      <>
+      <div className="help-info">
+         <p>Spell slots represent each player's limited reservoir of magic. Once a spell is cast, the slot is expended until the player can rest.
+         </p>
+         <p>
+            Keep track of your spells and their availability for casting.
+         </p>
+      </div>
       <section className="spells-container">
          <button className="add-button" onClick={handleClick}>Add spell slot</button>
 
@@ -103,6 +111,7 @@ const Spells = () => {
          </div>
 
       </section>
+      </>
    )
 }
 

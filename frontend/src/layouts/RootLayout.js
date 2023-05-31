@@ -15,7 +15,7 @@ export default function RootLayout() {
             </nav>
          </header>
 
-         <main>
+         <main className="container">
             <Outlet />
          </main>
       </div>

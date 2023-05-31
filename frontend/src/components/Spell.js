@@ -50,7 +50,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    }
 
    return (
-      <div className="spell-card">
+      <div className="card spell-card">
          <section className="spell-slot-controls">
             <div className="slot-toggle">
             {isAvailable ? 

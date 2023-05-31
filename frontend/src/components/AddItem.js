@@ -34,7 +34,7 @@ const AddItem = ({ onAdd }) => {
    }
 
    return (
-      <form className="inventory-form" onSubmit={handleSubmit}>
+      <form className="card inventory-form" onSubmit={handleSubmit}>
          <h3>Add a new item</h3>
 
          <label>Item
@@ -61,7 +61,9 @@ const AddItem = ({ onAdd }) => {
             />
          </label>
 
-         <button className="add-button">Add</button>
+         <div className="submit-container">
+            <button className="add-button">Add</button>
+         </div>
       </form>
    )
 }

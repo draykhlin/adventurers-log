@@ -73,8 +73,6 @@ code {
 
 
 
-
-
 body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -141,42 +139,61 @@ header {
 main {
   margin: 3rem 0;
 }
-
-/* ------INVENTORY------ */
-.inventory-container {
-  width: 75%;
-  margin: 0 auto;
-}
-.inventory-form * {
-  /* display: block; */
-}
-.inventory-form {
+.card {
   background-color: var(--card-color);
   box-shadow: var(--card-shadow);
   border-radius: var(--border-radius);
   padding: 3rem;
 }
-.inventory-form label {
-  font-weight: 600;
-  margin: 25px 0;
+.help-info {
+  margin: 5rem 0;
 }
-.add-button {
-  background-color: var(--btn-color);
-  color: #fff;
-  border-radius: var(--border-radius);
-  border: none;
-  cursor: pointer;
-  padding: 15px 25px;
-  min-width: 100px;
-  font-size: 1rem;
-  font-weight: 600;
+  .help-info p {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+/* ------INVENTORY------ */
+/* .inventory-container {
+  width: 75%;
+  margin: 0 auto;
+} */
+.inventory-form {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
 }
-.add-button:hover {
-  background-color: var(--btn-color);
-}
-.inventory-note {
-  width: 50%;
-}
+  .inventory-form h3 {
+    width: 100%;
+  }
+  .inventory-form label {
+    font-weight: 600;
+    margin: 25px 0;
+  }
+  .inventory-form label input,
+  .inventory-form label textarea {
+    display: block;
+  }
+  .inventory-form .submit-container {
+    width: 100%;
+  }
+    .add-button {
+      background-color: var(--btn-color);
+      color: #fff;
+      border-radius: var(--border-radius);
+      border: none;
+      cursor: pointer;
+      padding: 15px 25px;
+      min-width: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .add-button:hover {
+      background-color: var(--btn-color);
+    }
+    .inventory-note {
+      width: 50%;
+    }
 textarea, input {
   border: 2px solid #d3d3d3;
   border-radius: var(--border-radius);
@@ -213,30 +230,32 @@ textarea:focus {
   /* border-collapse: collapse; */
   border-spacing: 0 1em;
 }
-.inventory-table thead tr {
-  border-radius: 0;
-  box-shadow: none;
-}
-/* .inventory-table th {
-  border: none;
-} */
-.inventory-table td {
-  text-align: center;
-  /* border:1px solid red; */
-}
-.inventory-table tr {
-  /* border-bottom: 1px solid #e0e0e0; */
-  border-radius: var(--border-radius);
-  box-shadow: 0px 1px 3px 0px #c4c4c4;
-}
-/* .inventory-item {
-  display: flex;
-}
-.inventory-item div {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-} */
+  .inventory-table thead tr {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* .inventory-table th {
+    border: none;
+  } */
+
+  .inventory-table tr {
+    /* border-bottom: 1px solid #e0e0e0; */
+    /* border-radius: var(--border-radius);
+    box-shadow: 0px 1px 3px 0px #c4c4c4; */
+  }
+  .inventory-table td {
+    text-align: center;
+    border-bottom: 1px solid #d7d7d7;
+  }
+
+  /* .inventory-item {
+    display: flex;
+  }
+  .inventory-item div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  } */
 
 
 
@@ -244,8 +263,8 @@ textarea:focus {
 /* ------SPELLS------ */
 
 .spells-container {
-  width: 70%;
-  margin: 0 auto;
+  /* width: 70%;
+  margin: 0 auto; */
 }
 .spell-slots-container {
   /* display: flex;
@@ -253,14 +272,10 @@ textarea:focus {
   justify-content: space-between; */
 }
   .spell-card {
-    background-color: var(--card-color);
     align-self: flex-start;
     /* width: 45%; */
     /* border: 2px solid #d3d3d3; */
-    box-shadow: var(--card-shadow);
-    border-radius: var(--border-radius);
     margin: 40px 0;
-    padding: 3rem;
   }
     .slot-toggle {
       display: flex;

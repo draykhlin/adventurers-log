@@ -79,7 +79,7 @@ const Inventory = () => {
     <div className="inventory-container">
       <AddItem onAdd={addItem} />
 
-      <table className="inventory-table">
+      <table className="card inventory-table">
         <thead>
           <tr>
             <th>Item</th>
@@ -91,7 +91,7 @@ const Inventory = () => {
         <tbody>
 
           {items && items.map((item, index) => 
-            <Item 
+            <Item
               key={index}
               keyId={item._id}
               item={item}
