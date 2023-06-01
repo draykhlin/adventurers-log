@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import Spell from '../components/Spell'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 
 const Spells = () => {
    const [userSpells, setUserSpells] = useState([])
@@ -95,11 +97,14 @@ const Spells = () => {
    return (
       <>
       <div className="help-info">
-         <p>Spell slots represent each player's limited reservoir of magic. Once a spell is cast, the slot is expended until the player can rest.
-         </p>
-         <p>
-            Keep track of your spells and their availability for casting.
-         </p>
+      {/* <FontAwesomeIcon icon={faCircleInfo} size="lg" /> */}
+      <strong>
+         Keep track of your spells and their availability for casting.
+      </strong>
+      <p>
+         Spell slots represent each player's limited reservoir of magic. Once a spell is cast, the slot is expended until the player can rest.
+      </p>
+         
       </div>
       <section className="spells-container">
          <button className="add-button" onClick={handleClick}>Add spell slot</button>

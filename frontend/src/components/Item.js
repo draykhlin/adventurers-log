@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa'
+import { faCheck, faTimes, faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 // import { AiFillEdit } from 'react-icons/ai'
 
 
@@ -75,11 +75,11 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
                      /> 
                   </td>
                   <td>
-                     <FontAwesomeIcon icon="check" className="icon" onClick={handleSaveClick} />
-                     <FontAwesomeIcon icon="times" className="icon" onClick={handleCancelClick} />
+                     <FontAwesomeIcon icon={faCheck} className="icon" onClick={handleSaveClick} />
+                     <FontAwesomeIcon icon={faTimes} className="icon" onClick={handleCancelClick} />
                   </td>
                   <td>
-                     <FontAwesomeIcon icon="trash" className="icon" onClick={() => onDelete(item._id)} />
+                     <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
                   </td>
                </>
                :
@@ -95,10 +95,10 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
                   </td>
                   <td>
                      {/* <button onClick={handleEditClick}>Edit</button> */}
-                     <FontAwesomeIcon icon="pen" className="icon" onClick={handleEditClick} />
+                     <FontAwesomeIcon icon={faPen} className="icon" onClick={handleEditClick} />
                   </td>
                   <td>
-                     <FontAwesomeIcon icon="trash" className="icon" onClick={() => onDelete(item._id)} />
+                     <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
                   </td>
                </>
             }

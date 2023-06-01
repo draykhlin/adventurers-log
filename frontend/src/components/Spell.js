@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faToggleOn, faToggleOff, faTimes} from '@fortawesome/free-solid-svg-icons'
 
 const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    const [currentSpellName, setCurrentSpellName] = useState(spell.index)
@@ -55,18 +56,18 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
             <div className="slot-toggle">
             {isAvailable ? 
                   <>
-                  <FontAwesomeIcon icon="toggle-on" size="lg" className="toggle-on" style={{ cursor: "pointer" }} onClick={handleToggle} />
+                  <FontAwesomeIcon icon={faToggleOn} size="lg" className="toggle-on" style={{ cursor: "pointer" }} onClick={handleToggle} />
                   <h4>Available</h4>
                   </>
                   :
                   <>
-                  <FontAwesomeIcon icon="toggle-off" size="lg" style={{ cursor: "pointer"}} onClick={handleToggle} />
+                  <FontAwesomeIcon icon={faToggleOff} size="lg" style={{ cursor: "pointer"}} onClick={handleToggle} />
                   <h4>Expended</h4>
                   </>
                }
             </div>
 
-            <FontAwesomeIcon icon="times" size="xl" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
+            <FontAwesomeIcon icon={faTimes} size="xl" style={{ cursor: "pointer"}} onClick={() => onDelete(spell._id)} />
          </section>
          
          <label>

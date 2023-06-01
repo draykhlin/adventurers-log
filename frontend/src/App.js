@@ -1,7 +1,4 @@
 import { createBrowserRouter, createRoutesFromElements, Route, NavLink, RouterProvider } from 'react-router-dom'
-import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faBook, faCheck, faTimes, faPen, faTrash, faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons'
 
 // pages & components
 // import Home from './pages/Home'
@@ -22,8 +19,6 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  library.add(faBook, faCheck, faTimes, faPen, faTrash, faToggleOn, faToggleOff)
-
   return (
     <RouterProvider router={router} />
   )
