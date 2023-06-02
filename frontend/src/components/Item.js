@@ -93,11 +93,9 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
          </div>
          {editing ?
             <>
-               <div className="item-cell item-save">
-                  <FontAwesomeIcon icon={faCheck} className="icon" onClick={handleSaveClick} />
-               </div>
-               <div className="item-cell item-cancel">
-                  <FontAwesomeIcon icon={faTimes} className="icon" onClick={handleCancelClick} />
+               <div className="item-cell item-controls">
+                  <FontAwesomeIcon icon={faCheck} className="icon item-save" onClick={handleSaveClick} />
+                  <FontAwesomeIcon icon={faTimes} className="icon item-cancel" onClick={handleCancelClick} />
                </div>
             </>
             :

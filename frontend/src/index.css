@@ -93,11 +93,12 @@ body {
 .icon {
   color: #6c6c6c;
   transition: color 0.1s;
+  font-size: 1rem;
 }
-.icon:hover {
-  color: var(--btn-color);
-  cursor: pointer;
-}
+  .icon:hover {
+    color: var(--btn-color);
+    cursor: pointer;
+  }
 p {
   line-height: 1.7;
 }
@@ -236,40 +237,45 @@ textarea:focus {
   color: #333;
   /* background-color: #eee; */
 }
-
 .inventory-table {
-  width: 100%;
-  margin: 100px 0;
-  /* border-collapse: collapse; */
-  border-spacing: 0 1em;
+  /* display: flex;
+  flex-wrap: wrap; */
 }
-  .inventory-table thead tr {
-    border-radius: 0;
-    box-shadow: none;
-  }
-  /* .inventory-table th {
-    border: none;
-  } */
-
-  .inventory-table tr {
-    /* border-bottom: 1px solid #e0e0e0; */
-    /* border-radius: var(--border-radius);
-    box-shadow: 0px 1px 3px 0px #c4c4c4; */
-  }
-  .inventory-table td {
-    text-align: center;
-    border-bottom: 1px solid #d7d7d7;
-  }
-
-  /* .inventory-item {
+  .inventory-row {
     display: flex;
+    padding: 1rem 0;
+    flex-wrap: wrap;
   }
-  .inventory-item div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  } */
-
+    .item-cell {
+      /* flex: 1; */
+      padding: 1rem;
+      white-space: pre-line;
+    }
+    .inventory-header .item-cell {
+      width:20%;
+    }
+    .item-name,
+    .item-qty {
+      /* flex: 0;
+      flex-basis: 10%; */
+      width: 20%;
+    }
+      .item-qty input,
+      .item-notes textarea {
+        width: 100%;
+      }
+    .item-controls .icon {
+      font-size: 1.2rem;
+    }
+    .item-notes {
+      flex: 1;
+    }
+    .item-save {
+      margin-right: 1.5rem;
+    }
+    .item-delete {
+      flex: 0;
+    }
 
 
 
@@ -343,3 +349,54 @@ textarea:focus {
       .spell-desc {
         margin-top: 2rem;
       }
+
+
+
+
+
+
+
+
+
+
+
+
+      /*-----------DELETE---------------- */
+                          /* //////////////////////////////////
+                            //////////////////////////////////
+                          */
+                          @media DISABLED {
+                            .inventory-table {
+                              width: 100%;
+                              margin: 100px 0;
+                              /* border-collapse: collapse; */
+                              /* border-spacing: 0 1em; */
+                            }
+                              .inventory-table thead tr {
+                                border-radius: 0;
+                                box-shadow: none;
+                              }
+                              /* .inventory-table th {
+                                border: none;
+                              } */
+                            
+                              .inventory-table tr {
+                                /* border-bottom: 1px solid #e0e0e0; */
+                                /* border-radius: var(--border-radius);
+                                box-shadow: 0px 1px 3px 0px #c4c4c4; */
+                              }
+                              .inventory-table td {
+                                text-align: center;
+                                border-bottom: 1px solid #d7d7d7;
+                              }
+                            
+                              /* .inventory-item {
+                                display: flex;
+                              }
+                              .inventory-item div {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                              } */
+                            
+                          }

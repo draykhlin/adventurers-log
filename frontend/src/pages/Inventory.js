@@ -80,6 +80,17 @@ const Inventory = () => {
       <AddItem onAdd={addItem} />
 
       <div className="card inventory-table">
+        <div className="inventory-row inventory-header">
+          <div className="item-cell">
+            Item
+          </div>
+          <div className="item-cell">
+            Quantity 
+          </div>
+          <div className="item-cell">
+            Notes
+          </div>
+        </div>
         {items && items.map((item, index) => 
           <Item
             key={index}
