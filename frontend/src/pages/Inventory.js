@@ -87,7 +87,7 @@ const Inventory = () => {
           <div className="item-cell">
             Quantity 
           </div>
-          <div className="item-cell">
+          <div className="item-cell notes-header">
             Notes
           </div>
         </div>

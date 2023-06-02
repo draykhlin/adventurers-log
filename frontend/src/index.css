@@ -166,7 +166,10 @@ main {
     margin-top: 1.5rem;
   }
 
-/* ------INVENTORY------ */
+
+/* ========INVENTORY========
+============================
+============================ */
 /* .inventory-container {
   width: 75%;
   margin: 0 auto;
@@ -237,14 +240,20 @@ textarea:focus {
   color: #333;
   /* background-color: #eee; */
 }
+
+/* ========INVENTORY-TABLE========
+============================
+============================ */
 .inventory-table {
   /* display: flex;
   flex-wrap: wrap; */
 }
   .inventory-row {
     display: flex;
-    padding: 1rem 0;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding: 1rem 0;
+    border-bottom: 2px solid #d4d4d4;
   }
     .item-cell {
       /* flex: 1; */
@@ -253,6 +262,7 @@ textarea:focus {
     }
     .inventory-header .item-cell {
       width:20%;
+      font-weight: 600;
     }
     .item-name,
     .item-qty {
@@ -278,8 +288,39 @@ textarea:focus {
     }
 
 
+@media (max-width: 576px) {
 
-/* ------SPELLS------ */
+  /* ===INVENTORY=== */
+
+  .inventory-table.card {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .notes-header{
+    display: none;
+  }
+  .item-name,
+  .item-qty {
+    width: 50%;
+  }
+  .item-name {
+    font-weight: 500;
+  }
+    .item-qty input {
+      height: 20px;
+    }
+  .item-notes {
+    flex-basis: 100%;
+    font-size: 0.9rem;
+    color: #7b7e84;
+  }
+}
+
+
+
+/* ========SPELLS========
+=========================
+========================= */
 
 .spells-container {
   /* width: 70%;
