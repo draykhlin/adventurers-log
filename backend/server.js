@@ -16,6 +16,7 @@ app.use(express.json())
 
 // routes
 app.use('/api/inventory', inventoryRoutes)
+app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
 
 // connect to DB

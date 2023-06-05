@@ -54,10 +54,6 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
       setEditing(false)
    }
    return (
-      
-      <>
-      {/* ^^^REMOVE */}
-      
       <div className="inventory-row">
          <div className="item-cell item-name">
             {item.name}
@@ -111,60 +107,8 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
       </div>
       
 
-                     {/* <tr className="inventory-item">
-                        <>
-                           {editing ? 
-                              <>
-                                 <td>
-                                    <span>{item.name}</span><br></br>
-                                 </td>
-                                 <td>
-                                    <input
-                                       type="number"        
-                                       value={qty} 
-                                       onChange={handleQtyChange}   
-                                    />
-                                 </td>
-                                 <td className="inventory-note">
-                                    <textarea
-                                       value={notes} 
-                                       onChange={handleNotesChange}   
-                                    /> 
-                                 </td>
-                                 <td>
-                                    <FontAwesomeIcon icon={faCheck} className="icon" onClick={handleSaveClick} />
-                                    <FontAwesomeIcon icon={faTimes} className="icon" onClick={handleCancelClick} />
-                                 </td>
-                                 <td>
-                                    <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
-                                 </td>
-                              </>
-                              :
-                              <>
-                                 <td>
-                                    <p>{item.name}</p>
-                                 </td>
-                                 <td>
-                                    <p>{qty}</p>
-                                 </td>
-                                 <td className="inventory-note">
-                                    <p>{notes}</p>
-                                 </td>
-                                 <td>
-                                    <FontAwesomeIcon icon={faPen} className="icon" onClick={handleEditClick} />
-                                 </td>
-                                 <td>
-                                    <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
-                                 </td>
-                              </>
-                           }
-                           </>
-                     </tr> */}
 
 
-
-      </>
-      // ^^^REMOVE
    )
 }
 
@@ -189,3 +133,57 @@ export default Item
    //    console.log(updatedItem)
    // }
 //////////
+
+
+
+//////////
+   {/* <tr className="inventory-item">
+      <>
+         {editing ? 
+            <>
+               <td>
+                  <span>{item.name}</span><br></br>
+               </td>
+               <td>
+                  <input
+                     type="number"        
+                     value={qty} 
+                     onChange={handleQtyChange}   
+                  />
+               </td>
+               <td className="inventory-note">
+                  <textarea
+                     value={notes} 
+                     onChange={handleNotesChange}   
+                  /> 
+               </td>
+               <td>
+                  <FontAwesomeIcon icon={faCheck} className="icon" onClick={handleSaveClick} />
+                  <FontAwesomeIcon icon={faTimes} className="icon" onClick={handleCancelClick} />
+               </td>
+               <td>
+                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
+               </td>
+            </>
+            :
+            <>
+               <td>
+                  <p>{item.name}</p>
+               </td>
+               <td>
+                  <p>{qty}</p>
+               </td>
+               <td className="inventory-note">
+                  <p>{notes}</p>
+               </td>
+               <td>
+                  <FontAwesomeIcon icon={faPen} className="icon" onClick={handleEditClick} />
+               </td>
+               <td>
+                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
+               </td>
+            </>
+         }
+         </>
+   </tr> */}
+//////////////
