@@ -40,9 +40,14 @@ code {
 /**
 * Container
 */
-.container,
+.container {
+  width: 90%;
+}
 .container-fluid {
   width: 100%;
+}
+.container,
+.container-fluid {  
   margin-right: auto;
   margin-left: auto;
   /* padding-right: var(--spacing);
@@ -147,6 +152,7 @@ main {
   box-shadow: var(--card-shadow);
   border-radius: var(--border-radius);
   padding: 3rem;
+  margin-bottom: 4rem;
 }
 .help-info {
   width: 50%;
@@ -261,7 +267,7 @@ textarea:focus {
       white-space: pre-line;
     }
     .inventory-header .item-cell {
-      width:20%;
+      width: 20%;
       font-weight: 600;
     }
     .item-name,
@@ -292,6 +298,12 @@ textarea:focus {
 
   /* ===INVENTORY=== */
 
+  .inventory-header .item-cell {
+    width: unset;
+  }
+    .inventory-header .item-cell:first-child {
+      flex: 1;
+    }
   .inventory-table.card {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -304,7 +316,11 @@ textarea:focus {
     width: 50%;
   }
   .item-name {
+    /* flex: 1; */
     font-weight: 500;
+  }
+  .item-qty {
+    text-align: right;
   }
     .item-qty input {
       height: 20px;
@@ -335,7 +351,8 @@ textarea:focus {
     align-self: flex-start;
     /* width: 45%; */
     /* border: 2px solid #d3d3d3; */
-    margin: 40px 0;
+    /* margin: 40px 0; */
+    
   }
     .slot-toggle {
       display: flex;

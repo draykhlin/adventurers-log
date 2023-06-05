@@ -76,7 +76,7 @@ const Inventory = () => {
 
 
   return (
-    <div className="inventory-container">
+    <>
       <AddItem onAdd={addItem} />
 
       <div className="card inventory-table">
@@ -130,7 +130,7 @@ const Inventory = () => {
                 </table> */}
 
       {/* <Items items={items} onDelete={deleteItem} /> */}
-    </div>
+    </>
    )
  }
 
