@@ -53,6 +53,7 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
       setSavedNotes(savedNotes)
       setEditing(false)
    }
+   
    return (
       <div className="inventory-row">
          <div className="item-cell item-name">

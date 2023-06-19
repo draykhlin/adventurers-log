@@ -12,4 +12,12 @@ const GpSchema = new mongoose.Schema({
     },
 })
 
+// document.save((error) => {
+//     if (error) {
+//       console.error(error);
+//     } else {
+//       console.log('Document saved successfully');
+//     }
+//   });
+
 module.exports = mongoose.model('Gp', GpSchema)

@@ -1,32 +1,24 @@
-const Inventory = require('../models/Inventory')
+const Gp = require('../models/Gp')
 const mongoose = require('mongoose')
 
 
-const getInventory = async (req,res) => {
-   const inventoryItems = await Inventory.find()
-   res.status(200).json(inventoryItems)
+const getGp = async (req, res) => {
+   const gpAmounts = await Gp.find()
+   res.status(200).json(gpAmounts)
 }
 
-const addItem = async (req,res) => {
-   const {name, qty, notes} = req.body
+const createGp = async (req, res) => {
+   const {currency, amount} = req.body
 
    try {
-      const item = await Inventory.create({name, qty, notes})
-      res.status(200).json(item)
+      const newGp = await Gp.create({currency, amount})
+      res.status(200).json(newGp)
    } catch (error) {
       res.status(400).json({error: error.message})
    }
-   
-   // try {
-   //    await Inventory.create({item: req.body.itemName, qty: !req.body.itemQty ? 1 : req.body.itemQty})
-   //    console.log('Item added')
-   //    res.redirect('/inventory')
-   // } catch(err) {
-   //    console.log(err)
-   // }
-}   
+}
 
-const updateQty = async (req,res) => {
+const updateGp = async (req, res) => {
    const id = req.params.id
    try {
       await Inventory.findByIdAndUpdate(
@@ -90,8 +82,7 @@ const deleteItem = async (req,res) => {
 }
 
 module.exports = {
-   getInventory,
-   addItem,
-   updateQty,
-   deleteItem
+   getGp,
+   createGp,
+   updateGp
 }

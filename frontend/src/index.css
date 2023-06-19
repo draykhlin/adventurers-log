@@ -247,6 +247,24 @@ textarea:focus {
   /* background-color: #eee; */
 }
 
+
+/* ========INVENTORY-GP========
+============================
+============================ */
+.gp-item {
+  display: flex;
+}
+  .gp-item p {
+    width: 20%;
+  }
+  .gp-items div:first-child {
+    font-size: 1.3rem;
+  }
+.gp-container input,
+.gp-container select {
+  display: block;
+}
+
 /* ========INVENTORY-TABLE========
 ============================
 ============================ */

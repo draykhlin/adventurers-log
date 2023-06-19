@@ -4,6 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 // const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
+const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 
 // express

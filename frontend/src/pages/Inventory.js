@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 // components
 import AddItem from '../components/AddItem'
+import Gp from '../components/Gp'
 import Item from '../components/Item'
 
 const Inventory = () => {
@@ -78,6 +79,9 @@ const Inventory = () => {
   return (
     <>
       <AddItem onAdd={addItem} />
+
+      <Gp />
+
 
       <div className="card inventory-table">
         <div className="inventory-row inventory-header">
