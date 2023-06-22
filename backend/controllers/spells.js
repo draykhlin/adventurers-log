@@ -1,4 +1,4 @@
-const Spells = require('../models/Spells')
+const Spells = require('../models/Spell')
 const mongoose = require('mongoose')
 
 
