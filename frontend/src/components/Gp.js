@@ -16,14 +16,12 @@ const Gp = () => {
             setGp(json)
          }
       }
-
       fetchGp()
    }, [])
 
 
    return (
       <>
-      
       <div className="gp-container card">
          <div className="gp-items">
             <div className="gp-item">
@@ -56,9 +54,7 @@ const Gp = () => {
 
             <button type="submit">Subtract</button>
             <button type="submit">Add</button>
-
          </form>
-         
       </div>
       </>
    )

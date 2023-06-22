@@ -14,6 +14,7 @@ const app = express()
 app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use('/api/Auth', require('./Auth/Route'))
 
 // routes
 app.use('/api/inventory', inventoryRoutes)
