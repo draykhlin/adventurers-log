@@ -49,3 +49,22 @@ exports.login = async (req, res, next) => {
       })
    }
 }
+exports.deleteUser = (req, res, next) => {
+   const {id} = req.body
+   User.findByIdAndDelete(id, (err, user) => {
+      if (err) {
+         res.status(400).json({
+            message: "Error removing user",
+            error: err.message
+         })
+      } else if (user) {
+         res.status(200).json({
+            message: "User removed successfully"
+         })
+      } else {
+         res.status(400).json({
+            message: "User not found"
+         })
+      }
+   })
+}
