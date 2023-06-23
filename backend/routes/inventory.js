@@ -7,7 +7,6 @@ const {
 } = require('../controllers/inventory')
 
 const router = express.Router()
-// const inventoryController = require('../controllers/inventory')
 
 router.get('/', getInventory)
 
