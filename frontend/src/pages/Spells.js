@@ -29,7 +29,7 @@ const Spells = () => {
          const json = await res.json()
          setUserSpells(json)
       } catch (err) {
-         console.log(err)
+         console.log('fetch error')
       }
    }
    

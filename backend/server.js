@@ -4,8 +4,7 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
-
-const connectDB = require('./config/database')
+// const connectDB = require('./config/database')
 
 // const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
@@ -14,9 +13,21 @@ const spellsRoutes = require('./routes/spells')
 
 require('dotenv').config({path: './config/.env'})
 
+// Passport config
 require('./config/passport')
 
-connectDB()
+// connectDB()
+mongoose.connect(process.env.MONGO_URI)
+ .then(() => {
+     // listen for requests
+     app.listen(process.env.PORT, () => {
+         console.log(`connected to DB & listening on port ${process.env.PORT}`)
+     })
+ })
+ .catch((err) => {
+     console.log(err)
+ })
+
 
 // express
 const app = express()

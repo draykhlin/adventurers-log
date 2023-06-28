@@ -173,6 +173,22 @@ main {
   }
 
 
+/* ========HOME========
+============================
+============================ */
+.hero {
+  padding: 0 8rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+.hero form input {
+  display: block;
+}
+
+
 /* ========INVENTORY========
 ============================
 ============================ */

@@ -1,4 +1,7 @@
+const express = require('express')
+const app = express()
 const mongoose = require('mongoose')
+// require('dotenv').config();
 
 const connectDB = async () => {
    try {
@@ -8,7 +11,9 @@ const connectDB = async () => {
          // useFindAndModify: false,
          // useCreateIndex: true
       })
-
+      // app.listen(process.env.PORT, () => {
+      //    console.log(`connected to DB & listening on port ${process.env.PORT}`)
+      // })
       console.log(`MongoDB Connected: ${conn.connection.host}`)
    } catch (err) {
       console.error(err)
