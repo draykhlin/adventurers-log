@@ -6,7 +6,7 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 // const connectDB = require('./config/database')
 
-// const mainRoutes = require('./routes/main')
+const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
@@ -39,6 +39,7 @@ app.use(express.json())
 // app.use('/api/Auth', require('./Auth/Route'))
 
 // routes
+app.use('/api/main', mainRoutes)
 app.use('/api/inventory', inventoryRoutes)
 app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
@@ -47,6 +48,7 @@ app.use('/api/spells', spellsRoutes)
 app.use(
     session({
       secret: 'keyboard cat',
+      // secret: env.get("SESSION_SECRET"),
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({

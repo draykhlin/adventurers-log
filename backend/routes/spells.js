@@ -6,6 +6,7 @@ const {
    updateSpell,
    deleteSpell
 } = require('../controllers/spells')
+const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', getSpells)
 router.post('/', addSpell)
