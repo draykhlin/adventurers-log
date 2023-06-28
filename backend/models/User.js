@@ -9,10 +9,13 @@ const UserSchema = new mongoose.Schema({
    },
    password: {
       type: String,
-      minlength: 4,
+      // minlength: 4,
       required: true,
    },
 })
+
+
+// Password hash middleware
 
 UserSchema.pre('save', function save(next) {
    const user = this
@@ -26,6 +29,9 @@ UserSchema.pre('save', function save(next) {
      })
    })
  })
+
+
+// Helper method for validating password
 
 UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
