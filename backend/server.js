@@ -1,7 +1,9 @@
-require('dotenv').config()
-
 const express = require('express')
 const mongoose = require('mongoose')
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const flash = require('express-flash')
 // const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
@@ -14,12 +16,16 @@ const app = express()
 app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use('/api/Auth', require('./Auth/Route'))
+// app.use('/api/Auth', require('./Auth/Route'))
 
 // routes
 app.use('/api/inventory', inventoryRoutes)
 app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
+
+require('dotenv').config({path: './config/.env'})
+
+require('./config/passport')(passport)
 
 // connect to DB
 mongoose.connect(process.env.MONGO_URI)
@@ -33,32 +39,18 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err)
     })
 
+// sessions
+app.use(
+    session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    })
+  )
 
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
-
-
-// app.get('/api/getItems', async (req, res) => {
-//     const inventoryItems = await db.collection('inventory').find().toArray()
-//     res.json(inventoryItems)
-//  })
-
-// app.get('/', (request, response) => {
-//     db.collection('inventory').find().toArray()
-//     .then(data => {
-//         response.render('index.ejs', { info: data })
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// app.post('/addItem', (request, response) => {
-//     db.collection('inventory').insertOne({itemName: request.body.itemName, itemQty: 1})
-//     .then(result => {
-//         console.log('Item added')
-//         response.redirect('/')
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// app.put('/increaseQty', (request, response) => {
-//     db.collection('inventory').updateOne({})
-// })
+app.use(flash())
