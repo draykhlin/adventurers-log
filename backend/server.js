@@ -6,7 +6,7 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 // const connectDB = require('./config/database')
 
-const mainRoutes = require('./routes/main')
+const authRoutes = require('./routes/auth')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
@@ -38,8 +38,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // app.use('/api/Auth', require('./Auth/Route'))
 
+app.use(flash())
+
 // routes
-app.use('/api/main', mainRoutes)
+app.use('/api/auth', authRoutes)
 app.use('/api/inventory', inventoryRoutes)
 app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
@@ -60,5 +62,3 @@ app.use(
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
-app.use(flash())

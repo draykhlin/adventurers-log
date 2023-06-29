@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const mongoose = require("mongoose")
 
 const UserSchema = new mongoose.Schema({
-   username: {
+   email: {
       type: String,
       unique: true,
       required: true,
@@ -12,6 +12,16 @@ const UserSchema = new mongoose.Schema({
       // minlength: 4,
       required: true,
    },
+   money: {
+      type: Map,
+      of: Number,
+      default: {
+        gp: 0,
+        cp: 0,
+        sp: 0,
+        pp: 0
+      }
+   }
 })
 
 
@@ -29,6 +39,16 @@ UserSchema.pre('save', function save(next) {
      })
    })
  })
+
+
+
+// UserSchema.pre('save', async function(next){
+//   if(this.isModified('password'))
+//   this.password = await bcrypt.hash(this.password, 10)
+//   next()
+// })
+
+
 
 
 // Helper method for validating password

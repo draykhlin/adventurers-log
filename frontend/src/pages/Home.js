@@ -6,7 +6,7 @@ const Home = () => {
       <div class="hero">
          {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1> */}
          
-         <form className="signup" action="/signup" method="POST">
+         <form className="signup" action="/api/auth/signup" method="POST">
             <h2>Sign Up</h2>
             <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required />

@@ -12,7 +12,11 @@ const InventorySchema = new mongoose.Schema({
     notes: {
         type: String,
         required: false,
-    }
+    },
+    // userId: {
+    //     type: String,
+    //     required: true
+    // }
 })
 
 module.exports = mongoose.model('Inventory', InventorySchema)
