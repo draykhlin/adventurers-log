@@ -13,17 +13,6 @@ const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 require('dotenv').config({path: './config/.env'})
 
-// Passport config
-require('./config/passport')
-
-
-// middleware
-app.use(express.static('frontend/public'))
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-// app.use('/api/Auth', require('./Auth/Route'))
-
-app.use(flash())
 
 // sessions
 app.use(
@@ -41,6 +30,18 @@ app.use(
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+// Passport config
+require('./config/passport')(passport)
+
+
+// middleware
+app.use(express.static('frontend/public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+// app.use('/api/Auth', require('./Auth/Route'))
+
+app.use(flash())
 
 // routes
 app.use('/api/auth', authRoutes)

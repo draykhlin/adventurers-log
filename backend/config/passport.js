@@ -4,12 +4,14 @@ const LocalStrategy = require('passport-local').Strategy
 // const User = connection.models.User
 const User = require('../models/User')
 
+/////////////////////////
+// ---vvv--zach---vvv---
 // const verifyCallback = (username, password, done)
-
 // const strategy = new LocalStrategy()
+////////////////////////
 
 module.exports = function (passport) {
-   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+   passport.use('local', new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
      User.findOne({ email: email.toLowerCase() }, (err, user) => {
        if (err) { return done(err) }
        if (!user) {
