@@ -8,17 +8,17 @@ const Home = () => {
          
          <form className="signup" action="/api/auth/signup" method="POST">
             <h2>Sign Up</h2>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
             <button type="submit">Sign up</button>
          </form>
          
-         <form className="login" action="/login" method="POST">
+         {/* <form className="login" action="/login" method="POST">
             <h2>Login</h2>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
             <button type="submit">Login</button>
-         </form>
+         </form> */}
       </div>
       
       </>
