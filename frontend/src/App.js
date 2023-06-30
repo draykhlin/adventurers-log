@@ -1,6 +1,6 @@
 // import { createBrowserRouter, createRoutesFromElements, Route, NavLink, RouterProvider } from 'react-router-dom'
 import { React, useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 // pages & components
 import Home from './pages/Home'
@@ -16,7 +16,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    // Example: Fetch authentication status from the server
     const checkAuthenticationStatus = async () => {
       const response = await fetch('/api/auth/check');
       const data = await response.json();
@@ -24,7 +23,13 @@ function App() {
     };
 
     checkAuthenticationStatus();
-  }, []);
+  }, [])
+
+  // const ProtectedRoute = ({ isAuthenticated }) => {
+  //   if (!isAuthenticated) {
+  //     return <Navigate to="/"
+  //   }
+  // }
   
   return (
     <>
@@ -38,7 +43,8 @@ function App() {
       <Route path="/" element={<RootLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory" element={
+          isAuthenticated ? <Inventory /> : <Navigate to="/" />} />
         <Route path="/spells" element={<Spells />} />
       </Route>
     </Routes>
