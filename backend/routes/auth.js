@@ -9,6 +9,14 @@ router.get('/logout', authController.logout)
 // router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 
+router.get('/check', (req, res) => {
+   if (req.isAuthenticated()) {
+      res.json({isAuthenticated: true})
+   } else {
+      res.json({isAuthenticated: false})
+   }
+})
+
 module.exports = router
 
 
