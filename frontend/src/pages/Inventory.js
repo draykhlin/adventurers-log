@@ -80,7 +80,7 @@ const Inventory = () => {
     <>
       <AddItem onAdd={addItem} />
 
-      {/* <Gp /> */}
+      <Gp />
 
 
       <div className="card inventory-table">

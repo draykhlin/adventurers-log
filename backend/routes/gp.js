@@ -7,7 +7,7 @@ const {
 } = require('../controllers/gp')
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', ensureAuth, getGp)
+router.get('/', getGp)
 router.post('/', createGp)
 router.patch('/:id', updateGp)
 

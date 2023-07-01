@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
 
 const Gp = () => {
-   const [gp, setGp] = useState([])
+   // const [gp, setGp] = useState([])
    // const [cp, setCp] = useState([])
    // const [sp, setSp] = useState([])
    // const [pp, setPp] = useState([])
+   const [gpAmounts, setGpAmounts] = useState([])
 
    useEffect(() => {
       const fetchGp = async () => {
          const res = await fetch('/api/gp')
          const json = await res.json()
+         console.log(`gp amount is: ${json}`)
 
          if (res.ok) {
-            console.log(json)
-            setGp(json)
+            await setGpAmounts(json)
          }
       }
       fetchGp()
@@ -26,19 +27,19 @@ const Gp = () => {
          <div className="gp-items">
             <div className="gp-item">
                <p>GP (Gold)</p>
-               <p>{gp[0].amount}</p>
+               <p>{gpAmounts.gp}</p>
             </div>
             <div className="gp-item">
                <p>CP (Copper)</p>
-               <p>{gp[1].amount}</p>
+               <p>{gpAmounts.cp}</p>
             </div>
             <div className="gp-item">
                <p>SP (Silver)</p>
-               <p>{gp[2].amount}</p>
+               <p>{gpAmounts.sp}</p>
             </div>
             <div className="gp-item">
                <p>PP (Platinum)</p>
-               <p>{gp[3].amount}</p>
+               <p>{gpAmounts.pp}</p>
             </div>
          </div>
          

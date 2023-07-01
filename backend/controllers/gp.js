@@ -1,10 +1,20 @@
 const Gp = require('../models/Gp')
+const User = require('../models/User')
 const mongoose = require('mongoose')
 
 
+// const getGp = async (req, res) => {
+//    const gpAmounts = await Gp.find({userId: req.user.id})
+//    res.status(200).json(gpAmounts)
+// }
+
 const getGp = async (req, res) => {
-   const gpAmounts = await Gp.find()
-   res.status(200).json(gpAmounts)
+   // const currentUser = await User.find({_id: req.user.id})
+   // const gpAmounts = await currentUser.money
+   await res.status(200).json(gpAmounts)
+   console.log(`gpAmounts: ${gpAmounts}`)
+   // console.log(`currentUser: ${currentUser}`)
+
 }
 
 const createGp = async (req, res) => {

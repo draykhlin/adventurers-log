@@ -10,6 +10,10 @@ const GpSchema = new mongoose.Schema({
         required: true,
         default: 0,
     },
+    userId: {
+        type: String,
+        required: true
+    }
 })
 
 // document.save((error) => {

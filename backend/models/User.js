@@ -13,8 +13,8 @@ const UserSchema = new mongoose.Schema({
       required: true,
    },
    money: {
-      type: Map,
-      of: Number,
+      // type: Map,
+      // of: Number,
       default: {
         gp: 0,
         cp: 0,
@@ -22,6 +22,16 @@ const UserSchema = new mongoose.Schema({
         pp: 0
       }
    }
+  //  money: {
+  //   type: Map,
+  //   of: Number,
+  //   default: {
+  //     gp: 0,
+  //     cp: 0,
+  //     sp: 0,
+  //     pp: 0
+  //   }
+  //  }
 })
 
 
@@ -40,15 +50,11 @@ UserSchema.pre('save', function save(next) {
    })
  })
 
-
-
 // UserSchema.pre('save', async function(next){
 //   if(this.isModified('password'))
 //   this.password = await bcrypt.hash(this.password, 10)
 //   next()
 // })
-
-
 
 
 // Helper method for validating password
