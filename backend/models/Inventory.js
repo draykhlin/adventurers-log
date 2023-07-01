@@ -13,10 +13,10 @@ const InventorySchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    // userId: {
-    //     type: String,
-    //     required: true
-    // }
+    userId: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Inventory', InventorySchema)

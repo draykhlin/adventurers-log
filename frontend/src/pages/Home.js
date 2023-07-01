@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom"
 const Home = () => {
    return (
       <>
-      <div class="hero">
+      <div className="hero">
          {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1> */}
          
          

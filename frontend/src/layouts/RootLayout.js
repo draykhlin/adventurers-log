@@ -2,18 +2,18 @@ import { React, useState, useEffect } from 'react'
 import { NavLink, Outlet } from "react-router-dom"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function RootLayout() {
-   const [isAuthenticated, setIsAuthenticated] = useState(false)
+const RootLayout = ({ isAuth }) => {
+   // const [isAuth, setisAuth] = useState(false)
 
-   useEffect(() => {
-      const checkAuthenticationStatus = async () => {
-         const response = await fetch('/api/auth/check');
-         const data = await response.json();
-         setIsAuthenticated(data.isAuthenticated);
-      };
+   // useEffect(() => {
+   //    const checkAuthStatus = async () => {
+   //       const response = await fetch('/api/auth/check');
+   //       const data = await response.json();
+   //       setisAuth(data.isAuth);
+   //    };
 
-      checkAuthenticationStatus();
-   }, [])
+   //    checkAuthStatus();
+   // }, [])
 
    return (
       <div className="root-layout">
@@ -23,9 +23,7 @@ export default function RootLayout() {
                <span className="logo-text">Adventurer's Log</span>
             </div> */}
             
-        {isAuthenticated &&
-         
-            
+        {isAuth &&
             <nav className="container">
                <NavLink to="/inventory">Inventory</NavLink>
                <NavLink to="/spells">Spells</NavLink>
@@ -39,3 +37,5 @@ export default function RootLayout() {
       </div>
   )
 }
+
+export default RootLayout

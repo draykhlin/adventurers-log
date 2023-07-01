@@ -12,17 +12,15 @@ import Spells from './pages/Spells'
 import RootLayout from './layouts/RootLayout'
 
 function App() {
-  // const [user, setUser] = useState(null)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuth, setIsAuth] = useState(false)
 
   useEffect(() => {
-    const checkAuthenticationStatus = async () => {
-      const response = await fetch('/api/auth/check');
-      const data = await response.json();
-      setIsAuthenticated(data.isAuthenticated);
-    };
-
-    checkAuthenticationStatus();
+    const checkAuthStatus = async () => {
+      const res = await fetch('/api/auth/check')
+      const data = await res.json()
+      setIsAuth(data.isAuthenticated)
+    }
+    checkAuthStatus()
   }, [])
 
   // const ProtectedRoute = ({ isAuthenticated }) => {
@@ -38,14 +36,13 @@ function App() {
       return window.location.reload()
     }
     } style={{width:'300px', height:'50px'}}>Logout</button>
-    <p>isAuthenticated is {isAuthenticated.toString()}</p>
+    <p>isAuth is {isAuth.toString()}</p>
     <Routes>
-      <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<RootLayout isAuth={isAuth} />}>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/inventory" element={
-          isAuthenticated ? <Inventory /> : <Navigate to="/" />} />
-        <Route path="/spells" element={<Spells />} />
+        <Route path="/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} />
+        <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
       </Route>
     </Routes>
     </>
