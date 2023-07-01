@@ -23,7 +23,9 @@ code {
       --bg-color: #f5e9d6;
       --card-color: #f3ede2;
       --text-color: #4b4f58;
-      --btn-color: #a6695e;
+      /* --btn-color: #a6695e; */
+      /* --btn-color: #7e635e; */
+      --btn-color: #6b5953;
       --btn-hover-color: #8b574e;
   
   --card-shadow:
@@ -110,6 +112,23 @@ p {
 input, button {
   font-family: 'Instrument Sans', sans-serif;
 }
+button {
+  background-color: var(--btn-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  padding: 15px 25px;
+  min-width: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.1s;
+}
+  button:hover {
+  background-color: var(--btn-hover-color);
+}
+
+
 /* ------NAV------- */
 header {
   display: flex;
@@ -181,11 +200,31 @@ main {
   text-align: center;
 }
 .hero h1 {
+  color: #7e635e;
   font-size: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+}
+.d20-icon {
+  color: var(--btn-color);
+  font-size: 3rem;
+}
+.hero .card {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 4rem;
 }
 .hero form input {
   display: block;
+}
+
+.login-form input {
+  width: 100%;
+  margin: 1rem auto;
+}
+.login-form button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
 }
 
 
@@ -215,21 +254,7 @@ main {
   .inventory-form .submit-container {
     width: 100%;
   }
-    .add-button {
-      background-color: var(--btn-color);
-      color: #fff;
-      border-radius: var(--border-radius);
-      border: none;
-      cursor: pointer;
-      padding: 15px 25px;
-      min-width: 100px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.1s;
-    }
-    .add-button:hover {
-      background-color: var(--btn-hover-color);
-    }
+    
     .inventory-note {
       width: 50%;
     }

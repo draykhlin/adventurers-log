@@ -9,11 +9,14 @@ const mongoose = require('mongoose')
 // }
 
 const getGp = async (req, res) => {
-   // const currentUser = await User.find({_id: req.user.id})
-   // const gpAmounts = await currentUser.money
-   await res.status(200).json(gpAmounts)
-   console.log(`gpAmounts: ${gpAmounts}`)
-   // console.log(`currentUser: ${currentUser}`)
+   const currentUser = await User.findOne({_id: req.user.id})
+   // console.log(currentUser)
+   // const {money} = currentUser
+
+   // const gpAmounts = await currentUser[2]
+   // // await res.status(200).json(gpAmounts)
+   // console.log(`gpAmounts: ${gpAmounts}`)
+   // console.log(`currentUser: ${currentUser.email}`)
 
 }
 
