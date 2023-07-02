@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
+require('dotenv').config({path: './config/.env'})
 const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 // const connectDB = require('./config/database')
@@ -11,7 +12,6 @@ const authRoutes = require('./routes/auth')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
-require('dotenv').config({path: './config/.env'})
 
 
 // sessions

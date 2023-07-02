@@ -26,6 +26,13 @@ const Gp = () => {
 
    // }
 
+   const handleSubtract = () => {
+      setCurrencies((prevCurrencies) => ({
+         ...prevCurrencies,
+         [currencyToUpdate]: prevCurrencies[currencyToUpdate] - amountToUpdate
+      }))
+   }
+
    const handleAdd = () => {
       setCurrencies((prevCurrencies) => ({
          ...prevCurrencies,
@@ -78,7 +85,7 @@ const Gp = () => {
                <option value="pp">PP</option>
             </select>
 
-            {/* <button type="submit" onClick={handleSubtract}>Subtract</button> */}
+            <button type="submit" onClick={handleSubtract}>Subtract</button>
 
             <button type="submit" onClick={handleAdd}>Add</button>
          </form>

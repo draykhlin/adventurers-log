@@ -2,13 +2,11 @@ const express = require('express')
 const router = express.Router()
 const {
    getGp,
-   createGp,
    updateGp
 } = require('../controllers/gp')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', getGp)
-router.post('/', createGp)
-router.patch('/:id', updateGp)
+router.patch('/', updateGp)
 
 module.exports = router
