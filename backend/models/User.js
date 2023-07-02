@@ -9,29 +9,26 @@ const UserSchema = new mongoose.Schema({
    },
    password: {
       type: String,
-      // minlength: 4,
       required: true,
    },
-   money: {
-      // type: Map,
-      // of: Number,
-      default: {
-        gp: 0,
-        cp: 0,
-        sp: 0,
-        pp: 0
-      }
-   }
-  //  money: {
-  //   type: Map,
-  //   of: Number,
-  //   default: {
-  //     gp: 0,
-  //     cp: 0,
-  //     sp: 0,
-  //     pp: 0
-  //   }
-  //  }
+   currencies: {
+      gp: {
+        type: Number,
+        default: 0,
+      },
+      cp: {
+        type: Number,
+        default: 0,
+      },
+      sp: {
+        type: Number,
+        default: 0,
+      },
+      pp: {
+        type: Number,
+        default: 0,
+      },
+    }
 })
 
 

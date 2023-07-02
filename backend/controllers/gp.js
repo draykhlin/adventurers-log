@@ -13,7 +13,7 @@ const getGp = async (req, res) => {
    console.log(currentUser)
    res.send(currentUser)
    // res.status(200).json(currentUser)
-   // const {money} = currentUser
+   // const {currencies} = currentUser
 
    // const gpAmounts = await currentUser[2]
    // // await res.status(200).json(gpAmounts)

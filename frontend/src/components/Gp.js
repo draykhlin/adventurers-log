@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 
 const Gp = () => {
-   const [money, setMoney] = useState({})
+   const [currencies, setCurrencies] = useState({})
+   const [amountToUpdate, setAmountToUpdate] = useState(0)
+   const [currencyToUpdate, setCurrencyToUpdate] = useState("gp")
 
    useEffect(() => {
       const fetchGp = async () => {
@@ -9,17 +11,40 @@ const Gp = () => {
             const res = await fetch('/api/gp')
             const data = await res.json()
             console.log(`data: ${data}`)
-            setMoney(data.money)
+            setCurrencies(data.currencies)
          } catch (err) {
             console.error(err)
          }
          // if (res.ok) {
-         //    await setGpAmounts(money)
+         //    await setGpAmounts(currencies)
          // }
       }
       fetchGp()
    }, [])
 
+   // const handleSubtract {
+
+   // }
+
+   const handleAdd = () => {
+      setCurrencies((prevCurrencies) => ({
+         ...prevCurrencies,
+         [currencyToUpdate]: prevCurrencies[currencyToUpdate] + amountToUpdate
+      }))
+   }
+
+   const handleSubmit = async (e) => {
+      e.preventDefault()
+
+      // const updatedCurrency = {}
+      await fetch('/api/gp', {
+         method: 'PATCH',
+         body: JSON.stringify(currencies),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      })
+   }
 
    return (
       <>
@@ -27,34 +52,35 @@ const Gp = () => {
          <div className="gp-items">
             <div className="gp-item">
                <p>GP (Gold)</p>
-               <p>{money.gp}</p>
+               <p>{currencies.gp}</p>
             </div>
             <div className="gp-item">
                <p>CP (Copper)</p>
-               <p>{money.cp}</p>
+               <p>{currencies.cp}</p>
             </div>
             <div className="gp-item">
                <p>SP (Silver)</p>
-               <p>{money.sp}</p>
+               <p>{currencies.sp}</p>
             </div>
             <div className="gp-item">
                <p>PP (Platinum)</p>
-               <p>{money.pp}</p>
+               <p>{currencies.pp}</p>
             </div>
          </div>
          
-         <form className="gp-form">
-            <input type="number" className="gp-select-qty"></input>
-            
-            <select className="gp-select-denomination">
+         <form className="gp-form" onSubmit={handleSubmit}>
+            <input type="number" className="gp-select-qty" onChange={(e) => setAmountToUpdate(parseInt(e.target.value))} />
+
+            <select className="gp-select-denomination" onChange={(e) => setCurrencyToUpdate(e.target.value)}>
                <option value="gp" selected>GP</option>
                <option value="cp">CP</option>
                <option value="sp">SP</option>
                <option value="pp">PP</option>
             </select>
 
-            <button type="submit">Subtract</button>
-            <button type="submit">Add</button>
+            {/* <button type="submit" onClick={handleSubtract}>Subtract</button> */}
+
+            <button type="submit" onClick={handleAdd}>Add</button>
          </form>
       </div>
       </>
