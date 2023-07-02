@@ -10,7 +10,9 @@ const mongoose = require('mongoose')
 
 const getGp = async (req, res) => {
    const currentUser = await User.findOne({_id: req.user.id})
-   // console.log(currentUser)
+   console.log(currentUser)
+   res.send(currentUser)
+   // res.status(200).json(currentUser)
    // const {money} = currentUser
 
    // const gpAmounts = await currentUser[2]

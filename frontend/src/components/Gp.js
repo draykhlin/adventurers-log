@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const Gp = () => {
-   // const [gp, setGp] = useState([])
-   // const [cp, setCp] = useState([])
-   // const [sp, setSp] = useState([])
-   // const [pp, setPp] = useState([])
-   // const [gpAmounts, setGpAmounts] = useState(0)
-   const [gpData, setGpData] = useState(null)
+   const [money, setMoney] = useState({})
 
    useEffect(() => {
       const fetchGp = async () => {
@@ -14,12 +9,7 @@ const Gp = () => {
             const res = await fetch('/api/gp')
             const data = await res.json()
             console.log(`data: ${data}`)
-            setGpData(data)
-            // console.log(data)
-            // const {money} = await data
-            // console.log(`gp amount is: ${money}`)
-            // await setGpAmounts(money)
-            // console.log(`gpamounts: ${gpAmounts}`)
+            setMoney(data.money)
          } catch (err) {
             console.error(err)
          }
@@ -34,24 +24,24 @@ const Gp = () => {
    return (
       <>
       <div className="gp-container card">
-         {/* <div className="gp-items">
+         <div className="gp-items">
             <div className="gp-item">
                <p>GP (Gold)</p>
-               <p>{gpAmounts.gp}</p>
+               <p>{money.gp}</p>
             </div>
             <div className="gp-item">
                <p>CP (Copper)</p>
-               <p>{gpAmounts.cp}</p>
+               <p>{money.cp}</p>
             </div>
             <div className="gp-item">
                <p>SP (Silver)</p>
-               <p>{gpAmounts.sp}</p>
+               <p>{money.sp}</p>
             </div>
             <div className="gp-item">
                <p>PP (Platinum)</p>
-               <p>{gpAmounts.pp}</p>
+               <p>{money.pp}</p>
             </div>
-         </div> */}
+         </div>
          
          <form className="gp-form">
             <input type="number" className="gp-select-qty"></input>

@@ -7,8 +7,8 @@ const Home = () => {
       <>
       <div className="hero">
          {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1> */}
-         <h1>Adventurer's Log</h1>
-         <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
+         {/* <h1>Adventurer's Log</h1>
+         <FontAwesomeIcon icon={faDiceD20} className="d20-icon" /> */}
          
          <div className="card">
          <form className="login-form" action="/api/auth/login" method="POST">
