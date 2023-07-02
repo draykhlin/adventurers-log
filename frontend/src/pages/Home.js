@@ -6,9 +6,8 @@ const Home = () => {
    return (
       <>
       <div className="hero">
-         {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1> */}
-         {/* <h1>Adventurer's Log</h1>
-         <FontAwesomeIcon icon={faDiceD20} className="d20-icon" /> */}
+         <h1>Adventurer's Log</h1>
+         <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          
          <div className="card">
          <form className="login-form" action="/api/auth/login" method="POST">
@@ -17,8 +16,9 @@ const Home = () => {
             <input type="password" name="password" placeholder="Password" required />
             <button type="submit">Login</button>
          </form>
+
+         <NavLink to="/signup" className="signup-link">Sign Up</NavLink>
          </div>
-         <NavLink to="/signup">Sign Up</NavLink>
 
       </div>
       

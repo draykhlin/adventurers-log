@@ -216,7 +216,9 @@ main {
 .hero form input {
   display: block;
 }
-
+.login-form {
+  margin-bottom: 2rem;
+}
 .login-form input {
   width: 100%;
   margin: 1rem auto;
@@ -226,7 +228,10 @@ main {
   margin-top: 1rem;
   padding: 0.5rem 2rem;
 }
-
+.signup-link {
+  color: var(--text-color);
+  font-weight: 500;
+}
 
 /* ========INVENTORY========
 ============================
@@ -258,7 +263,7 @@ main {
     .inventory-note {
       width: 50%;
     }
-textarea, input {
+textarea, input, select {
   border: 2px solid #d3d3d3;
   border-radius: var(--border-radius);
   background-color: #fffcf4;
@@ -292,18 +297,39 @@ textarea:focus {
 /* ========INVENTORY-GP========
 ============================
 ============================ */
+.gp-wrapper {
+  display: flex;
+}
+.gp-items,
+.gp-form {
+  flex: 1;
+}
+.gp-items div:first-child {
+  font-size: 1.3rem;
+}
+
 .gp-item {
   display: flex;
 }
   .gp-item p {
     width: 20%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
-  .gp-items div:first-child {
-    font-size: 1.3rem;
+  .gp-item p:first-child {
+    margin-right: 5rem;
   }
-.gp-container input,
-.gp-container select {
+  
+.gp-form input,
+.gp-form select {
   display: block;
+}
+.gp-form select {
+  padding: 0.5rem 3rem;
+  margin: 1rem 0;
+}
+.gp-subtract-btn {
+  margin-right: 1rem;
 }
 
 /* ========INVENTORY-TABLE========
@@ -318,7 +344,8 @@ textarea:focus {
     flex-wrap: wrap;
     /* justify-content: space-between; */
     padding: 1rem 0;
-    border-bottom: 2px solid #d4d4d4;
+    /* border-bottom: 2px solid #d4d4d4; */
+    border-bottom: 2px solid #6b595333;
   }
     .item-cell {
       /* flex: 1; */
@@ -400,6 +427,9 @@ textarea:focus {
 .spells-container {
   /* width: 70%;
   margin: 0 auto; */
+}
+.spells-container .add-button {
+  margin-bottom: 2rem;
 }
 .spell-slots-container {
   /* display: flex;

@@ -84,6 +84,7 @@ const Inventory = () => {
 
 
       <div className="card inventory-table">
+        <h3>Inventory</h3>
         <div className="inventory-row inventory-header">
           <div className="item-cell">
             Item
