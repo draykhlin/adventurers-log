@@ -11,22 +11,20 @@ code {
       /* --bg-color: #eddcba;
       --card-color: #f2ead3;
       --text-color: #495058;
-      --btn-color: #d95a89; */
+      --primary-color: #d95a89; */
 
       /* theme2 */
       /* --bg-color: #fbf1e3;
       --card-color: #f1ddc7;
       --text-color: #5a5451;
-      --btn-color: #ca6a6b; */
+      --primary-color: #ca6a6b; */
 
       /* theme3 */
       --bg-color: #f5e9d6;
       --card-color: #f3ede2;
       --text-color: #4b4f58;
-      /* --btn-color: #a6695e; */
-      /* --btn-color: #7e635e; */
-      --btn-color: #6b5953;
-      --btn-hover-color: #8b574e;
+      --primary-color: #7e6962;
+      --primary-hover-color: #685650;
   
   --card-shadow:
     0px 0.8px 1.7px rgba(0, 0, 0, 0.038),
@@ -103,7 +101,7 @@ body {
   font-size: 1rem;
 }
   .icon:hover {
-    color: var(--btn-color);
+    color: var(--primary-color);
     cursor: pointer;
   }
 p {
@@ -113,7 +111,7 @@ input, button {
   font-family: 'Instrument Sans', sans-serif;
 }
 button {
-  background-color: var(--btn-color);
+  background-color: var(--primary-color);
   color: #fff;
   border-radius: var(--border-radius);
   border: none;
@@ -125,7 +123,7 @@ button {
   transition: background-color 0.1s;
 }
   button:hover {
-  background-color: var(--btn-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 
@@ -158,7 +156,7 @@ header {
         color: inherit;
       }
       header nav a.active {
-        color: var(--btn-color);
+        color: var(--primary-color);
         font-weight: 700;
       }
       
@@ -205,7 +203,7 @@ main {
   margin-bottom: 2rem;
 }
 .d20-icon {
-  color: var(--btn-color);
+  color: var(--primary-color);
   font-size: 3rem;
 }
 .hero .card {
@@ -273,7 +271,7 @@ textarea, input, select {
 }
 textarea:focus, input:focus {
   outline: none;
-  border: 2px solid var(--btn-color);
+  border: 2px solid var(--primary-color);
 }
 textarea {
   /* background-color: #ddd; */
@@ -297,6 +295,9 @@ textarea:focus {
 /* ========INVENTORY-GP========
 ============================
 ============================ */
+.gp-container {
+  width: 60%;
+}
 .gp-wrapper {
   display: flex;
 }
@@ -305,20 +306,23 @@ textarea:focus {
   flex: 1;
 }
 .gp-items div:first-child {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .gp-item {
   display: flex;
+  justify-content: space-between;
+  width: 65%;
 }
   .gp-item p {
-    width: 20%;
+    /* width: 20%; */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
-  .gp-item p:first-child {
+  /* .gp-item p:first-child {
     margin-right: 5rem;
-  }
+  } */
   
 .gp-form input,
 .gp-form select {
@@ -448,7 +452,7 @@ textarea:focus {
       justify-content: flex-start;
     }
       .slot-toggle .toggle-on {
-        color: var(--btn-color);
+        color: var(--primary-color);
       }
       .slot-toggle svg {
         margin-right: 0.7rem;

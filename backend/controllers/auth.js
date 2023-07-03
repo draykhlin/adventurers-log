@@ -84,10 +84,10 @@ exports.postSignup = (req, res, next) => {
     }
   })
   
-  res.status(200).json({
-    message: "User successfully created",
-    user,
-  })
+  // res.status(200).json({
+  //   message: "User successfully created",
+  //   user,
+  // })
 
   User.findOne({$or: [
     {email: req.body.email},
@@ -104,7 +104,7 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err)
         }
-        res.redirect('/')
+        res.redirect('/inventory')
       })
     })  
   })
