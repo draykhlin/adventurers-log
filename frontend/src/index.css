@@ -145,8 +145,12 @@ header {
     justify-content: end;
     max-width: 1200px;
   }
+    header nav ul {
+      list-style-type: none;
+      display: flex;
+    }
     header nav ul li {
-      margin: 0 1rem;
+      margin: 0 0.8rem;
     }
     header nav a {
       font-size: 1.1rem;
