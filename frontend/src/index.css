@@ -206,7 +206,7 @@ main {
   text-align: center;
 }
 .hero h1 {
-  color: #7e635e;
+  color: var(--primary-color);
   font-size: 3rem;
   margin-bottom: 2rem;
 }

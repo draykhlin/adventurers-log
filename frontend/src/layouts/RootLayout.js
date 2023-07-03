@@ -15,6 +15,17 @@ const RootLayout = ({ isAuth }) => {
    //    checkAuthStatus();
    // }, [])
 
+   const handleLogout = async () => {
+      try {
+         const res = await fetch('/api/auth/logout')
+         if (res.ok) {
+            return window.location.reload()
+         }   
+      } catch (err) {
+         console.error(err)
+      }
+   }
+
    return (
       <div className="root-layout">
          <header className="container-fluid">
@@ -28,10 +39,7 @@ const RootLayout = ({ isAuth }) => {
                <ul>
                   <li><NavLink to="/inventory">Inventory</NavLink></li>
                   <li><NavLink to="/spells">Spells</NavLink></li>
-                  <li><a onClick={async (e)=>{
-                        await fetch('/api/auth/logout')
-                        return window.location.reload()
-                     }}>Logout</a></li>
+                  <li><a onClick={handleLogout}>Logout</a></li>
                </ul>
                
                
