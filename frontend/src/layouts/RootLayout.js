@@ -25,8 +25,23 @@ const RootLayout = ({ isAuth }) => {
             
         {isAuth &&
             <nav className="container">
-               <NavLink to="/inventory">Inventory</NavLink>
-               <NavLink to="/spells">Spells</NavLink>
+               <ul>
+                  <li><NavLink to="/inventory">Inventory</NavLink></li>
+                  <li><NavLink to="/spells">Spells</NavLink></li>
+                  <li><a onClick={async (e)=>{
+                        await fetch('/api/auth/logout')
+                        return window.location.reload()
+                     }}>Logout</a></li>
+               </ul>
+               
+               
+               {/* <button onClick={async (e)=>{
+                     await fetch('/api/auth/logout')
+                     return window.location.reload()
+                  }
+               } 
+               // style={{width:'300px', height:'50px'}}
+               >Logout</button> */}
             </nav>
          }
          </header>

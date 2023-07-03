@@ -31,11 +31,7 @@ function App() {
   
   return (
     <>
-    <button onClick={async (e)=>{
-      await fetch('/api/auth/logout')
-      return window.location.reload()
-    }
-    } style={{width:'300px', height:'50px'}}>Logout</button>
+    
     <p>isAuth is {isAuth.toString()}</p>
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>

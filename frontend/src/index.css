@@ -145,12 +145,16 @@ header {
     justify-content: end;
     max-width: 1200px;
   }
+    header nav ul li {
+      margin: 0 1rem;
+    }
     header nav a {
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
       padding: 6px;
       border-radius: var(--border-radius);
+      cursor: pointer;
     }
       header nav a:visited {
         color: inherit;
