@@ -303,12 +303,28 @@ textarea:focus {
 /* ========INVENTORY-GP========
 ============================
 ============================ */
+@media (min-width: 992px) {
+  .gp-container {
+    width: 60%;
+  }
+}
+/* @media (max-width: 576px) {
+  .gp-wrapper {
+    display: block;
+  }
+} */
+@media (min-width: 768px) {
+  .gp-wrapper {
+    display: flex;
+  }
+} 
+
+/* 
 .gp-container {
-  width: 60%;
-}
-.gp-wrapper {
-  display: flex;
-}
+  width: 100%;
+} */
+      
+
 .gp-items,
 .gp-form {
   flex: 1;
