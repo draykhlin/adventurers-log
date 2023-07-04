@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const AddItem = ({ onAdd }) => {
+const AddItem = ({ onAdd, onCancel }) => {
    const [name, setName] = useState('')
    const [qty, setQty] = useState(1)
    const [notes, setNotes] = useState('')
@@ -33,6 +33,12 @@ const AddItem = ({ onAdd }) => {
       }
    }
 
+   const handleCancel = () => {
+      setName('')
+      setQty(1)
+      setNotes('')
+   }
+
    return (
       <form className="card inventory-form" onSubmit={handleSubmit}>
          <h3>Add a new item</h3>
@@ -63,6 +69,7 @@ const AddItem = ({ onAdd }) => {
 
          <div className="submit-container">
             <button className="add-button">Add</button>
+            <button className="cancel-btn" onClick={onCancel}>Cancel</button>
          </div>
       </form>
    )

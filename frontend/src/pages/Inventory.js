@@ -7,6 +7,7 @@ import Item from '../components/Item'
 
 const Inventory = () => {
   const [items, setItems] = useState([])
+  const [addItemClicked, setAddItemClicked] = useState(false)
 
   useEffect(() => {
     const fetchInventory = async () => {
@@ -40,12 +41,15 @@ const Inventory = () => {
   // }
   ////////////
   
-  // Add item
-  const addItem = (item) => {
-    setItems([...items, item])
+  const cancelItem = () => {
+    setAddItemClicked(false)
   }
 
-  // Delete item
+  const addItem = (item) => {
+    setItems([...items, item])
+    setAddItemClicked(false)
+  }
+
   const deleteItem = async (id) => {
     await fetch(`/api/inventory/${id}`, {
       method: 'DELETE'
@@ -78,7 +82,13 @@ const Inventory = () => {
 
   return (
     <>
-      <AddItem onAdd={addItem} />
+      
+      {addItemClicked ?
+        <AddItem onAdd={addItem} onCancel={cancelItem} />
+      :
+        <button className="add-item-btn" onClick={(e) => setAddItemClicked(true)}>Add new item</button>
+      }
+      
 
       <Gp />
 

@@ -125,6 +125,35 @@ button {
   button:hover {
   background-color: var(--primary-hover-color);
 }
+textarea, input, select {
+  border: 2px solid #d3d3d3;
+  border-radius: var(--border-radius);
+  background-color: #fffcf4;
+  margin: 5px 0;
+  padding: 1em;
+  font-size: 16px;
+}
+textarea:focus, input:focus {
+  outline: none;
+  border: 2px solid var(--primary-color);
+}
+textarea {
+  /* background-color: #ddd; */
+  color: #666;
+  /* padding: 1em; */
+  /* border-radius: 7px; */
+  /* border: 2px solid transparent; */
+  outline: none;
+  font-family: inherit;
+  /* width: ;
+  height: ; */
+  /* transition: all 0.1s; */
+}
+textarea:focus {
+  cursor: text;
+  color: #333;
+  /* background-color: #eee; */
+}
 
 
 /* ------NAV------- */
@@ -201,21 +230,21 @@ main {
 /* ========HOME========
 ============================
 ============================ */
+
+
 .hero {
-  padding: 0 8rem;
   text-align: center;
 }
 .hero h1 {
   color: var(--primary-color);
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+
 }
 .d20-icon {
   color: var(--primary-color);
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .hero .card {
-  width: 50%;
   margin: 0 auto;
   margin-top: 4rem;
 }
@@ -239,6 +268,41 @@ main {
   font-weight: 500;
 }
 
+    @media (min-width: 576px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .d20-icon {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 0 5rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      /* .hero {
+        padding: 0 8rem;
+      } */
+      .hero .card {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero {
+        padding: 0 8rem;
+      }
+      .hero .card {
+        width: 50%;
+      }
+    }
+
 /* ========INVENTORY========
 ============================
 ============================ */
@@ -246,6 +310,9 @@ main {
   width: 75%;
   margin: 0 auto;
 } */
+.add-item-btn {
+  margin-bottom: 3rem;
+}
 .inventory-form {
   display: flex;
   flex-wrap: wrap;
@@ -269,36 +336,9 @@ main {
     .inventory-note {
       width: 50%;
     }
-textarea, input, select {
-  border: 2px solid #d3d3d3;
-  border-radius: var(--border-radius);
-  background-color: #fffcf4;
-  margin: 5px 0;
-  padding: 1em;
-  font-size: 16px;
-}
-textarea:focus, input:focus {
-  outline: none;
-  border: 2px solid var(--primary-color);
-}
-textarea {
-  /* background-color: #ddd; */
-  color: #666;
-  /* padding: 1em; */
-  /* border-radius: 7px; */
-  /* border: 2px solid transparent; */
-  outline: none;
-  font-family: inherit;
-  /* width: ;
-  height: ; */
-  /* transition: all 0.1s; */
-}
-textarea:focus {
-  cursor: text;
-  color: #333;
-  /* background-color: #eee; */
-}
-
+  .inventory-form .add-button {
+    margin-right: 1rem;
+  }
 
 /* ========INVENTORY-GP========
 ============================
