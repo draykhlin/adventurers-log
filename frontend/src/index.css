@@ -212,7 +212,6 @@ main {
   margin-bottom: 4rem;
 }
 .help-info {
-  width: 50%;
   margin: 3rem auto;
   /* padding: 0 6rem; */
   /* background-color: #f6dbac; */
@@ -228,6 +227,11 @@ main {
     font-weight: 500;
     margin-top: 1.5rem;
   }
+      @media (min-width: 768px) {
+        .help-info {
+          width: 50%;
+        }
+      }
 
 
 /* ========HOME========
@@ -649,6 +653,11 @@ main {
   }
       @media (min-width: 576px) {
         .legal-footer {
-          width: 30%;
+          width: 75%;
+        }
+      }
+      @media (min-width: 992px) {
+        .legal-footer {
+          width: 35%;
         }
       }
