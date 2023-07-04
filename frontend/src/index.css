@@ -107,9 +107,6 @@ body {
 p {
   line-height: 1.7;
 }
-input, button {
-  font-family: 'Instrument Sans', sans-serif;
-}
 button {
   background-color: var(--primary-color);
   color: #fff;
@@ -124,6 +121,12 @@ button {
 }
   button:hover {
   background-color: var(--primary-hover-color);
+}
+input {
+  width: 100%;
+}
+input, button {
+  font-family: 'Instrument Sans', sans-serif;
 }
 textarea, input, select {
   border: 2px solid #d3d3d3;
@@ -343,21 +346,7 @@ main {
 /* ========INVENTORY-GP========
 ============================
 ============================ */
-@media (min-width: 992px) {
-  .gp-container {
-    width: 60%;
-  }
-}
-/* @media (max-width: 576px) {
-  .gp-wrapper {
-    display: block;
-  }
-} */
-@media (min-width: 768px) {
-  .gp-wrapper {
-    display: flex;
-  }
-} 
+
 
 /* 
 .gp-container {
@@ -377,7 +366,6 @@ main {
 .gp-item {
   display: flex;
   justify-content: space-between;
-  width: 65%;
 }
   .gp-item p {
     /* width: 20%; */
@@ -398,8 +386,40 @@ main {
 }
 .gp-subtract-btn {
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
-
+      @media (min-width: 450px) {
+        /* .gp-wrapper {
+          display: block;
+        } */
+        .gp-item {
+          width: 55%;
+        }
+      }
+      @media (min-width: 576px) {
+        .gp-item {
+          width: 65%;
+        }
+      }
+      @media (max-width: 576px) {
+        .gp-subtract-btn {
+          margin-bottom: 1rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .gp-container {
+          width: 65%;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .gp-wrapper {
+          display: flex;
+        }
+        /* .gp-item {
+          width: 65%;
+        } */
+      } 
 /* ========INVENTORY-TABLE========
 ============================
 ============================ */
@@ -497,7 +517,7 @@ main {
   margin: 0 auto; */
 }
 .spells-container .add-button {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .spell-slots-container {
   /* display: flex;
@@ -615,3 +635,20 @@ main {
                               } */
                             
                           }
+.legal-footer {
+  text-align: center;
+  font-size: 0.6rem;
+  color: #9e9486;
+  width: 80%;
+  margin-top: 9rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+  .legal-footer p {
+    margin: 0;
+  }
+      @media (min-width: 576px) {
+        .legal-footer {
+          width: 30%;
+        }
+      }
