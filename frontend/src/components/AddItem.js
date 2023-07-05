@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-const AddItem = ({ onAdd }) => {
+const AddItem = ({ onAdd, onCancel }) => {
    const [name, setName] = useState('')
-   const [qty, setQty] = useState('')
-   // const [error, setError] = useState(null)
+   const [qty, setQty] = useState(1)
+   const [notes, setNotes] = useState('')
 
    const handleSubmit = async (e) => {
       e.preventDefault()
 
-      const item = { name, qty }
+      const item = { name, qty, notes }
 
       const res = await fetch('/api/inventory', {
          method: 'POST',
@@ -23,35 +23,54 @@ const AddItem = ({ onAdd }) => {
       //    setError(json.error)
       // }
       if (res.ok) {
-         onAdd({ name, qty })
+         onAdd({ name, qty, notes })
          
          setName('')
-         setQty('')
+         setQty(1)
+         setNotes('')
          // setError(null)
          console.log('New item added', json)
       }
    }
 
+   const handleCancel = () => {
+      setName('')
+      setQty(1)
+      setNotes('')
+   }
+
    return (
-      <form className="inventory-form" onSubmit={handleSubmit}>
+      <form className="card inventory-form" onSubmit={handleSubmit}>
          <h3>Add a new item</h3>
 
-         <label>Item:</label>
-         <input
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-         />
+         <label>Item
+            <input
+               type="text"
+               onChange={(e) => setName(e.target.value)}
+               value={name}
+            />
+         </label>
 
-         <label>Quantity:</label>
-         <input
-            type="number"
-            onChange={(e) => setQty(e.target.value)}
-            value={qty}
-         />
+         <label>Quantity
+            <input
+               type="number"
+               onChange={(e) => setQty(e.target.value)}
+               value={qty}
+            />
+         </label>
 
-         <button>Add Item</button>
-         {/* {error && <div className="error">{error}</div>} */}
+         <label>Notes
+            <textarea
+               name="notes"
+               onChange={(e) => setNotes(e.target.value)}
+               value={notes}
+            />
+         </label>
+
+         <div className="submit-container">
+            <button className="add-button">Add</button>
+            <button className="cancel-btn" onClick={onCancel}>Cancel</button>
+         </div>
       </form>
    )
 }

@@ -8,6 +8,14 @@ const InventorySchema = new mongoose.Schema({
     qty: {
         type: Number,
         required: true,
+    },
+    notes: {
+        type: String,
+        required: false,
+    },
+    userId: {
+        type: String,
+        required: true
     }
 })
 

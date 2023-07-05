@@ -2,35 +2,55 @@ import { useEffect, useState } from 'react'
 
 // components
 import AddItem from '../components/AddItem'
+import Gp from '../components/Gp'
 import Item from '../components/Item'
 
 const Inventory = () => {
   const [items, setItems] = useState([])
+  const [addItemClicked, setAddItemClicked] = useState(false)
 
   useEffect(() => {
-    const getInventory = async () => {
-      const inventoryFromServer = await fetchInventory()
-      setItems(inventoryFromServer)
+    const fetchInventory = async () => {
+      const res = await fetch('/api/inventory')
+      const json = await res.json()
+
+      if (res.ok) {
+        setItems(json)
+        console.log(json)
+      }
     }
-    getInventory()
-  }, [items])
 
-  // Fetch inventory items
-  const fetchInventory = async () => {
-    const res = await fetch('/api/inventory')
-    const data = await res.json()
+    fetchInventory()
+  }, [])
 
-    return data
-  }
+  ////////
+  // useEffect(() => {
+  //   const getInventory = async () => {
+  //     const inventoryFromServer = await fetchInventory()
+  //     setItems(inventoryFromServer)
+  //   }
+  //   getInventory()
+  // }, [])
+
+  // // Fetch inventory items
+  // const fetchInventory = async () => {
+  //   const res = await fetch('/api/inventory')
+  //   const data = await res.json()
+
+  //   return data
+  // }
+  ////////////
   
-  // Add item
+  const cancelItem = () => {
+    setAddItemClicked(false)
+  }
+
   const addItem = (item) => {
     setItems([...items, item])
+    setAddItemClicked(false)
   }
 
-  // Delete item
   const deleteItem = async (id) => {
-    console.log(id)
     await fetch(`/api/inventory/${id}`, {
       method: 'DELETE'
     })
@@ -38,18 +58,94 @@ const Inventory = () => {
     await setItems(items.filter((item) => item._id !== id))
   }
 
-  return (
-    <div className="container">
-      <AddItem onAdd={addItem} />
+  const updateItem = async (updatedItem) => {
+    const updatedItems = items.map(item => {
+      if (item._id === updatedItem._id) {
+        return updatedItem
+      } else {
+        return item
+      }
+    })
 
-      <ul className="inventoryList">
-        {items && items.map((item) => 
-          <Item key={item._id} item={item} onDelete={deleteItem} />
+    setItems(updatedItems)
+  }
+
+    // await fetch('/api/inventory', {
+    //   method: 'PATCH',
+    //   body: JSON.stringify(items),
+    //   headers: {
+    //      'Content-Type': 'application/json'
+    //   }
+    // })
+  
+
+
+  return (
+    <>
+      
+      {addItemClicked ?
+        <AddItem onAdd={addItem} onCancel={cancelItem} />
+      :
+        <button className="add-item-btn" onClick={(e) => setAddItemClicked(true)}>Add new item</button>
+      }
+      
+
+      <Gp />
+
+
+      <div className="card inventory-table">
+        <h3>Inventory</h3>
+        <div className="inventory-row inventory-header">
+          <div className="item-cell">
+            Item
+          </div>
+          <div className="item-cell">
+            Quantity 
+          </div>
+          <div className="item-cell notes-header">
+            Notes
+          </div>
+        </div>
+        {items && items.map((item, index) => 
+          <Item
+            key={index}
+            keyId={item._id}
+            item={item}
+            onDelete={deleteItem}
+            updateItem={updateItem}
+            />
         )}
-      </ul>
+      </div>
+
+
+
+
+                {/* <table className="card inventory-table">
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Quantity</th>
+                      <th>Notes</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {items && items.map((item, index) => 
+                      <Item
+                        key={index}
+                        keyId={item._id}
+                        item={item}
+                        onDelete={deleteItem}
+                        updateItem={updateItem}
+                        />
+                    )}
+
+                  </tbody>
+                </table> */}
 
       {/* <Items items={items} onDelete={deleteItem} /> */}
-    </div>
+    </>
    )
  }
 

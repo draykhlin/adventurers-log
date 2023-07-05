@@ -1,21 +1,16 @@
 const express = require('express')
+const router = express.Router()
 const {
    getInventory,
    addItem,
    updateQty,
    deleteItem
 } = require('../controllers/inventory')
+const { ensureAuth } = require('../middleware/auth')
 
-const router = express.Router()
-// const inventoryController = require('../controllers/inventory')
-
-router.get('/', getInventory)
-
+router.get('/', ensureAuth, getInventory)
 router.post('/', addItem)
-
-//may need to be patch instead of put
-router.put('/:id', updateQty)
-
+router.patch('/:id', updateQty)
 router.delete('/:id', deleteItem)
 
 module.exports = router

@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 
 
 const getInventory = async (req,res) => {
-   const inventoryItems = await Inventory.find()
+   const inventoryItems = await Inventory.find({userId: req.user.id})
    res.status(200).json(inventoryItems)
 }
 
 const addItem = async (req,res) => {
-   const {name, qty} = req.body
+   const {name, qty, notes} = req.body
 
    try {
-      const item = await Inventory.create({name, qty})
+      const item = await Inventory.create({name, qty, notes, userId: req.user.id})
       res.status(200).json(item)
    } catch (error) {
       res.status(400).json({error: error.message})
@@ -27,10 +27,35 @@ const addItem = async (req,res) => {
 }   
 
 const updateQty = async (req,res) => {
+   const id = req.params.id
    try {
-      await Inventory.findOneAndUpdate({_id: req.body.itemIdFromJSFile}, {
-            qty: req.body.itemQtyFromJSFile
-      })
+      await Inventory.findByIdAndUpdate(
+         id,
+         {
+            qty: req.body.qty,
+            notes: req.body.notes
+         }
+      )
+
+      
+      ////////Example///////
+      // const updateDocument = async (id) => {
+      //    try {
+      //      const updatedResult = await User.findByIdAndUpdate(
+      //        { _id: id },
+      //        {
+      //          profession: "Backend Developer",
+      //        },
+      //      );
+      //      console.log(updatedResult);
+      //    } catch (error) {
+      //      console.log(error);
+      //    }
+      //  };
+      ////////////////////////
+
+
+
 
       // const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, )
 
