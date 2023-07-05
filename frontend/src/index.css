@@ -171,20 +171,20 @@ header {
     font-weight: 700;
     margin-left: 1rem;
   }
-  header nav {
+  .navbar {
     display: flex;
     gap: 16px;
     justify-content: end;
     max-width: 1200px;
   }
-    header nav ul {
+    .navbar ul {
       list-style-type: none;
       display: flex;
     }
-    header nav ul li {
+    .navbar ul li {
       margin: 0 0.8rem;
     }
-    header nav a {
+    .navbar a {
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
@@ -192,10 +192,10 @@ header {
       border-radius: var(--border-radius);
       cursor: pointer;
     }
-      header nav a:visited {
+      .navbar a:visited {
         color: inherit;
       }
-      header nav a.active {
+      .navbar a.active {
         color: var(--primary-color);
         font-weight: 700;
       }
@@ -661,3 +661,39 @@ main {
           width: 35%;
         }
       }
+
+
+/* ========NAV BAR========
+============================
+============================ */
+.toggle-menu {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+}
+@media (max-width: 600px) {
+  .toggle-menu {
+    display: block;
+  }
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+    .navbar-links.active {
+      display: flex;
+    }
+  .navbar {
+    flex-direction: column;
+  }
+    .navbar ul {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      padding: 0;
+  }
+      .navbar ul li {
+        padding: 1rem;
+      }
+}

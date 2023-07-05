@@ -41,6 +41,7 @@ function App() {
         <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
       </Route>
     </Routes>
+    
     <div className="legal-footer">
       <p>This app uses the D&D 5e API. The data served by the API is licensed under the OGL.</p>
       <p>Adventurer's Log is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>

@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react'
 import { NavLink, Outlet } from "react-router-dom"
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+// import toggleMenu from '../toggleMenu.js'
 
 const RootLayout = ({ isAuth }) => {
    // const [isAuth, setisAuth] = useState(false)
@@ -14,7 +16,21 @@ const RootLayout = ({ isAuth }) => {
 
    //    checkAuthStatus();
    // }, [])
+   // useEffect(() => {
+   //    const toggleMenu = document.getElementsByClassName('toggle-menu')[0]
+   //     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 
+   //     console.log(toggleMenu)
+   //     document.getElementsByClassName('toggle-menu')[0].addEventListener('click', () => {
+   //       // navbarLinks.classList.toggle('active')
+   //       console.log('clicked')
+   //    })
+   // })
+   
+   const handleMenuToggle = () => {
+      const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+      navbarLinks.classList.toggle('active')
+   }
    const handleLogout = async () => {
       try {
          const res = await fetch('/api/auth/logout')
@@ -26,6 +42,7 @@ const RootLayout = ({ isAuth }) => {
       }
    }
 
+
    return (
       <div className="root-layout">
          <header className="container-fluid">
@@ -35,12 +52,15 @@ const RootLayout = ({ isAuth }) => {
             </div> */}
             
         {isAuth &&
-            <nav className="container">
-               <ul>
-                  <li><NavLink to="/inventory">Inventory</NavLink></li>
-                  <li><NavLink to="/spells">Spells</NavLink></li>
-                  <li><a onClick={handleLogout}>Logout</a></li>
-               </ul>
+            <nav className="navbar container">
+               <div className="navbar-links">
+                  <ul>
+                     <li><NavLink to="/inventory">Inventory</NavLink></li>
+                     <li><NavLink to="/spells">Spells</NavLink></li>
+                     <li><a onClick={handleLogout}>Logout</a></li>
+                  </ul>
+               </div>
+               <FontAwesomeIcon icon={faBars} size="lg" className="toggle-menu" onClick={handleMenuToggle} />
                
                
                {/* <button onClick={async (e)=>{

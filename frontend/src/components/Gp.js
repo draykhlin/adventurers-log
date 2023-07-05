@@ -80,8 +80,8 @@ const Gp = () => {
             <form className="gp-form" onSubmit={handleSubmit}>
                <input type="number" className="gp-select-qty" onChange={(e) => setAmountToUpdate(parseInt(e.target.value))} />
 
-               <select className="gp-select-denomination" onChange={(e) => setCurrencyToUpdate(e.target.value)}>
-                  <option value="gp" selected>GP</option>
+               <select className="gp-select-denomination" defaultValue="gp" onChange={(e) => setCurrencyToUpdate(e.target.value)}>
+                  <option value="gp">GP</option>
                   <option value="cp">CP</option>
                   <option value="sp">SP</option>
                   <option value="pp">PP</option>

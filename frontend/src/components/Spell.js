@@ -6,7 +6,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    const [currentSpellName, setCurrentSpellName] = useState(spell.index)
    const [currentSpellData, setCurrentSpellData] = useState([])
    const [isAvailable, setIsAvailable] = useState(spell.isAvailable)
-
+   // const [isSelected, setIsSelected] = useState(false)
    
    // fetch current spell data
    useEffect(() => {
@@ -20,6 +20,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
    }, [currentSpellName])
 
    const handleChange = async (e) => {
+      // setIsSelected(true)
       const newSpell = e.target.value
       await setCurrentSpellName(newSpell)
       const updatedSpell = {...spell, index: newSpell}
@@ -71,7 +72,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          </section>
          
          <label>
-               <select className="spell-select" onChange={handleChange}>
+               <select className="spell-select" defaultValue={null} onChange={handleChange}>
                   {allSpells && allSpells.map(spell => 
                      <option value={spell.index}>{spell.name}</option>
                   )}
@@ -80,52 +81,55 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
 
          <h3>{currentSpellData.name}</h3>
          
-         <div className="stats">
-            <div className="stat">
-               <h4>Level</h4>
-               <p>{currentSpellData.level}</p>
-            </div>
+         {/* {isSelected &&
+            <> */}
+               <div className="stats">
+                  <div className="stat">
+                     <h4>Level</h4>
+                     <p>{currentSpellData.level}</p>
+                  </div>
 
-            <div className="stat">
-               <h4>Casting Time</h4>
-               <p>{currentSpellData.casting_time}</p>
-            </div>
+                  <div className="stat">
+                     <h4>Casting Time</h4>
+                     <p>{currentSpellData.casting_time}</p>
+                  </div>
 
-            <div className="stat">
-               <h4>Range</h4>
-               <p>{currentSpellData.range}</p>
-            </div>
+                  <div className="stat">
+                     <h4>Range</h4>
+                     <p>{currentSpellData.range}</p>
+                  </div>
 
-            <div className="stat">
-               <h4>Components</h4>
-               <p>{currentSpellData.components && currentSpellData.components.map((spellComponent, i) => {
-                  // {i > 0 && ", "},  spellComponent
-                  if (i > 0) {return `, ${spellComponent}`}
-                  else {return spellComponent}
-                  }
-               )}</p>
-            </div>
+                  <div className="stat">
+                     <h4>Components</h4>
+                     <p>{currentSpellData.components && currentSpellData.components.map((spellComponent, i) => {
+                        // {i > 0 && ", "},  spellComponent
+                        if (i > 0) {return `, ${spellComponent}`}
+                        else {return spellComponent}
+                        }
+                     )}</p>
+                  </div>
 
-            <div className="stat">
-               <h4>Duration</h4>
-               <p>{currentSpellData.duration}</p>
-            </div>
+                  <div className="stat">
+                     <h4>Duration</h4>
+                     <p>{currentSpellData.duration}</p>
+                  </div>
 
-            <div className="stat">
-               <h4>Classes</h4>
-               <p>{currentSpellData.classes && currentSpellData.classes.map((spellClass, i) => {
-                  if (i > 0) {return `, ${spellClass.name}`}
-                  else {return spellClass.name}
-                  }
-               )}</p>
-            </div>
-         </div>
+                  <div className="stat">
+                     <h4>Classes</h4>
+                     <p>{currentSpellData.classes && currentSpellData.classes.map((spellClass, i) => {
+                        if (i > 0) {return `, ${spellClass.name}`}
+                        else {return spellClass.name}
+                        }
+                     )}</p>
+                  </div>
+               </div>
 
-         <div className="spell-desc">
-            <h4>Description</h4>
-            <p>{currentSpellData.desc}</p>
-         </div>
-         
+               <div className="spell-desc">
+                  <h4>Description</h4>
+                  <p>{currentSpellData.desc}</p>
+               </div>
+            {/* </>   
+         } */}
       </div>
    )
 }
