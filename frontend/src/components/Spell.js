@@ -25,7 +25,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
       await setCurrentSpellName(newSpell)
       const updatedSpell = {...spell, index: newSpell}
 
-      await fetch(`/api/spells/${spell._id}`, {
+      await fetch(`https://adventurers-log-server.onrender.com/api/spells/${spell._id}`, {
          method: 'PATCH',
          body: JSON.stringify(updatedSpell),
          headers: {
@@ -41,7 +41,7 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
       
       const updatedSpell = {...spell, isAvailable: !isAvailable}
 
-      await fetch(`/api/spells/${spell._id}`, {
+      await fetch(`https://adventurers-log-server.onrender.com/api/spells/${spell._id}`, {
          method: 'PATCH',
          body: JSON.stringify(updatedSpell),
          headers: {

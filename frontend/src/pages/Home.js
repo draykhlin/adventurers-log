@@ -10,7 +10,7 @@ const Home = () => {
          <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          
          <div className="card">
-         <form className="login-form" action="/api/auth/login" method="POST">
+         <form className="login-form" action="https://adventurers-log-server.onrender.com/api/auth/login" method="POST">
             {/* <h2>Login</h2> */}
             <input type="email" name="email" placeholder="Email" required />
             <input type="password" name="password" placeholder="Password" required />
