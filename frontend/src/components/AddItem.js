@@ -10,7 +10,7 @@ const AddItem = ({ onAdd, onCancel }) => {
 
       const item = { name, qty, notes }
 
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/inventory', {
+      const res = await fetch('/api/inventory', {
          method: 'POST',
          body: JSON.stringify(item),
          headers: {

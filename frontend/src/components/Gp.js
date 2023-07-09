@@ -8,7 +8,7 @@ const Gp = () => {
    useEffect(() => {
       const fetchGp = async () => {
          try {
-            const res = await fetch('https://adventurers-log-server.onrender.com/api/gp')
+            const res = await fetch('/api/gp')
             const data = await res.json()
             console.log(`data: ${data}`)
             setCurrencies(data.currencies)
@@ -44,7 +44,7 @@ const Gp = () => {
       e.preventDefault()
 
       // const updatedCurrency = {}
-      await fetch('https://adventurers-log-server.onrender.com/api/gp', {
+      await fetch('/api/gp', {
          method: 'PATCH',
          body: JSON.stringify(currencies),
          headers: {

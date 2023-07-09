@@ -25,7 +25,7 @@ const Spells = () => {
    // fetch user's spells
    const fetchUserSpells = async () => {
       try {
-         const res = await fetch('https://adventurers-log-server.onrender.com/api/spells')
+         const res = await fetch('/api/spells')
          const json = await res.json()
          setUserSpells(json)
       } catch (err) {
@@ -87,7 +87,7 @@ const Spells = () => {
    }
 
    const handleDelete = async (id) => {
-      await fetch(`https://adventurers-log-server.onrender.com/api/spells/${id}`, {
+      await fetch(`/api/spells/${id}`, {
          method: 'DELETE'
       })
 

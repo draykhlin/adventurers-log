@@ -11,6 +11,13 @@ const addItem = async (req,res) => {
    const {name, qty, notes} = req.body
 
    try {
+      // if (req.user.id === '64a715f26d2a81cb93dc8a6b') {
+      //    console.log('guest user')
+      //    db.inventories.createIndex( { "createdAt": 1 }, { expireAfterSeconds: 10 } )
+      //    const item = await Inventory.create({name, qty, notes, userId: req.user.id, createdAt: new Date()})
+      // } else {
+      //    const item = await Inventory.create({name, qty, notes, userId: req.user.id})
+      // }
       const item = await Inventory.create({name, qty, notes, userId: req.user.id})
       res.status(200).json(item)
    } catch (error) {

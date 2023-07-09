@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const checkAuthStatus = async () => {
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/check')
+      const res = await fetch('/api/auth/check')
       const data = await res.json()
       setIsAuth(data.isAuthenticated)
     }
@@ -36,9 +36,9 @@ function App() {
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>
         <Route path="/" element={<Home />} />
-        <Route path="https://adventurers-log-server.onrender.com/signup" element={<Signup />} />
-        <Route path="https://adventurers-log-server.onrender.com/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} />
-        <Route path="https://adventurers-log-server.onrender.com/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} />
+        <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
       </Route>
     </Routes>
     

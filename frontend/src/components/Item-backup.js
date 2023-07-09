@@ -28,7 +28,7 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
 
       const updatedItem = {...item, qty: qty, notes: notes}
      
-      await fetch(`https://adventurers-log-server.onrender.com/api/inventory/${item._id}`, {
+      await fetch(`/api/inventory/${item._id}`, {
          method: 'PATCH',
          body: JSON.stringify({
             qty: parseInt(qty),
