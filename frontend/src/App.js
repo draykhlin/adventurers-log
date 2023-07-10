@@ -34,7 +34,7 @@ function App() {
   return (
     <>
     
-    {/* <p>isAuth is {isAuth.toString()}</p> */}
+    <p>isAuth is {isAuth.toString()}</p>
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>
         <Route path="/" element={isAuth ?  <Navigate to="/inventory" /> : <Home setIsAuth={setIsAuth} />} />
