@@ -37,7 +37,7 @@ function App() {
     <p>isAuth is {isAuth.toString()}</p>
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>
-        <Route path="/" element={isAuth ? <Inventory /> : <Home setIsAuth={setIsAuth} />} />
+        <Route path="/" element={isAuth ? <Navigate to="/inventory" /> : <Home setIsAuth={setIsAuth} />} />
         {/* <Route path='/' element={<Home setisAuth={setIsAuth} /> }/> */}
 
         {/* <Route path='/' element={ <Redirect to="/inventory" /> }/> */}
