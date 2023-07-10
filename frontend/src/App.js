@@ -1,12 +1,14 @@
 // import { createBrowserRouter, createRoutesFromElements, Route, NavLink, RouterProvider } from 'react-router-dom'
 import { React, useState, useEffect } from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate} from 'react-router-dom'
 
 // pages & components
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Inventory from './pages/Inventory'
 import Spells from './pages/Spells'
+
+
 
 // layouts
 import RootLayout from './layouts/RootLayout'
@@ -35,11 +37,17 @@ function App() {
     {/* <p>isAuth is {isAuth.toString()}</p> */}
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={isAuth ?  <Navigate to="/inventory" /> : <Home setIsAuth={setIsAuth} />} />
+        
+        {/* <Route path='/' element={ <Redirect to="/inventory" /> }/> */}
+        
         <Route path="/signup" element={<Signup />} />
         <Route path="/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} />
         <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
       </Route>
+
+      
+
     </Routes>
     
     <div className="legal-footer">

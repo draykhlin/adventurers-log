@@ -24,16 +24,21 @@ exports.postLogin = (req, res, next) => {
 
   passport.authenticate('local', (err, user, info) => {
     if (err) { return next(err) }
-    if (!user) {
-      // req.flash('errors', info)
-      return res.redirect('/login')
-    }
+    // if (!user) {
+    //   // req.flash('errors', info)
+    //   return res.redirect('/login')
+    // }
+    console.log(user)
     req.logIn(user, (err) => {
+      console.log(err)
       if (err) { return next(err) }
       // req.flash('success', { msg: 'Success! You are logged in.' })
-      res.redirect(req.session.returnTo || '/inventory')
+      // res.redirect(307, '/inventory')
+      res.status(200).send('success')
     })
   })(req, res, next)
+
+  return
 }
 
 exports.logout = (req, res) => {
