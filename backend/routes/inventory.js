@@ -8,7 +8,7 @@ const {
 } = require('../controllers/inventory')
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', ensureAuth, getInventory)
+router.get('/', getInventory)
 router.post('/', addItem)
 router.patch('/:id', updateQty)
 router.delete('/:id', deleteItem)
