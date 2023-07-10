@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import { NavLink, Outlet } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { useForm, SubmitHandler } from "react-hook-form"
 
 
-
 const Home = ({ setIsAuth }) => {
    const { register, handleSubmit, errors } = useForm();
+   const [email, setEmail] = useState('')
+   const [password, setPassword] = useState('')
+
 
    const submitForm = async (data) => {
      debugger;
@@ -16,19 +19,21 @@ const Home = ({ setIsAuth }) => {
    };
    const postData = async (e) => {
       e.preventDefault()
-      const data = new FormData(e.target)
-      debugger;
+      // const data = new FormData(e.target)
+
+      // debugger;
       const res = await fetch('/api/auth/login', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json",
          },
          body: JSON.stringify({
-            'email': 'draykhlin@gmail.com',
-            'password': 'iXTw2*c#34W#Sb!k'
+            'email': email,
+            'password': password
          })
       })
-      debugger;
+      console.log(res)
+      // debugger;
       if (res.status === 200) {
          setIsAuth(true)
       } else {
@@ -51,8 +56,23 @@ const Home = ({ setIsAuth }) => {
             onSubmit={postData}
          >
          
-            <input type="email" name="email" placeholder="Email" required />
-            <input type="password" name="password" placeholder="Password" required />
+            <input 
+               type="email" 
+               required
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               // name="email" 
+               placeholder="Email"
+            />
+            <input 
+               type="password" 
+               required
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+               // name="password" 
+               placeholder="Password"
+            />
+            
             <button type="submit">Login</button>
          </form>
 
