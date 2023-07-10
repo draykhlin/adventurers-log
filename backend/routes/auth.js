@@ -15,6 +15,7 @@ router.get('/check', (req, res) => {
    } else {
       res.json({isAuthenticated: false})
    }
+   console.log(res.json())
 })
 
 module.exports = router
