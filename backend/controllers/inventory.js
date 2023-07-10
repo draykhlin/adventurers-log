@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 
 
 const getInventory = async (req,res) => {
+   debugger;
    const inventoryItems = await Inventory.find({userId: req.user.id})
    res.status(200).json(inventoryItems)
+   debugger;
 }
 
 const addItem = async (req,res) => {
