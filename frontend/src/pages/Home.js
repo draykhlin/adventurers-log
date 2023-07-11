@@ -28,8 +28,8 @@ const Home = ({ setIsAuth }) => {
             "Content-Type": "application/json",
          },
          body: JSON.stringify({
-            'email': email,
-            'password': password
+            "email": email,
+            "password": password
          })
       })
       console.log(res)
