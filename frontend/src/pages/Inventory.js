@@ -11,7 +11,7 @@ const Inventory = () => {
 
   useEffect(() => {
     const fetchInventory = async () => {
-      const res = await fetch('/api/inventory')
+      const res = await fetch('api/inventory')
       const json = await res.json()
 
       if (res.ok) {

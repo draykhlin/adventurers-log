@@ -44,7 +44,7 @@ const Gp = () => {
       e.preventDefault()
 
       // const updatedCurrency = {}
-      await fetch('/api/gp', {
+      await fetch('api/gp', {
          method: 'PATCH',
          body: JSON.stringify(currencies),
          headers: {
