@@ -2,11 +2,14 @@ const Inventory = require('../models/Inventory')
 const mongoose = require('mongoose')
 
 
-const getInventory = async (req,res) => {
-   debugger;
-   const inventoryItems = await Inventory.find({userId: req.user.id})
-   res.status(200).json(inventoryItems)
-   debugger;
+const getInventory = async (req,res) => { 
+   if (req.user) {
+      const inventoryItems = await Inventory.find({userId: req.user.id})
+         if (inventoryItems) {
+            return res.json(inventoryItems)
+         }
+   }
+      
 }
 
 const addItem = async (req,res) => {

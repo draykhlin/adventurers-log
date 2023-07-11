@@ -15,20 +15,22 @@ const mongoose = require('mongoose')
 // }
 
 const getGp = async (req, res) => {
-   try {
-     const currentUser = await User.findOne({ _id: req.user.id });
-     if (currentUser) {
-       console.log('User found');
-       return res.json(currentUser);
-     } else {
-       console.log('User not found');
-       return res.status(404).json({ message: 'User not found' });
-     }
-   } catch (error) {
-     console.log('Error occurred:', error);
-     return res.status(500).json({ message: 'Internal Server Error' });
+   if (req.user) {
+      try {
+         const currentUser = await User.findOne({ _id: req.user.id });
+         if (currentUser) {
+           console.log('User found');
+           return res.json(currentUser);
+         } else {
+           console.log('User not found');
+           return res.status(404).json({ message: 'User not found' });
+         }
+       } catch (error) {
+         console.log('Error occurred:', error);
+         return res.status(500).json({ message: 'Internal Server Error' });
+       }
    }
- };
+}
 
 const updateGp = async (req, res) => {
    // const userId = req.user.id

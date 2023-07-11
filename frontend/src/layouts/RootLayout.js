@@ -1,10 +1,10 @@
-import { React, useState, useEffect } from 'react'
-import { NavLink, Outlet } from "react-router-dom"
+import { React, useState, useEffect, } from 'react'
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 // import toggleMenu from '../toggleMenu.js'
 
-const RootLayout = ({ isAuth }) => {
+const RootLayout = ({ isAuth, setIsAuth }) => {
    // const [isAuth, setisAuth] = useState(false)
 
    // useEffect(() => {
@@ -31,12 +31,28 @@ const RootLayout = ({ isAuth }) => {
       const navbarLinks = document.getElementsByClassName('navbar-links')[0]
       navbarLinks.classList.toggle('active')
    }
+   // const handleLogout = async () => {
+   //    try {
+   //       const res = await fetch('/api/auth/logout')
+   //       if (res.ok) {
+   //          return window.location.reload()
+   //       }
+   //    } catch (err) {
+   //       console.error(`logout error: ${err}`)
+   //    }
+   // }
+
+   const navigate = useNavigate()
    const handleLogout = async () => {
       try {
-         await fetch('/api/auth/logout')
-         // if (res.ok) {
-         //    return window.location.reload()
-         // }   
+         const res = await fetch('/api/auth/logout')
+         if (res.ok) {
+            navigate('/')
+            console.log('logged out')
+            setIsAuth(false)
+         } else {
+            console.log('logout error')
+         }
       } catch (err) {
          console.error(`logout error: ${err}`)
       }
