@@ -41,5 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://adventurers-log-server.onrender.com"
+  "proxy": "http://0.0.0.0:2121"
 }
