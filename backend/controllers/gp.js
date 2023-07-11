@@ -4,9 +4,15 @@ const mongoose = require('mongoose')
 
 
 const getGp = async (req, res) => {
-   const currentUser = await User.findOne({_id: req.user.id})
-   console.log(currentUser)
-   res.send(currentUser)
+   const currentUser = await User.findOne({_id: req.user.id}, (err, user))
+   if (err) {
+      console.error(err)
+      return
+   }
+   if (!user) {
+      res.status(404).json({error: 'User not found'})
+   }
+   res.json(currentUser)
    // res.status(200).json(currentUser)
    // const {currencies} = currentUser
 
