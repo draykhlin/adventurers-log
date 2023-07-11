@@ -8,7 +8,7 @@ const Gp = () => {
    useEffect(() => {
       const fetchGp = async () => {
          try {
-            const res = await fetch('/api/gp', {
+            const res = await fetch('https://adventurers-log-server.onrender.com/api/gp', {
                method: 'GET',
                headers: {
                   'Cache-Control': 'no-cache'
