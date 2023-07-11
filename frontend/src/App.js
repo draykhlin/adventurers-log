@@ -24,31 +24,24 @@ function App() {
     }
     checkAuthStatus()
   }, [])
-
-  // const ProtectedRoute = ({ isAuthenticated }) => {
-  //   if (!isAuthenticated) {
-  //     return <Navigate to="/"
-  //   }
-  // }
   
   return (
     <>
-    
     <p>isAuth is {isAuth.toString()}</p>
     <Routes>
       <Route path="/" element={<RootLayout isAuth={isAuth} />}>
-        <Route path="/" element={isAuth ? <Navigate to="/inventory" /> : <Home setIsAuth={setIsAuth} />} />
+        <Route path="/" element={isAuth === true ? <Navigate to="/inventory" /> : <Home setIsAuth={setIsAuth} />} />
         {/* <Route path='/' element={<Home setisAuth={setIsAuth} /> }/> */}
 
         {/* <Route path='/' element={ <Redirect to="/inventory" /> }/> */}
         
         <Route path="/signup" element={<Signup />} />
-        <Route path="/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} />
-        <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} />
+        {/* <Route path="/inventory" element={isAuth ? <Inventory /> : <Navigate to="/" />} /> */}
+        <Route path="/inventory" element={<Inventory />} />
+        {/* <Route path="/spells" element={isAuth ? <Spells /> : <Navigate to="/" />} /> */}
+        <Route path="/spells" element={<Spells />} />
+
       </Route>
-
-      
-
     </Routes>
     
     <div className="legal-footer">

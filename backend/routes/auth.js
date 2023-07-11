@@ -11,9 +11,9 @@ router.post('/signup', authController.postSignup)
 
 router.get('/check', (req, res) => {
    if (req.isAuthenticated()) {
-      res.json({isAuthenticated: true})
+      return res.json({isAuthenticated: true})
    } else {
-      res.json({isAuthenticated: false})
+      return res.json({isAuthenticated: false})
    }
 })
 

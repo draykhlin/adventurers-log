@@ -33,12 +33,12 @@ const RootLayout = ({ isAuth }) => {
    }
    const handleLogout = async () => {
       try {
-         const res = await fetch('/api/auth/logout')
-         if (res.ok) {
-            return window.location.reload()
-         }   
+         await fetch('/api/auth/logout')
+         // if (res.ok) {
+         //    return window.location.reload()
+         // }   
       } catch (err) {
-         console.error(err)
+         console.error(`logout error: ${err}`)
       }
    }
 

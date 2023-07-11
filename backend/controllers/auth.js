@@ -53,6 +53,7 @@ exports.logout = (req, res) => {
   })
 }
 
+
 exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect('/todos')

@@ -16,7 +16,7 @@ const Inventory = () => {
 
       if (res.ok) {
         setItems(json)
-        console.log(json)
+        // console.log(json)
       }
     }
 

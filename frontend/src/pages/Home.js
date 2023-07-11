@@ -6,41 +6,56 @@ import { useForm, SubmitHandler } from "react-hook-form"
 
 
 const Home = ({ setIsAuth }) => {
-   const { register, handleSubmit, errors } = useForm();
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
+   // const { register, handleSubmit, errors } = useForm();
+   const [email, setEmail] = useState("")
+   const [password, setPassword] = useState("")
+ 
 
+   // const submitForm = async (data) => {
+   //   debugger;
+   //    console.log("Submission starting", data);
+   //    const result = await postData(data);
+   //    console.log("Submitting complete", result.success);
+   // };
 
-   const submitForm = async (data) => {
-     debugger;
-      console.log("Submission starting", data);
-      const result = await postData(data);
-      console.log("Submitting complete", result.success);
-   };
-   const postData = async (e) => {
+   // const postData = async (e) => {
+   //    e.preventDefault()
+   //    // const data = new FormData(e.target)
+   //    const res = await fetch('/api/auth/login', {
+   //       method: 'POST',
+   //       headers: {
+   //          "Content-Type": "application/json",
+   //       },
+   //       body: JSON.stringify({
+   //          "email": email,
+   //          "password": password
+   //       })
+   //    })
+   //    console.log(res)
+   //    if (res.status === 200) {
+   //       setIsAuth(true)
+   //    } else {
+   //       setIsAuth(false)
+   //    }
+   //  }
+
+   const handleSubmit = async (e) => {
       e.preventDefault()
-      // const data = new FormData(e.target)
+      const user = { email, password }
 
-      // debugger;
       const res = await fetch('/api/auth/login', {
          method: 'POST',
          headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
          },
-         body: JSON.stringify({
-            "email": email,
-            "password": password
-         })
+         body: JSON.stringify(user)
       })
-      console.log(res)
-      // debugger;
       if (res.status === 200) {
          setIsAuth(true)
       } else {
          setIsAuth(false)
       }
-    }
-
+   }
 
    return (
       <>
@@ -53,7 +68,7 @@ const Home = ({ setIsAuth }) => {
             className="login-form"
             // action="/api/auth/login"
             // method="POST"
-            onSubmit={postData}
+            onSubmit={handleSubmit}
          >
          
             <input 
@@ -61,7 +76,7 @@ const Home = ({ setIsAuth }) => {
                required
                value={email}
                onChange={(e) => setEmail(e.target.value)}
-               // name="email" 
+               name="email" 
                placeholder="Email"
             />
             <input 
@@ -69,7 +84,7 @@ const Home = ({ setIsAuth }) => {
                required
                value={password}
                onChange={(e) => setPassword(e.target.value)}
-               // name="password" 
+               name="password" 
                placeholder="Password"
             />
             
