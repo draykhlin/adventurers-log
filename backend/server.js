@@ -36,7 +36,7 @@ require('./config/passport')(passport)
 
 
 // middleware
-// app.use(express.static('frontend/public'))
+app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // app.use('/api/Auth', require('./Auth/Route'))
@@ -51,10 +51,10 @@ app.use('/api/spells', spellsRoutes)
 
 
 
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 
 // connectDB()
