@@ -51,6 +51,14 @@ exports.logout = (req, res) => {
     req.user = null
     res.redirect('/')
   })
+
+  // from stackoverflow
+  // app.get('/logout', function (req, res){
+  //   req.session.destroy(function (err) {
+  //     res.redirect('/'); //Inside a callback… bulletproof!
+  //   });
+  // });
+
 }
 
 

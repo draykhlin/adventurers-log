@@ -43,7 +43,7 @@ const Home = ({ setIsAuth }) => {
       e.preventDefault()
       const user = { email, password }
 
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/login', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json"

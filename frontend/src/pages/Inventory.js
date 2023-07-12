@@ -51,7 +51,7 @@ const Inventory = () => {
   }
 
   const deleteItem = async (id) => {
-    await fetch(`/api/inventory/${id}`, {
+    await fetch(`https://adventurers-log-server.onrender.com/api/inventory/${id}`, {
       method: 'DELETE'
     })
 

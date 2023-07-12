@@ -48,7 +48,7 @@ const Gp = () => {
       e.preventDefault()
 
       // const updatedCurrency = {}
-      await fetch('/api/gp', {
+      await fetch('https://adventurers-log-server.onrender.com/api/gp', {
          method: 'PATCH',
          body: JSON.stringify(currencies),
          headers: {

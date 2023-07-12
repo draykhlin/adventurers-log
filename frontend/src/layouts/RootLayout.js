@@ -45,7 +45,7 @@ const RootLayout = ({ isAuth, setIsAuth }) => {
    const navigate = useNavigate()
    const handleLogout = async () => {
       try {
-         const res = await fetch('/api/auth/logout')
+         const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/logout')
          if (res.ok) {
             navigate('/')
             console.log('logged out')
