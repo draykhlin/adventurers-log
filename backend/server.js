@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -13,6 +14,9 @@ const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 
+app.use(cors({
+  origin: 'https://adventurers-log.onrender.com'
+}))
 
 // sessions
 app.use(
@@ -33,7 +37,6 @@ app.use(passport.session())
 
 // Passport config
 require('./config/passport')(passport)
-
 
 // middleware
 // app.use(express.static('frontend/public'))
