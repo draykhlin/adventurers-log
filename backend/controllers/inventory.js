@@ -11,7 +11,7 @@ const getInventory = async (req,res) => {
          if (inventoryItems) {
             return res.json(inventoryItems)
          }
-      }
+      } else {console.error('user not found when fetching inventory')}
    } catch (err) {
       console.error('console.error: error fetching inventory')
       res.status(500).json({error: 'error fetching inventory' })
