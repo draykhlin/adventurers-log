@@ -30,7 +30,8 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          body: JSON.stringify(updatedSpell),
          headers: {
          'Content-Type': 'application/json'
-         }
+         },
+         credentials: "include"
       })
       
       await updateSpell(updatedSpell)
@@ -46,7 +47,8 @@ const Spell = ({ allSpells, spell, updateSpell, onDelete }) => {
          body: JSON.stringify(updatedSpell),
          headers: {
          'Content-Type': 'application/json'
-         }
+         },
+         credentials: "include"
       })
 
    }

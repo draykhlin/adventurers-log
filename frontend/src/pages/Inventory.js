@@ -11,7 +11,9 @@ const Inventory = () => {
 
   useEffect(() => {
     const fetchInventory = async () => {
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/inventory')
+      const res = await fetch('https://adventurers-log-server.onrender.com/api/inventory', {
+        credentials: "include"
+      })
       const json = await res.json()
 
       if (res.ok) {
@@ -52,7 +54,8 @@ const Inventory = () => {
 
   const deleteItem = async (id) => {
     await fetch(`https://adventurers-log-server.onrender.com/api/inventory/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      credentials: "include"
     })
 
     await setItems(items.filter((item) => item._id !== id))

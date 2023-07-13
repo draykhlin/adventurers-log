@@ -15,7 +15,8 @@ const AddItem = ({ onAdd, onCancel }) => {
          body: JSON.stringify(item),
          headers: {
             'Content-Type': 'application/json'
-         }
+         },
+         credentials: "include"
       })
       const json = await res.json()
 

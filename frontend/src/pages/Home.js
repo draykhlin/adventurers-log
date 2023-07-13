@@ -48,6 +48,7 @@ const Home = ({ setIsAuth }) => {
          headers: {
             "Content-Type": "application/json"
          },
+         credentials: "include",
          body: JSON.stringify(user)
       })
       if (res.status === 200) {

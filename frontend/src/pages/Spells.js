@@ -10,7 +10,9 @@ const Spells = () => {
    // fetch full spell list
    useEffect(() => {
       const fetchAllSpellData = async () => {
-         const res = await fetch('https://www.dnd5eapi.co/api/spells')
+         const res = await fetch('https://www.dnd5eapi.co/api/spells', {
+            credentials: "include"
+         })
          const json = await res.json()
          const spellsObj = json.results
          setAllSpells(spellsObj)
@@ -62,8 +64,9 @@ const Spells = () => {
          method: 'POST',
          body: JSON.stringify(newSpell),
          headers: {
-            'Content-Type': 'application/json'
-         }
+            'Content-Type': 'application/json',
+         },
+         credentials: "include"
       })
       const json = await res.json()
 
@@ -90,7 +93,8 @@ const Spells = () => {
 
    const handleDelete = async (id) => {
       await fetch(`https://adventurers-log-server.onrender.com/api/spells/${id}`, {
-         method: 'DELETE'
+         method: 'DELETE',
+         credentials: "include"
       })
 
       await setUserSpells(userSpells.filter((spell) => spell._id !== id))

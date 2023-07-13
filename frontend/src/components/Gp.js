@@ -12,7 +12,8 @@ const Gp = () => {
                method: 'GET',
                headers: {
                   'Cache-Control': 'no-cache'
-               }
+               },
+               credentials: "include"
             })
             const data = await res.json()
             setCurrencies(data.currencies)
@@ -53,7 +54,8 @@ const Gp = () => {
          body: JSON.stringify(currencies),
          headers: {
             'Content-Type': 'application/json'
-         }
+         },
+         credentials: "include"
       })
    }
 

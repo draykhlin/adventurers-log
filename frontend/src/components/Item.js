@@ -36,7 +36,8 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
          }),
          headers: {
             'Content-Type': 'application/json'
-         }
+         },
+         credentials: "include"
       })         
 
       await updateItem(updatedItem)
