@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 const handleSubmit = () => {
-   const navigate = useNavigate
+   const navigate = useNavigate()
    navigate('/inventory')
 }
 
