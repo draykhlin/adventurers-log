@@ -59,6 +59,15 @@ app.use('/api/spells', spellsRoutes)
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://adventurers-log.onrender.com");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // connectDB()
 mongoose.connect(process.env.MONGO_URI)
