@@ -10,9 +10,7 @@ const Spells = () => {
    // fetch full spell list
    useEffect(() => {
       const fetchAllSpellData = async () => {
-         const res = await fetch('https://www.dnd5eapi.co/api/spells', {
-            credentials: "include"
-         })
+         const res = await fetch('https://www.dnd5eapi.co/api/spells')
          const json = await res.json()
          const spellsObj = json.results
          setAllSpells(spellsObj)
