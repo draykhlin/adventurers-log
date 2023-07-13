@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 const handleSubmit = () => {
-   <Navigate to='/inventory' />
+   const navigate = useNavigate
+   navigate('/inventory')
 }
 
 const Signup = () => {
