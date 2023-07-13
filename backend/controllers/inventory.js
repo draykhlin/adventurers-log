@@ -5,9 +5,7 @@ const mongoose = require('mongoose')
 const getInventory = async (req,res) => { 
    try {
       if (req.user) {
-         const inventoryItems = await Inventory.find(
-            // {userId: req.user.id}
-            )
+         const inventoryItems = await Inventory.find({userId: req.user.id})
          if (inventoryItems) {
             return res.json(inventoryItems)
          }
