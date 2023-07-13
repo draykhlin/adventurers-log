@@ -23,7 +23,7 @@ function App() {
       setIsAuth(data.isAuthenticated)
     }
     checkAuthStatus()
-  }, [])
+  })
   
   return (
     <>
