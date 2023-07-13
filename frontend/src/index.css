@@ -257,15 +257,13 @@ main {
 }
 .hero form input {
   display: block;
-}
-.login-form {
-  margin-bottom: 2rem;
-}
-.login-form input {
   width: 100%;
   margin: 1rem auto;
 }
-.login-form button {
+.hero form {
+  margin-bottom: 2rem;
+}
+.hero form button {
   width: 100%;
   margin-top: 1rem;
   padding: 0.5rem 2rem;
