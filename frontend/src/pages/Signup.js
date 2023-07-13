@@ -2,10 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
-const Signup = () => {
+const Signup = ({ setIsAuth }) => {
    const navigate = useNavigate()
    const handleSubmit = () => {
       navigate('/inventory')
+      setIsAuth(true)
    }
    
    return (
