@@ -11,7 +11,8 @@ const getInventory = async (req,res) => {
          }
       }
    } catch (err) {
-      console.error('error fetching inventory')
+      console.error('console.error: error fetching inventory')
+      res.status(500).json({error: 'error fetching inventory' })
    }
 }
       
