@@ -50,7 +50,7 @@ app.use(flash())
 app.use('/api/auth', authRoutes)
 app.use('/api/inventory', inventoryRoutes)
 app.use('/api/gp', gpRoutes)
-app.use('/api/spells', spellsRoutes)
+app.use('https://adventurers-log.onrender.com/api/spells', spellsRoutes)
 
 
 
