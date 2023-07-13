@@ -100,7 +100,7 @@ exports.postSignup = (req, res, next) => {
     if (err) { return next(err) }
     if (existingUser) {
       // req.flash('errors', { msg: 'Account with that email address or username already exists.' })
-      return res.redirect('/signup')
+      return res.redirect('https://adventurers-log.onrender.com/inventory/signup')
     }
     user.save((err) => {
       if (err) { return next(err) }
@@ -108,7 +108,7 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err)
         }
-        res.redirect('/inventory')
+        res.redirect('/https://adventurers-log.onrender.com/inventory')
       })
     })  
   })
