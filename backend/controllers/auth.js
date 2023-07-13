@@ -92,10 +92,6 @@ exports.postSignup = (req, res, next) => {
     }
   })
   
-  res.status(200).json({
-    message: "User successfully created",
-    user,
-  })
 
   User.findOne({$or: [
     {email: req.body.email},
