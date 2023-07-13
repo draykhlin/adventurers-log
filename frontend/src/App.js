@@ -18,12 +18,14 @@ function App() {
 
   useEffect(() => {
     const checkAuthStatus = async () => {
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/check')
+      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/check', {
+        withCredentials: true,
+        credentials: 'include'
+      })
       const data = await res.json()
       setIsAuth(data.isAuthenticated)
     }
     checkAuthStatus()
-    console.log('useEffect ran')
   }, [])
   
   return (
