@@ -4,15 +4,16 @@ const mongoose = require('mongoose')
 
 const getInventory = async (req,res) => { 
    try {
-      if (req.user) {
+      // if (req.user) {
          const inventoryItems = await Inventory.find(
             // {userId: req.user.id}
             )
          if (inventoryItems) {
             return res.json(inventoryItems)
          }
-      } else {console.error('user not found when fetching inventory')}
-   } catch (err) {
+      // } 
+      // else {console.error('user not found when fetching inventory')}
+   }catch (err) {
       console.error('console.error: error fetching inventory')
       res.status(500).json({error: 'error fetching inventory' })
    }
