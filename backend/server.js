@@ -39,7 +39,7 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 // middleware
-// app.use(express.static('frontend/public'))
+app.use(express.static('frontend/public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // app.use('/api/Auth', require('./Auth/Route'))
