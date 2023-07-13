@@ -9,8 +9,10 @@ const getInventory = async (req,res) => {
             // {userId: req.user.id}
             )
          if (inventoryItems) {
-            return res.json(inventoryItems)
+            // return res.json(inventoryItems)
+            return req.user
          }
+         console.log(`consolelog: ${req.user}`)
       // } 
       // else {console.error('user not found when fetching inventory')}
    }catch (err) {
