@@ -24,7 +24,7 @@ function App() {
     }
     checkAuthStatus()
     console.log('useEffect ran')
-  })
+  }, [])
   
   return (
     <>
