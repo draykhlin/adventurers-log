@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 
 const getSpells = async (req, res) => {
    try {
-      const spellsFromServer = await Spells.find({userId: req.user.id})
+      const spellsFromServer = await Spells.find(
+         
+         )
       console.log('spells find success')
       res.status(200).json(spellsFromServer)
    } catch(err) {
