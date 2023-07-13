@@ -55,6 +55,7 @@ const RootLayout = ({ isAuth, setIsAuth }) => {
             setIsAuth(false)
          } else {
             console.log('logout error')
+            console.log(res)
          }
       } catch (err) {
          console.error(`logout error: ${err}`)
