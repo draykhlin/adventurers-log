@@ -15,7 +15,8 @@ const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 
 app.use(cors({
-  origin: 'https://adventurers-log.onrender.com'
+  origin: 'https://adventurers-log.onrender.com',
+  credentials: true,
 }))
 
 // sessions

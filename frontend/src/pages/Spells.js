@@ -26,7 +26,7 @@ const Spells = () => {
    const fetchUserSpells = async () => {
       try {
          const res = await fetch('https://adventurers-log-server.onrender.com/api/spells/', {
-            credentials: 'include'
+            credentials: "include"
          })
          const json = await res.json()
          setUserSpells(json)
