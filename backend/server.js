@@ -14,10 +14,10 @@ const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 
-// app.use(cors({
-//   origin: 'https://adventurers-log.onrender.com',
-//   credentials: true,
-// }))
+app.use(cors({
+  origin: ['https://adventurers-log.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  credentials: true,
+}))
 
 // sessions
 app.use(
