@@ -23,6 +23,7 @@ function App() {
       setIsAuth(data.isAuthenticated)
     }
     checkAuthStatus()
+    console.log('useEffect ran')
   })
   
   return (
