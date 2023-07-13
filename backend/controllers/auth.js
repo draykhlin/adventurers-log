@@ -42,6 +42,7 @@ exports.postLogin = (req, res, next) => {
 }
 
 exports.logout = (req, res) => {
+  console.log('logout test')
   req.logout(() => {
     console.log('User has logged out.')
     res.redirect('/')
@@ -51,14 +52,6 @@ exports.logout = (req, res) => {
     req.user = null
     res.redirect('/')
   })
-
-  // from stackoverflow
-  // app.get('/logout', function (req, res){
-  //   req.session.destroy(function (err) {
-  //     res.redirect('/'); //Inside a callback… bulletproof!
-  //   });
-  // });
-
 }
 
 
@@ -99,10 +92,10 @@ exports.postSignup = (req, res, next) => {
     }
   })
   
-  // res.status(200).json({
-  //   message: "User successfully created",
-  //   user,
-  // })
+  res.status(200).json({
+    message: "User successfully created",
+    user,
+  })
 
   User.findOne({$or: [
     {email: req.body.email},
@@ -111,7 +104,7 @@ exports.postSignup = (req, res, next) => {
     if (err) { return next(err) }
     if (existingUser) {
       // req.flash('errors', { msg: 'Account with that email address or username already exists.' })
-      return res.redirect('../signup')
+      return res.redirect('/signup')
     }
     user.save((err) => {
       if (err) { return next(err) }
