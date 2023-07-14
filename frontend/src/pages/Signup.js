@@ -5,7 +5,8 @@ import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 const Signup = ({ setIsAuth }) => {
    const navigate = useNavigate()
    
-   const handleSubmit = () => {
+   const handleSubmit = (e) => {
+      e.preventDefault()
       navigate('/inventory')
       setIsAuth(true)
    }
@@ -17,7 +18,7 @@ const Signup = ({ setIsAuth }) => {
          <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          <div className="card">
             <form className="signup" action="https://adventurers-log-server.onrender.com/api/auth/signup" method="POST"
-            //  onSubmit={handleSubmit}
+             onSubmit={handleSubmit}
              >
                <input type="email" name="email" placeholder="Email" required />
                <input type="password" name="password" placeholder="Password" required />

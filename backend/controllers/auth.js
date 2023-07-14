@@ -113,6 +113,6 @@ exports.postSignup = (req, res, next) => {
     })  
   })
 
-  res.redirect('https://adventurers-log.onrender.com/inventory')
+  // res.redirect('https://adventurers-log.onrender.com/inventory')
 
 }
