@@ -109,7 +109,7 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err)
         }
-        // res.redirect('/https://adventurers-log.onrender.com/inventory')
+        res.redirect('https://adventurers-log.onrender.com/inventory')
       })
     })  
   })
