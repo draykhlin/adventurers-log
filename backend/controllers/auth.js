@@ -103,7 +103,7 @@ exports.postSignup = (req, res, next) => {
     //   return res.redirect('https://adventurers-log.onrender.com/inventory/signup')
     // }
     user.save((err) => {
-      // res.send('Saving user')
+      res.send('Saving user')
       if (err) { return next(err) }
       req.logIn(user, (err) => {
         if (err) {
