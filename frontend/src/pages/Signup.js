@@ -11,7 +11,7 @@ const Signup = ({ setIsAuth }) => {
    
    const handleSubmit = async (e) => {
       e.preventDefault()
-      const user = { email, password }
+      const newUser = { email, password }
       
       const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/signup', {
          method: 'POST',
@@ -19,12 +19,11 @@ const Signup = ({ setIsAuth }) => {
             "Content-Type": "application/json"
          },
          credentials: "include",
-         body: JSON.stringify(user)
+         body: JSON.stringify(newUser)
       })
       if (res.status === 200) {
          await setIsAuth(true)
          navigate('/inventory')
-         console.log(user)
       } else {
          setIsAuth(false)
       }
