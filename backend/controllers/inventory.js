@@ -4,10 +4,6 @@ const mongoose = require('mongoose')
 
 const getInventory = async (req,res) => { 
    try {
-      console.log(`req.body: ${JSON.stringify(req.body)}`)
-      console.log(`req.user: ${req.user}`)
-      console.log(`req.body.user: ${req.body.user}`)
-
       if (req.user) {
          const inventoryItems = await Inventory.find({userId: req.user.id})
          if (inventoryItems) {

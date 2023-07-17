@@ -17,6 +17,9 @@ const mongoose = require('mongoose')
 const getGp = async (req, res) => {
    if (req.user) {
       try {
+         console.log(`req.user: ${req.user}`)
+         console.log(`req.user.id: ${req.user.id}`)
+
          const currentUser = await User.findOne({ _id: req.user.id });
          if (currentUser) {
            console.log('User found');
