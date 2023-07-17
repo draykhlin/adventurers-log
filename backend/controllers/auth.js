@@ -45,13 +45,13 @@ exports.logout = (req, res) => {
   res.send('Logging out')
   req.logout(() => {
     console.log('User has logged out.')
-    res.redirect('/')
+    // res.redirect('/')
   })
   req.session.destroy((err) => {
     if (err) console.log('Error : Failed to destroy the session during logout.', err)
     req.user = null
     res.clearCookie('connect.sid')
-    res.redirect('/')
+    // res.redirect('/')
   })
 }
 

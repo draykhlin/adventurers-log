@@ -47,7 +47,7 @@ const RootLayout = ({ isAuth, setIsAuth }) => {
       try {
          const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/logout', {
             credentials: 'include',
-            withCredentials: true
+            // withCredentials: true
          })
          if (res.ok) {
             navigate('/')
