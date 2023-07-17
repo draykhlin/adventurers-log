@@ -9,7 +9,7 @@ const getSpells = async (req, res) => {
       res.status(200).json(spellsFromServer)
    } catch(err) {
       console.log('fetch error 2')
-      res.json({error: err.message})
+      // res.status(400).json({error: err.message})
    }
 }
 
