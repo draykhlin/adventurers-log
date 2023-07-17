@@ -24,6 +24,7 @@ const Signup = ({ setIsAuth }) => {
       if (res.status === 200) {
          await setIsAuth(true)
          navigate('/inventory')
+         console.log(user)
       } else {
          setIsAuth(false)
       }
