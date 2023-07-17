@@ -9,6 +9,7 @@ const getSpells = async (req, res) => {
       res.status(200).json(spellsFromServer)
    } catch(err) {
       console.log('fetch error 2')
+      res.json({error: err.message})
    }
 }
 
@@ -18,8 +19,8 @@ const addSpell = async (req, res) => {
    try {
       const spell = await Spells.create({name, index, userId: req.user.id})
       res.status(200).json(spell)
-   } catch (error) {
-      res.status(400).json({error: error.message})
+   } catch (err) {
+      res.status(400).json({error: err.message})
    }
 }
 
