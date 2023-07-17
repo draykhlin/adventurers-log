@@ -22,8 +22,8 @@ const Signup = ({ setIsAuth }) => {
          body: JSON.stringify(user)
       })
       if (res.status === 200) {
+         await setIsAuth(true)
          navigate('/inventory')
-         setIsAuth(true)
       } else {
          setIsAuth(false)
       }

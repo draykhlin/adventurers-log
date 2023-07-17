@@ -57,11 +57,11 @@ exports.logout = (req, res) => {
 
 exports.getSignup = (req, res) => {
   if (req.user) {
-    return res.redirect('/todos')
+    return res.redirect('/inventory')
   }
-  res.render('signup', {
-    title: 'Create Account'
-  })
+  // res.render('signup', {
+  //   title: 'Create Account'
+  // })
 }
 
 exports.postSignup = (req, res, next) => {
