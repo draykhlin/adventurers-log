@@ -23,7 +23,7 @@ const Signup = ({ setIsAuth }) => {
       })
       if (res.status === 200) {
          await setIsAuth(true)
-         navigate('/inventory')
+         navigate('/')
       } else {
          setIsAuth(false)
       }
