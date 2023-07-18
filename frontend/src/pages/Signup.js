@@ -50,7 +50,7 @@ const Signup = ({ setIsAuth }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                />
-               <button type="submit">Sign up</button>
+               <button type="submit">Sign Up</button>
             </form>
          </div>
       </div>

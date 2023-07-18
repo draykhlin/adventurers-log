@@ -42,7 +42,7 @@ const Home = ({ setIsAuth }) => {
    const handleSubmit = async (e) => {
       e.preventDefault()
       const user = { email, password }
-
+      
       const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/login', {
          method: 'POST',
          headers: {
