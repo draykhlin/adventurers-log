@@ -22,11 +22,12 @@ const Signup = ({ setIsAuth }) => {
          body: JSON.stringify(newUser)
       })
       if (res.status === 200) {
-         await setIsAuth(true)
+         await setIsAuth(false)
          navigate('/')
-      } else {
-         setIsAuth(false)
       }
+      //  else {
+      //    setIsAuth(false)
+      // }
    }
    
    return (
