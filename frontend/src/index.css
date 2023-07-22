@@ -272,6 +272,14 @@ main {
   color: var(--text-color);
   font-weight: 500;
 }
+.guest-login-btn {
+  display: block;
+  margin: 1rem auto 0 auto;
+  background-color: inherit;
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+}
 
     @media (min-width: 576px) {
       .hero h1 {

@@ -114,7 +114,7 @@ const Home = ({ setIsAuth }) => {
          </form>
 
          <NavLink to="/signup" className="signup-link">Sign Up</NavLink>
-         <button onClick={handleGuestLogin}>Log in as guest</button>
+         <button className="guest-login-btn" onClick={handleGuestLogin}>Log in as guest</button>
          </div>
 
       </div>
