@@ -280,6 +280,9 @@ main {
   font-weight: 500;
   text-decoration: underline;
 }
+  .guest-login-btn:hover {
+    background-color: inherit;
+  }
 
     @media (min-width: 576px) {
       .hero h1 {
