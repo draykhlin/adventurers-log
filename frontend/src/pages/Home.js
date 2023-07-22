@@ -58,6 +58,10 @@ const Home = ({ setIsAuth }) => {
       }
    }
 
+   const handleGuestLogin = () => {
+      
+   }
+
    return (
       <>
       <div className="hero">

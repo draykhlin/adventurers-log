@@ -9,6 +9,8 @@ router.get('/logout', authController.logout)
 // router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 
+router.post('/guestLogin', authController.postGuestLogin)
+
 router.get('/check', (req, res) => {
    if (req.isAuthenticated()) {
       return res.json({isAuthenticated: true})
