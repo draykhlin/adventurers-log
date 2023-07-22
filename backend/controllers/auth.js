@@ -41,6 +41,36 @@ exports.postLogin = (req, res, next) => {
   return
 }
 
+exports.postGuestLogin = (req, res, next) => {
+  const validationErrors = []
+  if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
+  if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
+
+  if (validationErrors.length) {
+    // req.flash('errors', validationErrors)
+    return res.redirect('/login')
+  }
+  req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+
+  passport.authenticate('local', (err, user, info) => {
+    if (err) { return next(err) }
+    // if (!user) {
+    //   // req.flash('errors', info)
+    //   return res.redirect('/login')
+    // }
+    console.log(user)
+    req.logIn(user, (err) => {
+      console.log(err)
+      if (err) { return next(err) }
+      // req.flash('success', { msg: 'Success! You are logged in.' })
+      // res.redirect(307, '/inventory')
+      res.status(200).send('success')
+    })
+  })(req, res, next)
+
+  return
+}
+
 exports.logout = (req, res) => {
   res.send('Logging out')
   req.logout(() => {

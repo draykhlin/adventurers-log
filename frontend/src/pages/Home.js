@@ -58,8 +58,25 @@ const Home = ({ setIsAuth }) => {
       }
    }
 
-   const handleGuestLogin = () => {
-      
+   const handleGuestLogin = async () => {
+      const guest = { 
+         email: 'guest@adventurers-log.onrender.com',
+         password: 'YEcU@b&6jRAH&b9n'
+      }
+
+      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/guestLogin', {
+         method: 'POST',
+         headers: {
+            "Content-Type": "application/json"
+         },
+         credentials: "include",
+         body: JSON.stringify(guest)
+      })
+      if (res.status === 200) {
+         setIsAuth(true)
+      } else {
+         setIsAuth(false)
+      }
    }
 
    return (
