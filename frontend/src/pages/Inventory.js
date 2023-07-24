@@ -58,7 +58,7 @@ const Inventory = () => {
       credentials: "include"
     })
 
-    await setItems(items.filter((item) => item._id !== id))
+    await setItems(items.filter((item) => item.id !== id))
   }
 
   const updateItem = async (updatedItem) => {
