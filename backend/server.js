@@ -15,7 +15,7 @@ const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
 
 app.use(cors({
-  origin: ['https://adventurers-log.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
   credentials: true,
 }))
 
@@ -62,7 +62,7 @@ app.use('/api/spells', spellsRoutes)
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://adventurers-log.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://adventurerslogapp.onrender.com");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

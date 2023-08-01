@@ -60,7 +60,7 @@ const Home = ({ setIsAuth }) => {
 
    const handleGuestLogin = async () => {
       const guest = { 
-         email: 'guest@adventurers-log.onrender.com',
+         email: 'guest@adventurerslogapp.onrender.com',
          password: process.env.REACT_APP_GUEST
       }
 
