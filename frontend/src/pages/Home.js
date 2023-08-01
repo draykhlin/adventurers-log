@@ -43,7 +43,7 @@ const Home = ({ setIsAuth }) => {
       e.preventDefault()
       const user = { email, password }
       
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/login', {
+      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/login', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json"
@@ -64,7 +64,7 @@ const Home = ({ setIsAuth }) => {
          password: process.env.REACT_APP_GUEST
       }
 
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/guestLogin', {
+      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/guestLogin', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json"

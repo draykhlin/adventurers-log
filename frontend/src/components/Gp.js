@@ -8,7 +8,7 @@ const Gp = () => {
    useEffect(() => {
       const fetchGp = async () => {
          try {
-            const res = await fetch('https://adventurers-log-server.onrender.com/api/gp', {
+            const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/gp', {
                method: 'GET',
                headers: {
                   'Cache-Control': 'no-cache'
@@ -49,7 +49,7 @@ const Gp = () => {
       e.preventDefault()
 
       // const updatedCurrency = {}
-      await fetch('https://adventurers-log-server.onrender.com/api/gp', {
+      await fetch('https://adventurers-log-server-bw9t.onrender.com/api/gp', {
          method: 'PATCH',
          body: JSON.stringify(currencies),
          headers: {

@@ -13,7 +13,7 @@ const Signup = ({ setIsAuth }) => {
       e.preventDefault()
       const newUser = { email, password }
       
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/auth/signup', {
+      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/signup', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json"
@@ -37,7 +37,7 @@ const Signup = ({ setIsAuth }) => {
          <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          <div className="card">
             <form className="signup"
-               // action="https://adventurers-log-server.onrender.com/api/auth/signup" method="POST"
+               // action="https://adventurers-log-server-bw9t.onrender.com/api/auth/signup" method="POST"
                onSubmit={handleSubmit}
             >
                <input

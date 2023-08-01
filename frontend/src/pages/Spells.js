@@ -25,7 +25,7 @@ const Spells = () => {
    // fetch user's spells
    const fetchUserSpells = async () => {
       try {
-         const res = await fetch('https://adventurers-log-server.onrender.com/api/spells/', {
+         const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/spells/', {
             credentials: "include"
          })
          const json = await res.json()
@@ -58,7 +58,7 @@ const Spells = () => {
       }
       // setUserSpells([...userSpells, newSpell])
 
-      const res = await fetch('https://adventurers-log-server.onrender.com/api/spells', {
+      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/spells', {
          method: 'POST',
          body: JSON.stringify(newSpell),
          headers: {
@@ -90,7 +90,7 @@ const Spells = () => {
    }
 
    const handleDelete = async (id) => {
-      await fetch(`https://adventurers-log-server.onrender.com/api/spells/${id}`, {
+      await fetch(`https://adventurers-log-server-bw9t.onrender.com/api/spells/${id}`, {
          method: 'DELETE',
          credentials: "include"
       })
