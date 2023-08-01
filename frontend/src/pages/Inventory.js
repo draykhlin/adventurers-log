@@ -53,12 +53,15 @@ const Inventory = () => {
   }
 
   const deleteItem = async (id) => {
-    await fetch(`https://adventurers-log-server-bw9t.onrender.com/api/inventory/${id}`, {
+    try {
+      await fetch(`https://adventurers-log-server-bw9t.onrender.com/api/inventory/${id}`, {
       method: 'DELETE',
       credentials: "include"
-    })
-
-    await setItems(items.filter((item) => item.id !== id))
+      })
+      setItems((prevItems) => prevItems.filter((item) => item.id !== id))
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   const updateItem = async (updatedItem) => {
