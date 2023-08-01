@@ -72,14 +72,7 @@ const updateQty = async (req,res) => {
       //  };
       ////////////////////////
 
-
-
-
-      // const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, )
-
-
       console.log('Updated quantity')
-      //res.json('Updated qty')
    } catch(err) {
       console.log(err)
    }
