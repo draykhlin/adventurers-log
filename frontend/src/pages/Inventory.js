@@ -18,31 +18,12 @@ const Inventory = () => {
 
       if (res.ok) {
         setItems(json)
-        // console.log(json)
       }
     }
 
     fetchInventory()
   }, [])
 
-  ////////
-  // useEffect(() => {
-  //   const getInventory = async () => {
-  //     const inventoryFromServer = await fetchInventory()
-  //     setItems(inventoryFromServer)
-  //   }
-  //   getInventory()
-  // }, [])
-
-  // // Fetch inventory items
-  // const fetchInventory = async () => {
-  //   const res = await fetch('/api/inventory')
-  //   const data = await res.json()
-
-  //   return data
-  // }
-  ////////////
-  
   const cancelItem = () => {
     setAddItemClicked(false)
   }
