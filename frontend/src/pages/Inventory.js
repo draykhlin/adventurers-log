@@ -10,19 +10,21 @@ const Inventory = () => {
   const [addItemClicked, setAddItemClicked] = useState(false)
 
   useEffect(() => {
-    const fetchInventory = async () => {
-      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/inventory', {
-        credentials: "include"
-      })
-      const json = await res.json()
-
-      if (res.ok) {
-        setItems(json)
-      }
-    }
+    
 
     fetchInventory()
-  }, [items])
+  }, [])
+
+  const fetchInventory = async () => {
+    const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/inventory', {
+      credentials: "include"
+    })
+    const json = await res.json()
+
+    if (res.ok) {
+      setItems(json)
+    }
+  }
 
   const cancelItem = () => {
     setAddItemClicked(false)
@@ -39,7 +41,8 @@ const Inventory = () => {
       method: 'DELETE',
       credentials: "include"
       })
-      setItems((prevItems) => prevItems.filter((item) => item.id !== id))
+      // setItems((prevItems) => prevItems.filter((item) => item.id !== id))
+      fetchInventory()
     } catch (err) {
       console.error(err)
     }
