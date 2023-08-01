@@ -85,26 +85,29 @@ const updateQty = async (req,res) => {
    }
 }
 
-const deleteItem = async (req,res) => {
-   try {
-      // await Inventory.findOneAndDelete({_id:req.body.itemIdFromJSFile})
-
-      // await Inventory.findOneAndDelete({_id: req.params.id})
-
-      await Inventory.findByIdAndDelete(req.params.id)
+// const deleteItem = async (req,res) => {
+//    try {
+//       await Inventory.findByIdAndDelete(req.params.id)
 
 
-      // const item = await Inventory.findById(req.params.id)
-      // if (!item) {
-      //    res.status(400)
-      //    throw new Error('Not found')
-      // }
-      // await item.remove()
+//       res.status(200).json({ id: req.params.id })
+//    } catch(err) {
+//       console.log(err)
+//    }
+// }
 
-      res.status(200).json({ id: req.params.id })
-   } catch(err) {
-      console.log(err)
-   }
+const deleteItem = (req, res) => {
+   Inventory.findByIdAndDelete(req.params.id, (err, deletedItem) => {
+      if (err) {
+         return res.status(500).json({error: 'Failed to delete'})
+      }
+
+      if (!deletedItem) {
+         return res.status(404).json({error: 'Item not found'})
+      }
+
+      return res.json({message: 'Item deleted successfully'})
+   })
 }
 
 module.exports = {
