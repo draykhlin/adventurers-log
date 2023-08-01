@@ -22,7 +22,7 @@ const Inventory = () => {
     }
 
     fetchInventory()
-  }, [])
+  }, [items])
 
   const cancelItem = () => {
     setAddItemClicked(false)
