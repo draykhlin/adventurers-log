@@ -19,10 +19,9 @@ const AddItem = ({ onAdd, onCancel }) => {
          credentials: "include"
       })
       const json = await res.json()
-      
+      console.log(`json: ${json}`)
       if (res.ok) {
-         // onAdd({ name, qty, notes })
-         onAdd(json)
+         onAdd({ name, qty, notes })
          
          setName('')
          setQty(1)
