@@ -14,6 +14,8 @@ app.use(cors({
   credentials: true,
 }))
 
+app.options('*', cors())
+
 const authRoutes = require('./routes/auth')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
