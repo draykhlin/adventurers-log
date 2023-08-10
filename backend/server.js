@@ -9,15 +9,15 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 // const connectDB = require('./config/database')
 
-const authRoutes = require('./routes/auth')
-const inventoryRoutes = require('./routes/inventory')
-const gpRoutes = require('./routes/gp')
-const spellsRoutes = require('./routes/spells')
-
 app.use(cors({
   origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
   credentials: true,
 }))
+
+const authRoutes = require('./routes/auth')
+const inventoryRoutes = require('./routes/inventory')
+const gpRoutes = require('./routes/gp')
+const spellsRoutes = require('./routes/spells')
 
 // sessions
 app.use(
