@@ -60,13 +60,6 @@ app.use('/api/inventory', inventoryRoutes)
 app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
 
-
-
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://adventurerslogapp.onrender.com");
