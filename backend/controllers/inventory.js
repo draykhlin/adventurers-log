@@ -3,11 +3,12 @@ const mongoose = require('mongoose')
 
 
 const getInventory = async (req,res) => { 
+   res.setHeader('Access-Control-Allow-Origin', 'https://adventurerslogapp.onrender.com')
    try {
       if (req.user) {
          const inventoryItems = await Inventory.find({userId: req.user.id})
          if (inventoryItems) {
-            res.setHeader('Access-Control-Allow-Origin', 'https://adventurerslogapp.onrender.com')
+            
             return res.json(inventoryItems)
          }
       } else {console.error('user not found when fetching inventory')}
