@@ -59,8 +59,10 @@ app.use('/api/auth', authRoutes)
 app.use('/api/inventory', (req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://adventurerslogapp.onrender.com');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
-  inventoryRoutes(req, res, next); // Use inventoryRoutes middleware directly
-});
+  next(); // Move on to the next middleware
+})
+app.use('/api/inventory', inventoryRoutes)
+
 app.use('/api/gp', gpRoutes)
 app.use('/api/spells', spellsRoutes)
 
