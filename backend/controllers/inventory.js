@@ -7,7 +7,7 @@ const getInventory = async (req,res) => {
       if (req.user) {
          const inventoryItems = await Inventory.find({userId: req.user.id})
          if (inventoryItems) {
-            res.setHeader('Access-Control-Allow-Origin', 'https://adventurerslogapp.onrender.com')
+            // res.setHeader('Access-Control-Allow-Origin', 'https://adventurerslogapp.onrender.com')
             return res.json(inventoryItems)
          }
       } else {console.error('user not found when fetching inventory')}
