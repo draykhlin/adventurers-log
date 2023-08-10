@@ -28,7 +28,8 @@ module.exports = function (passport) {
        user.comparePassword(password, (err, isMatch) => {
          if (err) { return done(err) }
          if (isMatch) {
-           return done(null, user)
+          res.cookie('myCookie', 'value', { sameSite: 'None', secure: true })
+          return done(null, user)
          }
          return done(null, false, { msg: 'Invalid email or password.' })
        })
