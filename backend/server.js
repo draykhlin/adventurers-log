@@ -16,6 +16,7 @@ const spellsRoutes = require('./routes/spells')
 
 app.use(cors({
   origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  allowedHeaders: 'Content-Type,Authorization',
   credentials: true,
 }))
 
