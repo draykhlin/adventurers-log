@@ -31,7 +31,11 @@ exports.postLogin = (req, res, next) => {
     console.log(user)
     req.logIn(user, (err) => {
       console.log(err)
-      if (err) { return next(err) }
+      if (err) { 
+        res.status(500).send('error authenticating')
+        return next(err) 
+        
+      }
       // req.flash('success', { msg: 'Success! You are logged in.' })
       // res.redirect(307, '/inventory')
       res.status(200).send('success')
