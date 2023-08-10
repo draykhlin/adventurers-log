@@ -11,6 +11,7 @@ const flash = require('express-flash')
 
 app.use(cors({
   origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
 }))
 
