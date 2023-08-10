@@ -31,10 +31,10 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI
     }),
-    // cookie: {
-    //   sameSite: 'none', 
-    //   secure: true,
-    // }
+    cookie: {
+      sameSite: 'lax', 
+      // secure: true,
+    }
   })
 )
 
