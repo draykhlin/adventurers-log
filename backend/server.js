@@ -14,17 +14,12 @@ app.use(cors({
   credentials: true,
 }))
 
-app.options('*', cors())
+// app.options('*', cors())
 
 const authRoutes = require('./routes/auth')
 const inventoryRoutes = require('./routes/inventory')
 const gpRoutes = require('./routes/gp')
 const spellsRoutes = require('./routes/spells')
-
-app.use(cors({
-  origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
-  credentials: true,
-}))
 
 // sessions
 app.use(
