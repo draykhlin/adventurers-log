@@ -191,6 +191,7 @@ header {
       padding: 6px;
       border-radius: var(--border-radius);
       cursor: pointer;
+      color: var(--text-color);
     }
       .navbar a:visited {
         color: inherit;
