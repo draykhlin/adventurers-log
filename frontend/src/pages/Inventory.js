@@ -17,7 +17,9 @@ const Inventory = () => {
 
   const fetchInventory = async () => {
     const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/inventory', {
-      credentials: "include"
+      credentials: "include",
+      mode: 'cors',
+      cache: 'no-store'
     })
     const json = await res.json()
 
