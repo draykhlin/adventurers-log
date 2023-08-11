@@ -72,11 +72,12 @@ const Home = ({ setIsAuth }) => {
          credentials: "include",
          body: JSON.stringify(guest)
       })
-      if (res.status === 200) {
-         setIsAuth(true)
-      } else {
-         setIsAuth(false)
-      }
+      // if (res.status === 200) {
+      //    setIsAuth(true)
+      // } else {
+      //    setIsAuth(false)
+      // }
+      setIsAuth(true)
    }
 
    return (
