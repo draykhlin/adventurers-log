@@ -32,8 +32,8 @@ app.use(
       mongoUrl: process.env.MONGO_URI
     }),
     cookie: {
-      sameSite: 'lax', 
-      // secure: true,
+      sameSite: 'none', 
+      secure: true,
     }
   })
 )
