@@ -67,7 +67,8 @@ const Home = ({ setIsAuth }) => {
       const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/login', {
          method: 'POST',
          headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': 'https://adventurerslogapp.onrender.com'
          },
          credentials: "include",
          body: JSON.stringify(guest)
