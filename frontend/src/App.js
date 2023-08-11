@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     const checkAuthStatus = async () => {
       const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/check', {
-        withCredentials: true,
+        // withCredentials: true,
         credentials: 'include'
       })
       const data = await res.json()
