@@ -64,7 +64,7 @@ const Home = ({ setIsAuth }) => {
          password: process.env.REACT_APP_GUEST
       }
 
-      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/guestLogin', {
+      const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/auth/login', {
          method: 'POST',
          headers: {
             "Content-Type": "application/json"
@@ -72,12 +72,11 @@ const Home = ({ setIsAuth }) => {
          credentials: "include",
          body: JSON.stringify(guest)
       })
-      // if (res.status === 200) {
-      //    setIsAuth(true)
-      // } else {
-      //    setIsAuth(false)
-      // }
-      setIsAuth(true)
+      if (res.status === 200) {
+         setIsAuth(true)
+      } else {
+         setIsAuth(false)
+      }
    }
 
    return (
