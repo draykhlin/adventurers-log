@@ -12,7 +12,8 @@ const flash = require('express-flash')
 app.enable('trust proxy')
 
 app.use(cors({
-  origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  // origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
+  origin: 'https://adventurerslogapp.onrender.com',
   credentials: true,
 }))
 
@@ -33,10 +34,10 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI
     }),
-    // cookie: {
-    //   sameSite: 'none', 
-    //   secure: true,
-    // }
+    cookie: {
+      sameSite: 'none', 
+      secure: true,
+    }
   })
 )
 
