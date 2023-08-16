@@ -9,6 +9,8 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 // const connectDB = require('./config/database')
 
+app.enable('trust proxy')
+
 app.use(cors({
   origin: ['https://adventurerslogapp.onrender.com', 'https://www.dnd5eapi.co/api/spells'],
   credentials: true,
