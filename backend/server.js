@@ -26,8 +26,8 @@ app.use(
   session({
     secret: 'keyboard cat',
     // secret: env.get("SESSION_SECRET"),
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI
     }),
