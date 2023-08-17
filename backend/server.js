@@ -7,7 +7,6 @@ const session = require('express-session')
 require('dotenv').config({path: './config/.env'})
 const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
-// const connectDB = require('./config/database')
 
 app.enable('trust proxy')
 
@@ -34,10 +33,10 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI
     }),
-    cookie: {
-      sameSite: 'none', 
-      secure: true,
-    }
+    // cookie: {
+    //   sameSite: 'none', 
+    //   secure: true,
+    // }
   })
 )
 
