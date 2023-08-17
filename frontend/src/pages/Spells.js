@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import Spell from '../components/Spell'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 
 const Spells = () => {
    const [userSpells, setUserSpells] = useState([])
@@ -14,9 +12,6 @@ const Spells = () => {
          const json = await res.json()
          const spellsObj = json.results
          setAllSpells(spellsObj)
-
-         // parse spell names
-         // setAllSpellNames(spellsObj.map(spell => spell.name))
       }
 
       fetchAllSpellData()
@@ -35,16 +30,7 @@ const Spells = () => {
       }
    }
    
-   useEffect(() => {
-      // const fetchUserSpells = async () => {
-      //   const res = await fetch('/api/spells')
-      //   const json = await res.json()
-  
-      //   if (res.ok) {
-      //     setUserSpells(json)
-      //   }
-      // }
-  
+   useEffect(() => {  
       fetchUserSpells()
     }, [])
 
@@ -101,13 +87,12 @@ const Spells = () => {
    return (
       <>
       <div className="help-info">
-      {/* <FontAwesomeIcon icon={faCircleInfo} size="lg" /> */}
-      <strong>
-         Keep track of your spells and their availability for casting.
-      </strong>
-      <p>
-         Spell slots represent each player's limited reservoir of magic. Once a spell is cast, the slot is expended until the player can rest.
-      </p>
+         <strong>
+            Keep track of your spells and their availability for casting.
+         </strong>
+         <p>
+            Spell slots represent each player's limited reservoir of magic. Once a spell is cast, the slot is expended until the player can rest.
+         </p>
          
       </div>
       <section className="spells-container">
@@ -118,7 +103,6 @@ const Spells = () => {
                <Spell key={spell._id} allSpells={allSpells} spell={spell} updateSpell={updateSpell} onDelete={handleDelete} />
             )}
          </div>
-
       </section>
       </>
    )

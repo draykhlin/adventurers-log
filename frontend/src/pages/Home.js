@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { NavLink, Outlet } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
-import { useForm, SubmitHandler } from "react-hook-form"
-
 
 const Home = ({ setIsAuth }) => {
+   // login credentials
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
- 
+   
+   // login handler
    const handleSubmit = async (e) => {
       e.preventDefault()
       const user = { email, password }
@@ -56,39 +56,34 @@ const Home = ({ setIsAuth }) => {
          <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          
          <div className="card">
-         <form
-            className="login-form"
-            // action="/api/auth/login"
-            // method="POST"
-            onSubmit={handleSubmit}
-         >
-         
-            <input 
-               type="email" 
-               required
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-               name="email" 
-               placeholder="Email"
-            />
-            <input 
-               type="password" 
-               required
-               value={password}
-               onChange={(e) => setPassword(e.target.value)}
-               name="password" 
-               placeholder="Password"
-            />
+            <form
+               className="login-form"
+               onSubmit={handleSubmit}
+            >
+               <input 
+                  type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  name="email" 
+                  placeholder="Email"
+               />
+               <input 
+                  type="password" 
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  name="password" 
+                  placeholder="Password"
+               />
             
-            <button type="submit">Login</button>
-         </form>
+               <button type="submit">Login</button>
+            </form>
 
-         <NavLink to="/signup" className="signup-link">Sign Up</NavLink>
-         <button className="guest-login-btn" onClick={handleGuestLogin}>Login as guest</button>
+            <NavLink to="/signup" className="signup-link">Sign Up</NavLink>
+            <button className="guest-login-btn" onClick={handleGuestLogin}>Login as guest</button>
          </div>
-
       </div>
-      
       </>
    )
 }

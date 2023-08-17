@@ -10,9 +10,6 @@ const Gp = () => {
          try {
             const res = await fetch('https://adventurers-log-server-bw9t.onrender.com/api/gp', {
                method: 'GET',
-               headers: {
-                  'Cache-Control': 'no-cache'
-               },
                credentials: "include"
             })
             const data = await res.json()
@@ -26,10 +23,6 @@ const Gp = () => {
       }
       fetchGp()
    }, [])
-
-   // const handleSubtract {
-
-   // }
 
    const handleSubtract = () => {
       setCurrencies((prevCurrencies) => ({
@@ -48,7 +41,6 @@ const Gp = () => {
    const handleSubmit = async (e) => {
       e.preventDefault()
 
-      // const updatedCurrency = {}
       await fetch('https://adventurers-log-server-bw9t.onrender.com/api/gp', {
          method: 'PATCH',
          body: JSON.stringify(currencies),
@@ -103,36 +95,3 @@ const Gp = () => {
 }
 
 export default Gp
-
-
-
-
-
-// const handleSave = async () => {
-//    try {
-//       const res = await fetch('/api/gp', {
-//          method: 'POST',
-//          headers: {
-//             'Content-Type': 'application/json',
-//          },
-//          body: JSON.stringify({
-
-//                currency: 'gp',
-//                amount: 100,
-             
-//          }),
-//       })
-//       if (res.ok) {
-//          console.log('Document saved successfully');
-//          // Additional logic or UI updates
-//        } else {
-//          console.error('Error saving document');
-//          // Handle error case
-//        }
-//    } catch (error) {
-//       console.error(`Model error: ${error}`)
-//    }
-// }
-// useEffect(() => {
-//    handleSave()
-// }, [])

@@ -36,8 +36,8 @@ const Signup = ({ setIsAuth }) => {
          <h1>Adventurer's Log</h1>
          <FontAwesomeIcon icon={faDiceD20} className="d20-icon" />
          <div className="card">
-            <form className="signup"
-               // action="https://adventurers-log-server-bw9t.onrender.com/api/auth/signup" method="POST"
+            <form 
+               className="signup"
                onSubmit={handleSubmit}
             >
                <input

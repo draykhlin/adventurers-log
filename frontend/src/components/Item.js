@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes, faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
-// import { AiFillEdit } from 'react-icons/ai'
-
 
 const Item = ({ keyId, item, onDelete, updateItem }) => {
    const [qty, setQty] = useState(item.qty)
@@ -107,85 +105,7 @@ const Item = ({ keyId, item, onDelete, updateItem }) => {
             <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
          </div>
       </div>
-      
-
-
-
    )
 }
 
-export default Item  
-
-
-
-
-///////////
-   // const handleChange = async (e) => {
-   //    await setNewQty(e.target.value)
-
-   //    const updatedItem = {keyId, newQty}
-
-   //    await fetch(`/api/inventory/${keyId}`, {
-   //       method: 'PATCH',
-   //       body: JSON.stringify(updatedItem),
-   //       headers: {
-   //          'Content-Type': 'application/json'
-   //       }
-   //    })
-   //    console.log(updatedItem)
-   // }
-//////////
-
-
-
-//////////
-   {/* <tr className="inventory-item">
-      <>
-         {editing ? 
-            <>
-               <td>
-                  <span>{item.name}</span><br></br>
-               </td>
-               <td>
-                  <input
-                     type="number"        
-                     value={qty} 
-                     onChange={handleQtyChange}   
-                  />
-               </td>
-               <td className="inventory-note">
-                  <textarea
-                     value={notes} 
-                     onChange={handleNotesChange}   
-                  /> 
-               </td>
-               <td>
-                  <FontAwesomeIcon icon={faCheck} className="icon" onClick={handleSaveClick} />
-                  <FontAwesomeIcon icon={faTimes} className="icon" onClick={handleCancelClick} />
-               </td>
-               <td>
-                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
-               </td>
-            </>
-            :
-            <>
-               <td>
-                  <p>{item.name}</p>
-               </td>
-               <td>
-                  <p>{qty}</p>
-               </td>
-               <td className="inventory-note">
-                  <p>{notes}</p>
-               </td>
-               <td>
-                  <FontAwesomeIcon icon={faPen} className="icon" onClick={handleEditClick} />
-               </td>
-               <td>
-                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => onDelete(item._id)} />
-               </td>
-            </>
-         }
-         </>
-   </tr> */}
-//////////////
+export default Item
