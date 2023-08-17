@@ -26,8 +26,8 @@ const spellsRoutes = require('./routes/spells')
 // sessions
 app.use(
   session({
-    secret: 'keyboard cat',
-    // secret: env.get("SESSION_SECRET"),
+    // secret: 'keyboard cat',
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     store: MongoStore.create({
